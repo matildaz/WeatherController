@@ -58,6 +58,8 @@
 		7487B1FF27746B0700CC3BCC /* WeatherController */ = {
 			isa = PBXGroup;
 			children = (
+				7487B21827746B6E00CC3BCC /* BackGround */,
+				7487B21727746B4C00CC3BCC /* ForeGround */,
 				7487B20027746B0700CC3BCC /* AppDelegate.swift */,
 				7487B20227746B0700CC3BCC /* SceneDelegate.swift */,
 				7487B20427746B0700CC3BCC /* ViewController.swift */,
@@ -68,6 +70,52 @@
 				7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */,
 			);
 			path = WeatherController;
+			sourceTree = "<group>";
+		};
+		7487B21727746B4C00CC3BCC /* ForeGround */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ForeGround;
+			sourceTree = "<group>";
+		};
+		7487B21827746B6E00CC3BCC /* BackGround */ = {
+			isa = PBXGroup;
+			children = (
+				7487B21A27746BC000CC3BCC /* UserConnection */,
+				7487B21927746B7B00CC3BCC /* DataProcessing */,
+			);
+			path = BackGround;
+			sourceTree = "<group>";
+		};
+		7487B21927746B7B00CC3BCC /* DataProcessing */ = {
+			isa = PBXGroup;
+			children = (
+				7487B21C27746C0D00CC3BCC /* DataUnwrapping */,
+				7487B21B27746BFC00CC3BCC /* DataCollecting */,
+			);
+			path = DataProcessing;
+			sourceTree = "<group>";
+		};
+		7487B21A27746BC000CC3BCC /* UserConnection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserConnection;
+			sourceTree = "<group>";
+		};
+		7487B21B27746BFC00CC3BCC /* DataCollecting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataCollecting;
+			sourceTree = "<group>";
+		};
+		7487B21C27746C0D00CC3BCC /* DataUnwrapping */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataUnwrapping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
