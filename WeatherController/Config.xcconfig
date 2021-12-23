@@ -1,0 +1,20 @@
+//
+//  Config.xcconfig
+//  WeatherController
+//
+//  Created by Mikhail Chibrin on 23.12.2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ROOM_CONFIG = /app/rm_config?did=10155
+DATCHIK = /app/datchik?did=10155
+SENT_DATA = back.vc-app.ru/app/script
+//CLIENT_ID = 567513519211-16sgpefqof6ugbf0un9np6q0af5j3tkl.apps.googleusercontent.com // Мой ID
+//REVERSED_CLIENT_ID = com.googleusercontent.apps.567513519211-16sgpefqof6ugbf0un9np6q0af5j3tkl
+PLIST_VERSION = 1
+BUNDLE_ID = com.nigmetzyanov.IndoorClimateControlSystems
+//CLIENT_ID = 288607549032-o75d6ua6trcmcca67np4nujkgel2co7b.apps.googleusercontent.com // ID Ильдара
+SET_SCRIPT_ID = back.vc-app.ru/app/set_script
+DELETE_SCRIPT_ID = back.vc-app.ru/app/del_script
