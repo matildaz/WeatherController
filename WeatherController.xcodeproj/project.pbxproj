@@ -16,6 +16,11 @@
 		7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20C27746B0D00CC3BCC /* Assets.xcassets */; };
 		7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20E27746B0D00CC3BCC /* LaunchScreen.storyboard */; };
 		74D3E14327746DFE00C26808 /* NetworkScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14227746DFE00C26808 /* NetworkScript.swift */; };
+		74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */; };
+		74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14927747F3900C26808 /* VentilateRoom.swift */; };
+		74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14B27747FBB00C26808 /* TempretureChange.swift */; };
+		74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14D2774829200C26808 /* RoomsConfiguration.swift */; };
+		74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14F2774933A00C26808 /* RoomsConfigurationStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		7487B21127746B0D00CC3BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D3E14227746DFE00C26808 /* NetworkScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScript.swift; sourceTree = "<group>"; };
 		74D3E144277472CA00C26808 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScriptLoad.swift; sourceTree = "<group>"; };
+		74D3E14927747F3900C26808 /* VentilateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentilateRoom.swift; sourceTree = "<group>"; };
+		74D3E14B27747FBB00C26808 /* TempretureChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempretureChange.swift; sourceTree = "<group>"; };
+		74D3E14D2774829200C26808 /* RoomsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsConfiguration.swift; sourceTree = "<group>"; };
+		74D3E14F2774933A00C26808 /* RoomsConfigurationStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsConfigurationStructure.swift; sourceTree = "<group>"; };
 		8D20912C2E303E001AD06D46 /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
 		C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7E7D4E4C3B28FCF3FFB113 /* Pods-WeatherController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.debug.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +146,10 @@
 			isa = PBXGroup;
 			children = (
 				74D3E14227746DFE00C26808 /* NetworkScript.swift */,
+				74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */,
+				74D3E14927747F3900C26808 /* VentilateRoom.swift */,
+				74D3E14B27747FBB00C26808 /* TempretureChange.swift */,
+				74D3E14D2774829200C26808 /* RoomsConfiguration.swift */,
 			);
 			path = DataCollecting;
 			sourceTree = "<group>";
@@ -143,6 +157,7 @@
 		7487B21C27746C0D00CC3BCC /* DataUnwrapping */ = {
 			isa = PBXGroup;
 			children = (
+				74D3E14F2774933A00C26808 /* RoomsConfigurationStructure.swift */,
 			);
 			path = DataUnwrapping;
 			sourceTree = "<group>";
@@ -262,11 +277,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
+				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
+				74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */,
 				7487B20127746B0700CC3BCC /* AppDelegate.swift in Sources */,
 				74D3E14327746DFE00C26808 /* NetworkScript.swift in Sources */,
 				7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */,
+				74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,
+				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

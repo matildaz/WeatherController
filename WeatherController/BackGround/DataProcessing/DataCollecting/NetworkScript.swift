@@ -27,34 +27,15 @@ class NetworkScript {
             request.httpBody = data
             URLSession.shared.dataTask(with: request) {data, _, error in
                 guard error == nil else {
-                    print("error with sending data")
-                    return
-                }
-
-                if let data = data {
-                    if let data = String(bytes: data, encoding: .utf8) {
-                        print("!")
-                        print(data)
-                        print("!")
-                    }
-                } else {
-                    print("badData for script")
                     return
                 }
             }.resume()
         }
     }
     func authorizationToken() -> String {
-        guard let token = UserDefaults.standard.object(forKey: "Token") as? String else {
-            return ""
-        }
         return "Yandex AgAAAAADcss4AAa-id41yBOKBEgdgHgz7ew8mP4"
-//        return "Google" + " " + token
     }
     func authorizationTokenYan() -> String {
-        guard let token = UserDefaults.standard.object(forKey: "Token") as? String else {
-            return ""
-        }
-        return "Yandex" + " " + "AgAAAAAaGAgvAAa-ictSVhJT0UkruSzpJe4JCos"
+        return "Yandex AgAAAAADcss4AAa-id41yBOKBEgdgHgz7ew8mP4"
     }
 }
