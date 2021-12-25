@@ -18,12 +18,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
-        let group = DispatchGroup()
-        group.enter()
-        DispatchQueue.main.async {
-            //self.loadScripts(group: group)
-            self.loadRoomScripts(group: group)
-        }
+        loadInformation(typeOfInformation: .roomScripts)
+        loadInformation(typeOfInformation: .roomConfiguration)
+        loadInformation(typeOfInformation: .datchikConfiguration)
     }
     
     func loadScripts(group: DispatchGroup) {
@@ -44,30 +41,63 @@ class ViewController: UIViewController {
                     }
                 }
                 print(self.scriptsDict)
-                print(result)
-                print("1!")
                 group.leave()
             case .failure(let error):
-                print("444")
+                print(#line,#function)
                 print(error.localizedDescription)
                 group.leave()
             }
         }
     }
     
-    func loadRoomScripts(group: DispatchGroup) {
+    func loadRoomConfiguration(group: DispatchGroup) {
         let loadRoomScripts = RoomConfiguration()
         loadRoomScripts.getConfig{ (result: Result<[String: RoomConfigurationStruct], NetworkSensorError>) in
-            self.scriptsDict.removeAll()
+            self.roomsConfiguration.removeAll()
             switch result {
             case .success(let result):
                 self.roomsConfiguration = result
                 print(self.roomsConfiguration)
                 group.leave()
             case .failure(let error):
-                print("444")
+                print(#line,#function)
                 print(error.localizedDescription)
                 group.leave()
+            }
+        }
+    }
+    
+    func loadDatchikConfiguration(group: DispatchGroup) {
+        let datchikConfiguration = DatchikConfiguration()
+        datchikConfiguration.getConfig{ (result: Result<[String:JSON], NetworkSensorError>) in
+            switch result {
+            case .success(let result):
+                print(result)
+                group.leave()
+            case .failure(let error):
+                print(error)
+                group.leave()
+            }
+        }
+    }
+    
+    func loadInformation(typeOfInformation: Information) {
+        let group = DispatchGroup()
+        switch typeOfInformation {
+        case .roomConfiguration:
+            group.enter()
+            DispatchQueue.main.async {
+                self.loadRoomConfiguration(group: group)
+            }
+        case .roomScripts:
+            group.enter()
+            DispatchQueue.main.async {
+                self.loadScripts(group: group)
+            }
+        case .datchikConfiguration:
+            group.enter()
+            DispatchQueue.main.async {
+                self.loadDatchikConfiguration(group: group)
             }
         }
     }
