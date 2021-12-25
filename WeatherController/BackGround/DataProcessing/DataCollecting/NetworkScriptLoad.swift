@@ -8,31 +8,12 @@
 import UIKit
 import SwiftyJSON
 
-enum NetworkSensorError: Error {
-    case badData
-    case badEncodingJSON
-    case errorForRequest
-    case badUrl
-}
-
-enum TypeOfSensor {
-    case current
-    case aim
-}
-
-enum NetworkError: Error {
-    case badData
-    case badEncoding
-    case errorForRequest
-    case badUrl
-}
-
 class NetworkScriptLoad {
 
     private var scriptsDataDict: [String: JSON] = [:]
 
-    func getDataScripts<T>(completion: @escaping (Result<T, NetworkSensorError>) -> Void) {
-        guard let url = URL(string: "https://back.vc-app.ru/app/get_scripts?did=10155") else {
+    func getDataScripts<T>(did: Int, completion: @escaping (Result<T, NetworkSensorError>) -> Void) {
+        guard let url = URL(string: "https://back.vc-app.ru/app/get_scripts?did=\(did)") else {
             return
         }
         var request = URLRequest(url: url)

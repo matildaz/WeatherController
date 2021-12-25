@@ -10,8 +10,8 @@ import SwiftyJSON
 
 class ChangeTemp {
 
-    func tempretureChange(roomID: Int, temperature: Int, completion :@escaping () -> Void) {
-        guard let url = URL(string: "https://back.vc-app.ru/app/ch_temp?did=10155&rid=\(roomID)&ch_temp=\(temperature)") else {
+    func tempretureChange(roomID: Int, temperature: Int, did: Int, completion :@escaping () -> Void) {
+        guard let url = URL(string: "https://back.vc-app.ru/app/ch_temp?did=\(did)&rid=\(roomID)&ch_temp=\(temperature)") else {
             return
         }
         var request = URLRequest(url: url)

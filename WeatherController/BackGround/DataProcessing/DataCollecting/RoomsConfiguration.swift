@@ -12,8 +12,8 @@ class RoomConfiguration {
     
     private var roomConfigDict: [String: RoomConfigurationStruct] = [:]
     
-    func getConfig<T>(completion: @escaping (Result<T ,NetworkSensorError>) -> Void) {
-        guard let url = URL(string: "https://back.vc-app.ru/app/rm_config?did=10155") else {
+    func getConfig<T>(did: Int, completion: @escaping (Result<T ,NetworkSensorError>) -> Void) {
+        guard let url = URL(string: "https://back.vc-app.ru/app/rm_config?did=\(did)") else {
             return
         }
         var request = URLRequest(url: url)

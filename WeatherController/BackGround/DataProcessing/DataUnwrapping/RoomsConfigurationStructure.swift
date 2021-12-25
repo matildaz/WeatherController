@@ -14,5 +14,11 @@ struct RoomConfigurationStruct : Codable {
 }
 
 struct DatchikConfigurationStruct : Codable {
-    
+    var rid: Int
+    var dt: String?
+    var temp: Int?
+    var temp_valve: Int?
+    var co2: Int?
+    var hum: Int?
+    var people: Int?
 }

@@ -1,16 +1,16 @@
 //
-//  NetworkScript.swift
+//  DeleteTheScript.swift
 //  WeatherController
 //
-//  Created by Mikhail Chibrin on 23.12.2021.
+//  Created by Mikhail Chibrin on 25.12.2021.
 //
 
 import UIKit
 import SwiftyJSON
 
-class NetworkScript {
-    func sentDataScript(script: JSON) {
-        guard let url = URL(string: "https://\(Bundle.main.infoDictionary?["SENT_DATA"] as? String ?? "")") else {
+class DeleteTheScript {
+    func DeleteScript(script_id: Int, did: Int) {
+        guard let url = URL(string: "https://back.vc-app.ru/app/del_script?did=\(did)&sc_id=\(script_id)") else {
             return
         }
         var request = URLRequest(url: url)
@@ -21,16 +21,12 @@ class NetworkScript {
         } else {
             request.setValue(self.authorizationToken(), forHTTPHeaderField: "Authorization")
         }
-
-        let encoder = JSONEncoder()
-        if let data = try? encoder.encode(script) {
-            request.httpBody = data
-            URLSession.shared.dataTask(with: request) {data, _, error in
-                guard error == nil else {
-                    return
-                }
-            }.resume()
-        }
+        
+        URLSession.shared.dataTask(with: request) {data, _, error in
+            guard error == nil else {
+                return
+            }
+        }.resume()
     }
     func authorizationToken() -> String {
         return "Yandex AgAAAAADcss4AAa-id41yBOKBEgdgHgz7ew8mP4"

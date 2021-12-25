@@ -12,3 +12,22 @@ enum Information {
     case roomConfiguration
     case datchikConfiguration
 }
+
+enum NetworkSensorError: Error {
+    case badData
+    case badEncodingJSON
+    case errorForRequest
+    case badUrl
+}
+
+enum TypeOfSensor {
+    case current
+    case aim
+}
+
+enum NetworkError: Error {
+    case badData
+    case badEncoding
+    case errorForRequest
+    case badUrl
+}
