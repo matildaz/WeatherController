@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var arrayDict: [(key: Int, value: String)]?
     var roomsConfiguration: [String: RoomConfigurationStruct] = [:]
     var roomsDatchikConfiguration: [Int: DatchikConfigurationStruct] = [:]
+//    var mainUser = [MainUser]?
     let did = 10155
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -26,6 +27,22 @@ class ViewController: UIViewController {
         loadInformation(typeOfInformation: .roomConfiguration)
         loadInformation(typeOfInformation: .datchikConfiguration)
     }
+    
+//    func userSave() {
+//        if mainUser == nil {
+//            let newUser = MainUser()
+//            newUser.did = 10155
+//
+//        }
+//    }
+//
+//    func fetchUser() {
+//        do {
+//            self.mainUser = try context.fetch(MainUser.fetchRequest())
+//        } catch {
+//
+//        }
+//    }
     
     func loadScripts(group: DispatchGroup) {
         let loadScripts = NetworkScriptLoad()
