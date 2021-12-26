@@ -36,6 +36,16 @@
 		74DA591F27788AAF00C5282C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA591E27788AAF00C5282C /* RoomsViewController.swift */; };
 		74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592427788B7700C5282C /* CollectionViewCell.swift */; };
 		74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DA592527788B7700C5282C /* CollectionViewCell.xib */; };
+		74DA593227789E3200C5282C /* RoomGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592827789E3200C5282C /* RoomGroup+CoreDataClass.swift */; };
+		74DA593327789E3200C5282C /* RoomGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592927789E3200C5282C /* RoomGroup+CoreDataProperties.swift */; };
+		74DA593427789E3200C5282C /* MainUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592A27789E3200C5282C /* MainUser+CoreDataClass.swift */; };
+		74DA593527789E3200C5282C /* MainUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592B27789E3200C5282C /* MainUser+CoreDataProperties.swift */; };
+		74DA593627789E3200C5282C /* Script+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592C27789E3200C5282C /* Script+CoreDataClass.swift */; };
+		74DA593727789E3200C5282C /* Script+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592D27789E3200C5282C /* Script+CoreDataProperties.swift */; };
+		74DA593827789E3200C5282C /* Setting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592E27789E3200C5282C /* Setting+CoreDataClass.swift */; };
+		74DA593927789E3200C5282C /* Setting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592F27789E3200C5282C /* Setting+CoreDataProperties.swift */; };
+		74DA593A27789E3200C5282C /* DayGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA593027789E3200C5282C /* DayGroup+CoreDataClass.swift */; };
+		74DA593B27789E3200C5282C /* DayGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA593127789E3200C5282C /* DayGroup+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +80,16 @@
 		74DA591E27788AAF00C5282C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		74DA592427788B7700C5282C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		74DA592527788B7700C5282C /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		74DA592827789E3200C5282C /* RoomGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomGroup+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592927789E3200C5282C /* RoomGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomGroup+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592A27789E3200C5282C /* MainUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592B27789E3200C5282C /* MainUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592C27789E3200C5282C /* Script+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592D27789E3200C5282C /* Script+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Script+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592E27789E3200C5282C /* Setting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		74DA592F27789E3200C5282C /* Setting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		74DA593027789E3200C5282C /* DayGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayGroup+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		74DA593127789E3200C5282C /* DayGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayGroup+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		8D20912C2E303E001AD06D46 /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
 		C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7E7D4E4C3B28FCF3FFB113 /* Pods-WeatherController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.debug.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +234,16 @@
 		74DA58F7277753B400C5282C /* CoreDataClasses */ = {
 			isa = PBXGroup;
 			children = (
+				74DA592827789E3200C5282C /* RoomGroup+CoreDataClass.swift */,
+				74DA592927789E3200C5282C /* RoomGroup+CoreDataProperties.swift */,
+				74DA592A27789E3200C5282C /* MainUser+CoreDataClass.swift */,
+				74DA592B27789E3200C5282C /* MainUser+CoreDataProperties.swift */,
+				74DA592C27789E3200C5282C /* Script+CoreDataClass.swift */,
+				74DA592D27789E3200C5282C /* Script+CoreDataProperties.swift */,
+				74DA592E27789E3200C5282C /* Setting+CoreDataClass.swift */,
+				74DA592F27789E3200C5282C /* Setting+CoreDataProperties.swift */,
+				74DA593027789E3200C5282C /* DayGroup+CoreDataClass.swift */,
+				74DA593127789E3200C5282C /* DayGroup+CoreDataProperties.swift */,
 			);
 			path = CoreDataClasses;
 			sourceTree = "<group>";
@@ -379,17 +409,26 @@
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
+				74DA593427789E3200C5282C /* MainUser+CoreDataClass.swift in Sources */,
 				74DA590E277866D400C5282C /* SettingStructure.swift in Sources */,
+				74DA593A27789E3200C5282C /* DayGroup+CoreDataClass.swift in Sources */,
 				74DA59102778674400C5282C /* DayGroupStructure.swift in Sources */,
+				74DA593927789E3200C5282C /* Setting+CoreDataProperties.swift in Sources */,
+				74DA593227789E3200C5282C /* RoomGroup+CoreDataClass.swift in Sources */,
 				74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */,
 				7487B20127746B0700CC3BCC /* AppDelegate.swift in Sources */,
 				74DA58D82777499900C5282C /* NewScript.swift in Sources */,
 				74DA591F27788AAF00C5282C /* RoomsViewController.swift in Sources */,
+				74DA593627789E3200C5282C /* Script+CoreDataClass.swift in Sources */,
+				74DA593B27789E3200C5282C /* DayGroup+CoreDataProperties.swift in Sources */,
+				74DA593527789E3200C5282C /* MainUser+CoreDataProperties.swift in Sources */,
 				7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */,
 				74DA5912277867DE00C5282C /* RoomGroupStructure.swift in Sources */,
 				74DA58E227774D3600C5282C /* CheckTheScenarioStatus.swift in Sources */,
 				74DA58DC27774B0400C5282C /* UpdateTheScript.swift in Sources */,
 				7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */,
+				74DA593727789E3200C5282C /* Script+CoreDataProperties.swift in Sources */,
+				74DA593827789E3200C5282C /* Setting+CoreDataClass.swift in Sources */,
 				74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,
 				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,
@@ -397,6 +436,7 @@
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
+				74DA593327789E3200C5282C /* RoomGroup+CoreDataProperties.swift in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
