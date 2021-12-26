@@ -42,6 +42,7 @@
 		74DA59102778674400C5282C /* DayGroupStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA590F2778674400C5282C /* DayGroupStructure.swift */; };
 		74DA5912277867DE00C5282C /* RoomGroupStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA5911277867DE00C5282C /* RoomGroupStructure.swift */; };
 		74DA59142778685300C5282C /* ScriptStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA59132778685300C5282C /* ScriptStructure.swift */; };
+		74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA591B2778849D00C5282C /* ScriptUpdateStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		74DA590F2778674400C5282C /* DayGroupStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayGroupStructure.swift; sourceTree = "<group>"; };
 		74DA5911277867DE00C5282C /* RoomGroupStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomGroupStructure.swift; sourceTree = "<group>"; };
 		74DA59132778685300C5282C /* ScriptStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptStructure.swift; sourceTree = "<group>"; };
+		74DA591B2778849D00C5282C /* ScriptUpdateStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUpdateStructure.swift; sourceTree = "<group>"; };
 		8D20912C2E303E001AD06D46 /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
 		C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7E7D4E4C3B28FCF3FFB113 /* Pods-WeatherController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.debug.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				74DA590F2778674400C5282C /* DayGroupStructure.swift */,
 				74DA5911277867DE00C5282C /* RoomGroupStructure.swift */,
 				74DA59132778685300C5282C /* ScriptStructure.swift */,
+				74DA591B2778849D00C5282C /* ScriptUpdateStructure.swift */,
 			);
 			path = ScenarioStructures;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				74DA59052777547E00C5282C /* Day_Group+CoreDataProperties.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
+				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
