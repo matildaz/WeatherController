@@ -25,6 +25,11 @@ extension Setting {
     @NSManaged public var temp: Int64
     @NSManaged public var time: String?
     
+    func makeSettingStructure() -> [SettingStructure]? {
+        let settingStructure = SettingStructure(at_home: self.at_home, co2: self.co2, dont_use: self.dont_use, hum: self.hum, must_use: self.must_use, mute: self.mute, temp: self.temp, time: self.time)
+        return [settingStructure]
+    }
+    
 }
 
 extension Setting : Identifiable {

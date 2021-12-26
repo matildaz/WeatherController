@@ -19,6 +19,12 @@ extension Room_Group {
     @NSManaged public var rIDs: [Int]?
     @NSManaged public var day_Group0: Day_Group?
     @NSManaged public var day_Group1: Day_Group?
+    
+    func makeRoomGroupStructure() -> [RoomGroupStructure]? {
+        let roomGroupStructure = RoomGroupStructure(rIDs: self.rIDs, dayGroup0: self.day_Group0?.makeDayGroupStruct(), dayGroup1: self.day_Group1?.makeDayGroupStruct())
+        return [roomGroupStructure]
+    }
+
 
 }
 

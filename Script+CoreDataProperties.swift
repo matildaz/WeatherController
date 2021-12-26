@@ -20,6 +20,12 @@ extension Script {
     @NSManaged public var name: String?
     @NSManaged public var room_Groop0: Room_Group?
 
+    func makeTheStructure() -> ScriptSctructure? {
+        let scenario = ScriptSctructure(did: self.did, name: self.name, roomGroop0: self.room_Groop0?.makeRoomGroupStructure())
+        return scenario
+    }
+
+    
 }
 
 extension Script : Identifiable {
