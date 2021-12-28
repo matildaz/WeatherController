@@ -12,6 +12,8 @@
 		7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A7512777235900EA1A47 /* DatchikConfiguration.swift */; };
 		746227732779C418002C0D1C /* RoomStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746227722779C418002C0D1C /* RoomStructure.swift */; };
 		74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */; };
+		7462279B277B6F8A002C0D1C /* DatchikCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */; };
+		7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */; };
 		7487B20127746B0700CC3BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20027746B0700CC3BCC /* AppDelegate.swift */; };
 		7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20227746B0700CC3BCC /* SceneDelegate.swift */; };
 		7487B20527746B0700CC3BCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20427746B0700CC3BCC /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		7450A7512777235900EA1A47 /* DatchikConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikConfiguration.swift; sourceTree = "<group>"; };
 		746227722779C418002C0D1C /* RoomStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStructure.swift; sourceTree = "<group>"; };
 		74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRoomViewController.swift; sourceTree = "<group>"; };
+		7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikCollectionViewCell.swift; sourceTree = "<group>"; };
+		7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureChangeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7487B1FD27746B0700CC3BCC /* WeatherController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7487B20027746B0700CC3BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7487B20227746B0700CC3BCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 			children = (
 				74DA592427788B7700C5282C /* CollectionViewCell.swift */,
 				74DA592527788B7700C5282C /* CollectionViewCell.xib */,
+				7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */,
+				7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -383,12 +389,14 @@
 				74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */,
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
+				7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
 				74DA590E277866D400C5282C /* SettingStructure.swift in Sources */,
 				74DA59102778674400C5282C /* DayGroupStructure.swift in Sources */,
 				74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */,
 				7487B20127746B0700CC3BCC /* AppDelegate.swift in Sources */,
+				7462279B277B6F8A002C0D1C /* DatchikCollectionViewCell.swift in Sources */,
 				74DA58D82777499900C5282C /* NewScript.swift in Sources */,
 				74DA591F27788AAF00C5282C /* RoomsViewController.swift in Sources */,
 				7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */,

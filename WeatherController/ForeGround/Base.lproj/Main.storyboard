@@ -6,6 +6,7 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -198,10 +199,131 @@
                     <view key="view" contentMode="scaleToFill" id="ciC-Eq-vIh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-uz-RrM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cEM-yc-QTa">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="DatchikCollectionViewCell" reuseIdentifier="DatchikCollectionViewCell" id="7o4-o7-emT" customClass="DatchikCollectionViewCell" customModule="WeatherController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="72.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9UA-GF-gzH">
+                                            <rect key="frame" x="0.0" y="0.0" width="52" height="72.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lqr-6Z-D05">
+                                                    <rect key="frame" x="1" y="1" width="50" height="70.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rSm-sC-vae">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="KhT-ce-KS2"/>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="OeC-F8-2ls"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="2tp-3c-X9m">
+                                                            <rect key="frame" x="0.0" y="50" width="50" height="20.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="CBp-x2-EqV"/>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="sOa-2B-fmc"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lqr-6Z-D05" firstAttribute="top" secondItem="9UA-GF-gzH" secondAttribute="top" constant="1" id="9jj-ST-dGc"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lqr-6Z-D05" secondAttribute="bottom" constant="1" id="BMh-vz-gLB"/>
+                                                <constraint firstItem="Lqr-6Z-D05" firstAttribute="leading" secondItem="9UA-GF-gzH" secondAttribute="leading" constant="1" id="WUe-32-cTD"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lqr-6Z-D05" secondAttribute="trailing" constant="1" id="mdN-ig-8IX"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="datchikImageView" destination="rSm-sC-vae" id="nMz-hq-PHr"/>
+                                            <outlet property="datchikLableView" destination="2tp-3c-X9m" id="GLx-l0-EYG"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TemperatureChangeCollectionViewCell" reuseIdentifier="TemperatureChangeCollectionViewCell" id="JSk-DE-Pih" customClass="TemperatureChangeCollectionViewCell" customModule="WeatherController" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="20.5" width="92" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="trq-pU-KW4">
+                                            <rect key="frame" x="0.0" y="0.0" width="92" height="32"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Q7-vj-RKo">
+                                                    <rect key="frame" x="1" y="1" width="90" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMf-VD-2HL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="6hB-BA-7T9"/>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="QRI-Cg-9dS"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                            <connections>
+                                                                <action selector="minusTemp:" destination="JSk-DE-Pih" eventType="touchUpInside" id="EuP-3i-1ul"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="tI1-iB-aFF">
+                                                            <rect key="frame" x="30" y="0.0" width="30" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibN-am-pHf">
+                                                            <rect key="frame" x="60" y="0.0" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="0BU-QY-wqG"/>
+                                                                <constraint firstAttribute="width" constant="30" id="LMM-cs-ORm"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                            <connections>
+                                                                <action selector="plusTemp:" destination="JSk-DE-Pih" eventType="touchUpInside" id="jRX-x0-EJT"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Q7-vj-RKo" firstAttribute="leading" secondItem="trq-pU-KW4" secondAttribute="leading" constant="1" id="7gB-gv-jRS"/>
+                                                <constraint firstAttribute="trailing" secondItem="4Q7-vj-RKo" secondAttribute="trailing" constant="1" id="DTE-ea-B9B"/>
+                                                <constraint firstAttribute="bottom" secondItem="4Q7-vj-RKo" secondAttribute="bottom" constant="1" id="SMe-U0-0qD"/>
+                                                <constraint firstItem="4Q7-vj-RKo" firstAttribute="top" secondItem="trq-pU-KW4" secondAttribute="top" constant="1" id="pvc-XQ-Eng"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="TemperatureLableView" destination="tI1-iB-aFF" id="ekC-Tw-gjd"/>
+                                            <outlet property="minusTemperatureButton" destination="SMf-VD-2HL" id="ia3-MW-i3d"/>
+                                            <outlet property="plusTemperatureButton" destination="ibN-am-pHf" id="x4r-ed-Fo6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8EK-YK-j1U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OzB-uz-RrM" firstAttribute="top" secondItem="8EK-YK-j1U" secondAttribute="top" id="7qr-wu-lul"/>
+                            <constraint firstItem="8EK-YK-j1U" firstAttribute="trailing" secondItem="OzB-uz-RrM" secondAttribute="trailing" id="LvS-6T-XJ1"/>
+                            <constraint firstItem="OzB-uz-RrM" firstAttribute="leading" secondItem="8EK-YK-j1U" secondAttribute="leading" id="Sc1-rS-FOT"/>
+                            <constraint firstItem="8EK-YK-j1U" firstAttribute="bottom" secondItem="OzB-uz-RrM" secondAttribute="bottom" id="zmJ-Zb-gc0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3hi-xv-qyp"/>
+                    <connections>
+                        <outlet property="roomCollectionView" destination="OzB-uz-RrM" id="yPg-Qv-WOu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ite-Yl-5u3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
