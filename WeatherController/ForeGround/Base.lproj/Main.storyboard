@@ -184,11 +184,28 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mainCollectionView" destination="WUu-0n-k1l" id="r9f-2V-z1k"/>
+                        <segue destination="8mb-xi-M7W" kind="push" identifier="CurrentRoomSegue" id="jOP-Wd-2RN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044.9275362318842" y="103.79464285714285"/>
+        </scene>
+        <!--Current Room View Controller-->
+        <scene sceneID="yDi-jP-AWM">
+            <objects>
+                <viewController storyboardIdentifier="CurrentRoomViewController" id="8mb-xi-M7W" customClass="CurrentRoomViewController" customModule="WeatherController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ciC-Eq-vIh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8EK-YK-j1U"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3hi-xv-qyp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ite-Yl-5u3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2848" y="104"/>
         </scene>
         <!--Список сценариев-->
         <scene sceneID="9wi-DU-qoB">

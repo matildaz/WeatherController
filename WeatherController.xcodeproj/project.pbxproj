@@ -11,6 +11,7 @@
 		7450A73827771D4900EA1A47 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A73727771D4900EA1A47 /* Enums.swift */; };
 		7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A7512777235900EA1A47 /* DatchikConfiguration.swift */; };
 		746227732779C418002C0D1C /* RoomStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746227722779C418002C0D1C /* RoomStructure.swift */; };
+		74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */; };
 		7487B20127746B0700CC3BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20027746B0700CC3BCC /* AppDelegate.swift */; };
 		7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20227746B0700CC3BCC /* SceneDelegate.swift */; };
 		7487B20527746B0700CC3BCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20427746B0700CC3BCC /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		7450A73727771D4900EA1A47 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7450A7512777235900EA1A47 /* DatchikConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikConfiguration.swift; sourceTree = "<group>"; };
 		746227722779C418002C0D1C /* RoomStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStructure.swift; sourceTree = "<group>"; };
+		74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRoomViewController.swift; sourceTree = "<group>"; };
 		7487B1FD27746B0700CC3BCC /* WeatherController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7487B20027746B0700CC3BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7487B20227746B0700CC3BCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				74DA591E27788AAF00C5282C /* RoomsViewController.swift */,
+				74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
+				74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,9 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.rooms.append(self.livingRoom1)
     }
     
+    /**
+     Функция устанвки параметров UICollectionView
+     */
     func setTheViewController() {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
@@ -44,6 +47,15 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         mainCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
         mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+    }
+    
+    //MARK: Working with segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CurrentRoomSegue" {
+            let curentRoomCellIndex = mainCollectionView.indexPathsForSelectedItems![0][1]
+            let currentRoomVC = segue.destination as! CurrentRoomViewController
+            currentRoomVC.currentRoom = self.rooms[curentRoomCellIndex]
+        }
     }
     
     //MARK: Working with collection view
@@ -69,6 +81,12 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         let constrain: CGFloat = 10
         return constrain
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.visibleCells[indexPath.row]
+        UIView.animate(withDuration: 0.05, delay: 0, animations: {cell.alpha = 0.5}, completion: {_ in UIView.animate(withDuration: 0.05, delay: 0, animations:  {cell.alpha = 1})})
+        self.performSegue(withIdentifier: "CurrentRoomSegue", sender: self)
     }
 }
 
