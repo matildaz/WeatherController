@@ -16,6 +16,16 @@ class TemperatureChangeCollectionViewCell: UICollectionViewCell {
     var roomID: Int?
     var did: Int?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        //setTheCorners()
+    }
+    
+    func setTheCorners() {
+        self.layer.cornerRadius =  10
+        self.layer.masksToBounds = false
+    }
+    
     //TODO: добавить цельсии
     func configure(with temperature: String) {
         TemperatureLableView.text = temperature

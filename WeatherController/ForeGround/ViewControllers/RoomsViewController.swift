@@ -33,6 +33,16 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         self.rooms.append(self.livingRoom1)
     }
     
+    private func initLayoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?{
+        let layoutAttributes =   UICollectionViewLayoutAttributes(forCellWith: indexPath)
+        let radius = 100
+        let center = (mainCollectionView?.center)!
+        let angle = (CGFloat(indexPath.row)  /  CGFloat(indexPath.row) * CGFloat.pi * 2)
+        layoutAttributes.center = CGPoint.init(x:  center.x + cos(angle) * CGFloat(radius)   , y: center.y + sin(angle) * CGFloat(radius) )
+        layoutAttributes.bounds  = CGRect.init(x: 0, y: 0, width: 100, height: 100 )
+        return layoutAttributes
+    }
+    
     /**
      Функция устанвки параметров UICollectionView
      */
