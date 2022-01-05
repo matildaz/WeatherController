@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 //    var mainUser = [MainUser]?
     let did = 10155
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var windButton = WindButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,17 @@ class ViewController: UIViewController {
         loadInformation(typeOfInformation: .roomScripts)
         loadInformation(typeOfInformation: .roomConfiguration)
         loadInformation(typeOfInformation: .datchikConfiguration)
+        //setTheButton()
     }
+    
+    func setTheButton() {
+        let position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 50)
+        windButton = .init(frame: CGRect(x: position.x, y: position.y, width: (view.bounds.width)/4, height: (view.bounds.width)/4))
+        windButton.layer.cornerRadius = (view.bounds.width)/8
+        windButton.backgroundColor = .tintColor
+        windButton.layoutSubviews()
+    }
+    
     
     func update() {
         if roomsConfiguration.isEmpty && roomsDatchikConfiguration.isEmpty {

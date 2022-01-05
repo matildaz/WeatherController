@@ -18,11 +18,23 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     var currentRoom = RoomStructure(roomName: "test", roomTemperature: "test", roomWet: "test", roomCO2: "test")
     
     @IBOutlet weak var roomCollectionView: UICollectionView!
+    var windButton = WindButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.tabBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         view.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
         setTheAtributes()
+        //setTheButton()
+    }
+    
+    func setTheButton() {
+        let position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 50)
+        windButton = .init(frame: CGRect(x: position.x, y: position.y, width: (view.bounds.width)/4, height: (view.bounds.width)/4))
+        windButton.layer.cornerRadius = (view.bounds.width)/8
+        windButton.backgroundColor = .tintColor
+        windButton.layoutSubviews()
     }
     
     func setTheAtributes() {
@@ -51,20 +63,20 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let radius = 2*(self.view.bounds.midX)/3
-        let centre = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        let centre = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 50)
         let xDeviation = radius*sin(Double.pi/3)
         let yDeviation = radius*cos(Double.pi/3)
         var cell = UICollectionViewCell()
         switch indexPath.row {
         case 0 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.roomWet, image: UIImage(named: "humidity")!)
+                roomCell.configure(text: currentRoom.roomWet, image: UIImage(named: "humidityDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
         case 1 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.roomTemperature, image: UIImage(named: "temperature")!)
+                roomCell.configure(text: currentRoom.roomTemperature, image: UIImage(named: "temperatureDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
@@ -76,13 +88,13 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         case 3 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: "1 человек", image: UIImage(named: "people")!)
+                roomCell.configure(text: "1 человек", image: UIImage(named: "peopleDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
         case 4 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.roomCO2, image: UIImage(named: "corbonDioxide")!)
+                roomCell.configure(text: currentRoom.roomCO2, image: UIImage(named: "carbonDioxideDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
@@ -99,12 +111,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
 
 extension CurrentRoomViewController:  UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var itemSize = CGSize()
-        if indexPath.row == 2 {
-            itemSize = CGSize(width: 140, height: 70)
-        } else {
-            itemSize = CGSize(width: self.view.bounds.midX/2.5, height: self.view.bounds.midX/2.5)
-        }
+        let itemSize = CGSize(width: self.view.bounds.midX/2.5, height: self.view.bounds.midX/2.5)
         return itemSize
     }
     

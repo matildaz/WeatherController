@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
+		7447918227848F4E007C0F53 /* WindButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447918127848F4E007C0F53 /* WindButton.swift */; };
 		7450A73827771D4900EA1A47 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A73727771D4900EA1A47 /* Enums.swift */; };
 		7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A7512777235900EA1A47 /* DatchikConfiguration.swift */; };
 		746227732779C418002C0D1C /* RoomStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746227722779C418002C0D1C /* RoomStructure.swift */; };
@@ -26,6 +27,8 @@
 		74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14B27747FBB00C26808 /* TempretureChange.swift */; };
 		74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14D2774829200C26808 /* RoomsConfiguration.swift */; };
 		74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14F2774933A00C26808 /* RoomsConfigurationStructure.swift */; };
+		74D46A202785BC67008B8904 /* ScriptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D46A1F2785BC67008B8904 /* ScriptsViewController.swift */; };
+		74D46A232785BE16008B8904 /* ScriptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D46A222785BE16008B8904 /* ScriptTableViewCell.swift */; };
 		74DA58D82777499900C5282C /* NewScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA58D72777499900C5282C /* NewScript.swift */; };
 		74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA58D927774A1D00C5282C /* DeleteTheScript.swift */; };
 		74DA58DC27774B0400C5282C /* UpdateTheScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA58DB27774B0400C5282C /* UpdateTheScript.swift */; };
@@ -43,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7447918127848F4E007C0F53 /* WindButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindButton.swift; sourceTree = "<group>"; };
 		7450A73727771D4900EA1A47 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7450A7512777235900EA1A47 /* DatchikConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikConfiguration.swift; sourceTree = "<group>"; };
 		746227722779C418002C0D1C /* RoomStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStructure.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		74D3E14B27747FBB00C26808 /* TempretureChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempretureChange.swift; sourceTree = "<group>"; };
 		74D3E14D2774829200C26808 /* RoomsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsConfiguration.swift; sourceTree = "<group>"; };
 		74D3E14F2774933A00C26808 /* RoomsConfigurationStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsConfigurationStructure.swift; sourceTree = "<group>"; };
+		74D46A1F2785BC67008B8904 /* ScriptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptsViewController.swift; sourceTree = "<group>"; };
+		74D46A222785BE16008B8904 /* ScriptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTableViewCell.swift; sourceTree = "<group>"; };
 		74DA58D72777499900C5282C /* NewScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScript.swift; sourceTree = "<group>"; };
 		74DA58D927774A1D00C5282C /* DeleteTheScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTheScript.swift; sourceTree = "<group>"; };
 		74DA58DB27774B0400C5282C /* UpdateTheScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTheScript.swift; sourceTree = "<group>"; };
@@ -127,6 +133,14 @@
 			path = DataSending;
 			sourceTree = "<group>";
 		};
+		7447918027848F2C007C0F53 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7447918127848F4E007C0F53 /* WindButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		7450A73627771D3400EA1A47 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +194,7 @@
 		7487B21727746B4C00CC3BCC /* ForeGround */ = {
 			isa = PBXGroup;
 			children = (
+				7447918027848F2C007C0F53 /* Buttons */,
 				74DA592027788B0B00C5282C /* Cells */,
 				74DA591D27788A5F00C5282C /* ViewControllers */,
 				7450A73627771D3400EA1A47 /* Enums */,
@@ -227,6 +242,14 @@
 			path = DataUnwrapping;
 			sourceTree = "<group>";
 		};
+		74D46A212785BDF0008B8904 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				74D46A222785BE16008B8904 /* ScriptTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		74DA590C2778669C00C5282C /* ScenarioStructures */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +267,7 @@
 			children = (
 				74DA591E27788AAF00C5282C /* RoomsViewController.swift */,
 				74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */,
+				74D46A1F2785BC67008B8904 /* ScriptsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -251,6 +275,7 @@
 		74DA592027788B0B00C5282C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				74D46A212785BDF0008B8904 /* TableViewCells */,
 				74DA592327788B3300C5282C /* CollectionViewCells */,
 			);
 			path = Cells;
@@ -392,6 +417,8 @@
 				7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
+				7447918227848F4E007C0F53 /* WindButton.swift in Sources */,
+				74D46A202785BC67008B8904 /* ScriptsViewController.swift in Sources */,
 				74DA590E277866D400C5282C /* SettingStructure.swift in Sources */,
 				74DA59102778674400C5282C /* DayGroupStructure.swift in Sources */,
 				74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */,
@@ -405,6 +432,7 @@
 				74DA58DC27774B0400C5282C /* UpdateTheScript.swift in Sources */,
 				7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */,
 				74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */,
+				74D46A232785BE16008B8904 /* ScriptTableViewCell.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,
 				746227732779C418002C0D1C /* RoomStructure.swift in Sources */,
 				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,
