@@ -16,25 +16,62 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     //3*M_PI_2+M_PI/6, endAngle: 7*M_PI_2+M_PI/6
     
     var currentRoom = RoomStructure(roomName: "test", roomTemperature: "test", roomWet: "test", roomCO2: "test")
-    
+    private var safeArea: UILayoutGuide!
     @IBOutlet weak var roomCollectionView: UICollectionView!
+    private var stackView: UIStackView!
+    @IBOutlet weak var ventilationButton: UIButton!
+    @IBOutlet weak var plusTempButton: UIButton!
+    @IBOutlet weak var minusTempButton: UIButton!
     var windButton = WindButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        safeArea = view.layoutMarginsGuide
         tabBarController?.tabBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         view.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
         setTheAtributes()
-        //setTheButton()
+        setTheButtons()
     }
     
-    func setTheButton() {
-        let position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 50)
-        windButton = .init(frame: CGRect(x: position.x, y: position.y, width: (view.bounds.width)/4, height: (view.bounds.width)/4))
-        windButton.layer.cornerRadius = (view.bounds.width)/8
-        windButton.backgroundColor = .tintColor
-        windButton.layoutSubviews()
+    func setTheButtons() {
+        let plusMinusWidth = self.view.bounds.midX/4.5
+        let radius = 3*(safeArea.layoutFrame.midX)/4
+        let centre = CGPoint(x: self.safeArea.layoutFrame.midX/2, y: self.safeArea.layoutFrame.midY-radius)
+        let cellWidth = self.view.bounds.midX/2.5
+        
+        // Ventilation button
+        let buttonWidth = self.view.bounds.midX/1.5
+        ventilationButton.frame.size = CGSize(width: buttonWidth, height: buttonWidth)
+        ventilationButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        ventilationButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        ventilationButton.layer.cornerRadius = buttonWidth/2
+        ventilationButton.titleLabel?.text = "Проветрить комнату"
+        ventilationButton.titleLabel?.textColor = .white
+        
+        // Plus Temp button
+        plusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
+        plusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        plusTempButton.layer.cornerRadius = plusMinusWidth/2
+        plusTempButton.titleLabel?.text = "+"
+        plusTempButton.titleLabel?.textColor = .white
+        // Minus Twmp button
+        minusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
+        minusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        minusTempButton.layer.cornerRadius = plusMinusWidth/2
+        minusTempButton.titleLabel?.text = "-"
+        minusTempButton.titleLabel?.textColor = .white
+        // StackView
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.distribution = UIStackView.Distribution.fill
+        stackView.alignment = UIStackView.Alignment.fill
+        stackView.layer.position = CGPoint(x: centre.x, y: centre.y - plusMinusWidth/4)
+        stackView.frame.size = CGSize(width: safeArea.layoutFrame.midX, height: plusMinusWidth)
+        stackView.spacing = cellWidth*1.4
+        stackView.addArrangedSubview(plusTempButton)
+        stackView.addArrangedSubview(minusTempButton)
+        self.view.addSubview(stackView)
     }
     
     func setTheAtributes() {
@@ -62,8 +99,10 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let radius = 2*(self.view.bounds.midX)/3
-        let centre = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 50)
+        
+        let radius = 3*(safeArea.layoutFrame.midX)/4
+        let centre = CGPoint(x: self.safeArea.layoutFrame.midX, y: 0.8*self.safeArea.layoutFrame.midY)
+        let edge = CGPoint(x: self.safeArea.layoutFrame.maxX, y: self.safeArea.layoutFrame.maxY)
         let xDeviation = radius*sin(Double.pi/3)
         let yDeviation = radius*cos(Double.pi/3)
         var cell = UICollectionViewCell()

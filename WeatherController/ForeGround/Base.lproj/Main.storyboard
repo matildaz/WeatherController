@@ -9,6 +9,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Все комнаты-->
         <scene sceneID="tne-QT-ifu">
@@ -387,19 +392,57 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kix-lF-vK6">
+                                <rect key="frame" x="137" y="437" width="141" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Проветрить комнату">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYC-zW-hJN">
+                                <rect key="frame" x="103" y="432.5" width="208" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqC-rh-eiM">
+                                <rect key="frame" x="103" y="432.5" width="208" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="-"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8EK-YK-j1U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="width" secondItem="PYC-zW-hJN" secondAttribute="width" id="2cV-0j-Ifv"/>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="centerY" secondItem="ciC-Eq-vIh" secondAttribute="centerY" id="77h-vk-3nZ"/>
                             <constraint firstItem="OzB-uz-RrM" firstAttribute="top" secondItem="8EK-YK-j1U" secondAttribute="top" id="7qr-wu-lul"/>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="leading" secondItem="PYC-zW-hJN" secondAttribute="leading" id="AWu-BK-dQq"/>
                             <constraint firstItem="8EK-YK-j1U" firstAttribute="trailing" secondItem="OzB-uz-RrM" secondAttribute="trailing" id="LvS-6T-XJ1"/>
                             <constraint firstItem="OzB-uz-RrM" firstAttribute="leading" secondItem="8EK-YK-j1U" secondAttribute="leading" id="Sc1-rS-FOT"/>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="leading" secondItem="8EK-YK-j1U" secondAttribute="leading" constant="103" id="XXh-L0-zHl"/>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="centerX" secondItem="OzB-uz-RrM" secondAttribute="centerX" id="ZM4-H7-u2U"/>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="height" secondItem="PYC-zW-hJN" secondAttribute="height" id="smn-Cn-XcU"/>
+                            <constraint firstItem="zqC-rh-eiM" firstAttribute="baseline" secondItem="PYC-zW-hJN" secondAttribute="baseline" id="vy4-wl-cdU"/>
                             <constraint firstItem="8EK-YK-j1U" firstAttribute="bottom" secondItem="OzB-uz-RrM" secondAttribute="bottom" id="zmJ-Zb-gc0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3hi-xv-qyp"/>
                     <connections>
+                        <outlet property="minusTempButton" destination="zqC-rh-eiM" id="6W6-Vh-n4Y"/>
+                        <outlet property="plusTempButton" destination="PYC-zW-hJN" id="j9p-uS-Nyg"/>
                         <outlet property="roomCollectionView" destination="OzB-uz-RrM" id="yPg-Qv-WOu"/>
+                        <outlet property="ventilationButton" destination="kix-lF-vK6" id="Y5z-46-811"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ite-Yl-5u3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -429,13 +472,56 @@
                                         <rect key="frame" x="0.0" y="30" width="414" height="695"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="T9f-k2-0y2">
-                                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ScriptTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScriptTableViewCell" rowHeight="94" id="T9f-k2-0y2" customClass="ScriptTableViewCell" customModule="WeatherController" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="94"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9f-k2-0y2" id="xEJ-g1-W0s">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yA7-Z0-EiF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TFE-UN-pbV">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="94"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="HG3-Ev-S7j"/>
+                                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="70" id="iqr-u8-ogD"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PHd-19-m1e">
+                                                                    <rect key="frame" x="75" y="0.0" width="339" height="94"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="30S-bw-oGE">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="47"/>
+                                                                            <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SF-Tc-s6m">
+                                                                            <rect key="frame" x="0.0" y="47" width="339" height="47"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="yA7-Z0-EiF" firstAttribute="top" secondItem="xEJ-g1-W0s" secondAttribute="top" id="GBI-kq-b1O"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yA7-Z0-EiF" secondAttribute="bottom" id="Ypc-b4-nnB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="yA7-Z0-EiF" secondAttribute="trailing" id="c3F-ca-8pN"/>
+                                                        <constraint firstItem="yA7-Z0-EiF" firstAttribute="leading" secondItem="xEJ-g1-W0s" secondAttribute="leading" id="lIf-6a-Lpa"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="cellImageView" destination="TFE-UN-pbV" id="KRE-Od-QgK"/>
+                                                    <outlet property="descriptionLable" destination="7SF-Tc-s6m" id="OYz-LO-apM"/>
+                                                    <outlet property="imageView" destination="TFE-UN-pbV" id="kt0-on-JxJ"/>
+                                                    <outlet property="nameLable" destination="30S-bw-oGE" id="KGN-wc-3th"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -451,7 +537,16 @@
                             <constraint firstItem="1fq-d4-lPX" firstAttribute="top" secondItem="ncp-ho-Lqm" secondAttribute="top" id="zwO-IB-q0P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Список сценариев" id="FGs-Vd-NpH"/>
+                    <navigationItem key="navigationItem" title="Список сценариев" id="FGs-Vd-NpH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="xwd-Rn-BVv">
+                            <connections>
+                                <action selector="refreshButtonGetPressed:" destination="u88-Pp-lDu" id="g8Q-eU-dWJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scriptTableView" destination="1dp-v3-MT9" id="jSN-bZ-Kpa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZP-Az-jsj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

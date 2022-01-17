@@ -7,12 +7,15 @@
 
 import Foundation
 
+// Collecting the info
 enum Information {
     case roomScripts
     case roomConfiguration
     case datchikConfiguration
+    case testScripts
 }
 
+// Errors
 enum NetworkSensorError: Error {
     case badData
     case badEncodingJSON
@@ -25,9 +28,16 @@ enum TypeOfSensor {
     case aim
 }
 
+// Errors
 enum NetworkError: Error {
     case badData
     case badEncoding
     case errorForRequest
     case badUrl
+}
+
+// Scenario variants
+enum ScenarioVariant {
+    case custom
+    case def
 }

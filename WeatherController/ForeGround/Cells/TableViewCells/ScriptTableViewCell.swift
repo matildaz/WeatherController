@@ -8,16 +8,24 @@
 import UIKit
 
 class ScriptTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var cellImageView: UIImageView!
+    @IBOutlet weak var nameLable: UILabel!
+    @IBOutlet weak var descriptionLable: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func configure(scriptName: String, scriptDescription: String) {
+        nameLable.text = scriptName
+        descriptionLable.text = scriptDescription
     }
 
 }

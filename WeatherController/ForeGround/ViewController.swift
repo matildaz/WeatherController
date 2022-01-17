@@ -24,9 +24,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
-        loadInformation(typeOfInformation: .roomScripts)
-        loadInformation(typeOfInformation: .roomConfiguration)
-        loadInformation(typeOfInformation: .datchikConfiguration)
+//        loadInformation(typeOfInformation: .roomScripts)
+//        loadInformation(typeOfInformation: .roomConfiguration)
+//        loadInformation(typeOfInformation: .datchikConfiguration)
         //setTheButton()
     }
     
@@ -111,34 +111,36 @@ class ViewController: UIViewController {
         }
     }
     
-    func loadInformation(typeOfInformation: Information) {
-        let group = DispatchGroup()
-        switch typeOfInformation {
-        case .roomConfiguration:
-            group.enter()
-            DispatchQueue.main.async {
-                self.loadRoomConfiguration(group: group)
-            }
-        case .roomScripts:
-            group.enter()
-            DispatchQueue.main.async {
-                self.loadScripts(group: group)
-            }
-        case .datchikConfiguration:
-            let newDatchik0 = DatchikConfigurationStruct(rid: 47, dt: "2020-11-27 00:56:41", temp: 31, temp_valve: nil, co2: 456, hum: 77, people: 1)
-            let newDatchik1 = DatchikConfigurationStruct(rid: 48, dt: "2020-11-27 06:56:41", temp: 23, temp_valve: nil, co2: 345, hum: 78, people: 2)
-            let newDatchik2 = DatchikConfigurationStruct(rid: 49, dt: "2020-11-27 10:56:41", temp: 26, temp_valve: nil, co2: 567, hum: 79, people: 3)
-            self.roomsDatchikConfiguration[newDatchik0.rid] = newDatchik0
-            self.roomsDatchikConfiguration[newDatchik1.rid] = newDatchik1
-            self.roomsDatchikConfiguration[newDatchik2.rid] = newDatchik2
-            print(self.roomsDatchikConfiguration)
-            //MARK: - пока не доступен запрос - пользуюсь костылем
+//    func loadInformation(typeOfInformation: Information) {
+//        let group = DispatchGroup()
+//        switch typeOfInformation {
+//        case .roomConfiguration:
 //            group.enter()
 //            DispatchQueue.main.async {
-//                self.loadDatchikConfiguration(group: group)
+//                self.loadRoomConfiguration(group: group)
 //            }
-        }
-    }
+//        case .roomScripts:
+//            group.enter()
+//            DispatchQueue.main.async {
+//                self.loadScripts(group: group)
+//            }
+//        case .datchikConfiguration:
+//            let newDatchik0 = DatchikConfigurationStruct(rid: 47, dt: "2020-11-27 00:56:41", temp: 31, temp_valve: nil, co2: 456, hum: 77, people: 1)
+//            let newDatchik1 = DatchikConfigurationStruct(rid: 48, dt: "2020-11-27 06:56:41", temp: 23, temp_valve: nil, co2: 345, hum: 78, people: 2)
+//            let newDatchik2 = DatchikConfigurationStruct(rid: 49, dt: "2020-11-27 10:56:41", temp: 26, temp_valve: nil, co2: 567, hum: 79, people: 3)
+//            self.roomsDatchikConfiguration[newDatchik0.rid] = newDatchik0
+//            self.roomsDatchikConfiguration[newDatchik1.rid] = newDatchik1
+//            self.roomsDatchikConfiguration[newDatchik2.rid] = newDatchik2
+//            print(self.roomsDatchikConfiguration)
+//            //MARK: - пока не доступен запрос - пользуюсь костылем
+////            group.enter()
+////            DispatchQueue.main.async {
+////                self.loadDatchikConfiguration(group: group)
+////            }
+//        case .testScripts:
+//            co
+//        }
+//    }
 
 }
 
