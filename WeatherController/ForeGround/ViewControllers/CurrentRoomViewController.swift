@@ -41,12 +41,12 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         let cellWidth = self.view.bounds.midX/2.5
         
         // Ventilation button
-        let buttonWidth = self.view.bounds.midX/1.5
+        let buttonWidth = self.view.bounds.midX/1.3
         ventilationButton.frame.size = CGSize(width: buttonWidth, height: buttonWidth)
         ventilationButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
         ventilationButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         ventilationButton.layer.cornerRadius = buttonWidth/2
-        ventilationButton.titleLabel?.text = "Проветрить комнату"
+        ventilationButton.titleLabel?.textAlignment = .center
         ventilationButton.titleLabel?.textColor = .white
         
         // Plus Temp button
