@@ -192,7 +192,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WUu-0n-k1l" secondAttribute="trailing" constant="5" id="vwj-72-VKl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Все комнаты" id="P67-Eq-zyC"/>
+                    <navigationItem key="navigationItem" title="Все комнаты" id="P67-Eq-zyC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0fG-tu-yFv">
+                            <connections>
+                                <action selector="addButtonGetPressed:" destination="BYZ-38-t0r" id="DhS-A1-9dI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mainCollectionView" destination="WUu-0n-k1l" id="r9f-2V-z1k"/>
@@ -202,6 +208,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044.9275362318842" y="103.79464285714285"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="iEG-zX-fje">
+            <objects>
+                <viewController id="kEb-bf-rX4" customClass="TestViewController" customModule="WeatherController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JPJ-70-ej9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rB1-qO-l2V">
+                                <rect key="frame" x="10" y="84" width="394" height="738"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhB-hb-8Qz">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbE-bB-a4E">
+                                        <rect key="frame" x="0.0" y="82" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="roomNameField:" destination="sNg-Ke-vIO" eventType="editingDidEnd" id="zmS-QW-j61"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-0G-pIc">
+                                        <rect key="frame" x="0.0" y="164" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room temperature" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G2e-Nt-fIX">
+                                        <rect key="frame" x="0.0" y="246" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="temperatureField:" destination="sNg-Ke-vIO" eventType="editingDidEnd" id="Jrg-Kl-HT7"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLJ-BG-saX">
+                                        <rect key="frame" x="0.0" y="328" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room wet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SKn-2g-0Hj">
+                                        <rect key="frame" x="0.0" y="410" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="wetField:" destination="sNg-Ke-vIO" eventType="editingDidEnd" id="7rC-G0-Qg7"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53b-OM-04J">
+                                        <rect key="frame" x="0.0" y="492" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter room CO2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g1A-dS-g3J">
+                                        <rect key="frame" x="0.0" y="574" width="394" height="82"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="co2Field:" destination="sNg-Ke-vIO" eventType="editingDidEnd" id="y10-QR-lxs"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YQ-Xr-Ew1">
+                                        <rect key="frame" x="0.0" y="656" width="394" height="82"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonGotPressed:" destination="kEb-bf-rX4" eventType="touchUpInside" id="BK6-6i-5iS"/>
+                                            <action selector="enterButton:" destination="sNg-Ke-vIO" eventType="touchUpInside" id="rYg-NF-Ikd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uik-pi-Tac"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rB1-qO-l2V" firstAttribute="leading" secondItem="Uik-pi-Tac" secondAttribute="leading" constant="10" id="1xz-wM-y7H"/>
+                            <constraint firstItem="Uik-pi-Tac" firstAttribute="bottom" secondItem="rB1-qO-l2V" secondAttribute="bottom" constant="40" id="Fwa-VH-tv2"/>
+                            <constraint firstItem="rB1-qO-l2V" firstAttribute="top" secondItem="Uik-pi-Tac" secondAttribute="top" constant="40" id="baw-hq-ChL"/>
+                            <constraint firstItem="Uik-pi-Tac" firstAttribute="trailing" secondItem="rB1-qO-l2V" secondAttribute="trailing" constant="10" id="ys0-uO-dER"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="co2" destination="g1A-dS-g3J" id="MyY-fs-xfj"/>
+                        <outlet property="roomName" destination="pbE-bB-a4E" id="ok2-gy-GvY"/>
+                        <outlet property="temperature" destination="G2e-Nt-fIX" id="y8G-RA-xnf"/>
+                        <outlet property="wet" destination="SKn-2g-0Hj" id="bys-EA-EVc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bgx-ZX-UYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sNg-Ke-vIO" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2848" y="-550"/>
         </scene>
         <!--Current Room View Controller-->
         <scene sceneID="yDi-jP-AWM">

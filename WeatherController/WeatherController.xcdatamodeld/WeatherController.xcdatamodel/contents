@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrentRoomClass" representedClassName="CurrentRoomClass" syncable="YES">
+        <attribute name="co2" attributeType="String"/>
+        <attribute name="roomName" attributeType="String"/>
+        <attribute name="temperature" attributeType="String"/>
+        <attribute name="wet" attributeType="String"/>
+    </entity>
     <entity name="DayGroup" representedClassName="DayGroup" syncable="YES">
         <attribute name="days" optional="YES" attributeType="Transformable" customClassName="[Int]"/>
         <relationship name="setting0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Setting"/>
@@ -34,5 +40,6 @@
         <element name="RoomGroup" positionX="-45" positionY="63" width="128" height="74"/>
         <element name="Script" positionX="-36" positionY="81" width="128" height="74"/>
         <element name="Setting" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="CurrentRoomClass" positionX="-54" positionY="63" width="128" height="89"/>
     </elements>
 </model>

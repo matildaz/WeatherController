@@ -15,7 +15,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     //TemperatureChangeCollectionViewCell
     //3*M_PI_2+M_PI/6, endAngle: 7*M_PI_2+M_PI/6
     
-    var currentRoom = RoomStructure(roomName: "test", roomTemperature: "test", roomWet: "test", roomCO2: "test")
+    var currentRoom = CurrentRoomClass()
     private var safeArea: UILayoutGuide!
     @IBOutlet weak var roomCollectionView: UICollectionView!
     private var stackView: UIStackView!
@@ -55,7 +55,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         plusTempButton.layer.cornerRadius = plusMinusWidth/2
         plusTempButton.titleLabel?.text = "+"
         plusTempButton.titleLabel?.textColor = .white
-        // Minus Twmp button
+        // Minus Temp button
         minusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
         minusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         minusTempButton.layer.cornerRadius = plusMinusWidth/2
@@ -109,19 +109,19 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         switch indexPath.row {
         case 0 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.roomWet, image: UIImage(named: "humidityDark")!)
+                roomCell.configure(text: currentRoom.wet!, image: UIImage(named: "humidityDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
         case 1 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.roomTemperature, image: UIImage(named: "temperatureDark")!)
+                roomCell.configure(text: currentRoom.temperature!, image: UIImage(named: "temperatureDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
         case 2 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TemperatureChangeCollectionViewCell", for: indexPath) as? TemperatureChangeCollectionViewCell {
-                roomCell.configure(with: currentRoom.roomTemperature)
+                roomCell.configure(with: currentRoom.temperature!)
                 roomCell.layer.position = CGPoint(x: centre.x, y: centre.y-radius)
                 cell = roomCell
             }
@@ -133,7 +133,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         case 4 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.roomCO2, image: UIImage(named: "carbonDioxideDark")!)
+                roomCell.configure(text: currentRoom.co2!, image: UIImage(named: "carbonDioxideDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }

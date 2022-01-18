@@ -14,7 +14,8 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     let livingRoom = RoomStructure(roomName: "Living room", roomTemperature: "24", roomWet: "60", roomCO2: "345")
     let kitchen1 = RoomStructure(roomName: "Kitchen", roomTemperature: "24", roomWet: "75", roomCO2: "456")
     let livingRoom1 = RoomStructure(roomName: "Living efwefun qpwfrufn room", roomTemperature: "24", roomWet: "60", roomCO2: "345")
-    var rooms: [RoomStructure] = []
+    var rooms: [CurrentRoomClass] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var safeArea: UILayoutGuide!
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -25,14 +26,44 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         safeArea = view.layoutMarginsGuide
         setTheViewController()
-        addSMTH()
     }
     
-    func addSMTH() {
-        self.rooms.append(self.kitchen)
-        self.rooms.append(self.livingRoom)
-        self.rooms.append(self.kitchen1)
-        self.rooms.append(self.livingRoom1)
+    @IBAction func addButtonGetPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Test creator", message: "Fill all the rows: Name, temp, wet, co2", preferredStyle: .alert)
+        alert.addTextField()
+        
+        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
+            let nameField = alert.textFields![0]
+            
+            let newRoom = CurrentRoomClass(context: self.context)
+            newRoom.roomName = nameField.text
+            newRoom.co2 = "123"
+            newRoom.wet = "234"
+            newRoom.temperature = "24"
+            do {
+                try self.context.save()
+            }
+            catch {
+                print("error in add")
+            }
+            // reload info
+            self.fetchCurrentRooms()
+        }
+        
+        alert.addAction(submitButton)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func fetchCurrentRooms() {
+        do {
+            self.rooms = try context.fetch(CurrentRoomClass.fetchRequest())
+            
+            DispatchQueue.main.async {
+                self.mainCollectionView.reloadData()
+            }
+        } catch {
+            print("Saving error")
+        }
     }
     
     private func initLayoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?{
@@ -78,7 +109,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainViewControllerCell", for: indexPath) as? CollectionViewCell {
-            roomCell.configure(withName: self.rooms[indexPath.row].roomName, withTemp: self.rooms[indexPath.row].roomTemperature, withWet: self.rooms[indexPath.row].roomWet, withCO2: self.rooms[indexPath.row].roomCO2)
+            roomCell.configure(withName: self.rooms[indexPath.row].roomName!, withTemp: self.rooms[indexPath.row].temperature!, withWet: self.rooms[indexPath.row].wet!, withCO2: self.rooms[indexPath.row].co2!)
             roomCell.peopleImageView.image = UIImage(named: "people")
             cell = roomCell
         }
