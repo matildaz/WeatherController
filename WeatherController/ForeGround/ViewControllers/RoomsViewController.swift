@@ -26,6 +26,11 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         safeArea = view.layoutMarginsGuide
         setTheViewController()
+        fetchCurrentRooms()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchCurrentRooms()
     }
     
     @IBAction func addButtonGetPressed(_ sender: Any) {

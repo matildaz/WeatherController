@@ -11,9 +11,6 @@
         <relationship name="setting0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Setting"/>
         <relationship name="setting1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Setting"/>
     </entity>
-    <entity name="MainUser" representedClassName="MainUser" syncable="YES">
-        <attribute name="did" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-    </entity>
     <entity name="RoomGroup" representedClassName="RoomGroup" syncable="YES">
         <attribute name="rIDs" optional="YES" attributeType="Transformable" customClassName="[Int]"/>
         <relationship name="dayGroup0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayGroup"/>
@@ -21,6 +18,7 @@
     </entity>
     <entity name="Script" representedClassName="Script" syncable="YES">
         <attribute name="did" optional="YES" attributeType="String"/>
+        <attribute name="discription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="roomGroop0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RoomGroup"/>
     </entity>
@@ -35,11 +33,10 @@
         <attribute name="time" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="DayGroup" positionX="-54" positionY="54" width="128" height="74"/>
-        <element name="MainUser" positionX="-54" positionY="63" width="128" height="44"/>
-        <element name="RoomGroup" positionX="-45" positionY="63" width="128" height="74"/>
-        <element name="Script" positionX="-36" positionY="81" width="128" height="74"/>
-        <element name="Setting" positionX="-63" positionY="-18" width="128" height="149"/>
         <element name="CurrentRoomClass" positionX="-54" positionY="63" width="128" height="89"/>
+        <element name="DayGroup" positionX="-54" positionY="54" width="128" height="74"/>
+        <element name="RoomGroup" positionX="-45" positionY="63" width="128" height="74"/>
+        <element name="Script" positionX="-36" positionY="81" width="128" height="89"/>
+        <element name="Setting" positionX="-63" positionY="-18" width="128" height="149"/>
     </elements>
 </model>

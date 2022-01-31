@@ -11,10 +11,6 @@ import DSCircularCollectionView
 
 class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    //DatchikCollectionViewCell
-    //TemperatureChangeCollectionViewCell
-    //3*M_PI_2+M_PI/6, endAngle: 7*M_PI_2+M_PI/6
-    
     var currentRoom = CurrentRoomClass()
     private var safeArea: UILayoutGuide!
     @IBOutlet weak var roomCollectionView: UICollectionView!
@@ -22,7 +18,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var ventilationButton: UIButton!
     @IBOutlet weak var plusTempButton: UIButton!
     @IBOutlet weak var minusTempButton: UIButton!
-    var windButton = WindButton()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +28,42 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         view.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
         setTheAtributes()
         setTheButtons()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        roomCollectionView.reloadData()
+    }
+    
+    @IBAction func plusTemp(_ sender: Any) {
+        if var temp = Int(currentRoom.temperature!) {
+            if temp < 30 {
+                temp += 1
+                currentRoom.temperature = String(temp)
+                fetchCurrentRoom()
+            }
+        }
+    }
+    
+    @IBAction func minusTemp(_ sender: Any) {
+        if var temp = Int(currentRoom.temperature!) {
+            if temp > 16 {
+                temp -= 1
+                currentRoom.temperature = String(temp)
+                fetchCurrentRoom()
+            }
+        }
+    }
+    
+    func fetchCurrentRoom() {
+        do {
+            try currentRoom.managedObjectContext?.save()
+            
+            DispatchQueue.main.async {
+                self.roomCollectionView.reloadData()
+            }
+        } catch {
+            print("Saving error")
+        }
     }
     
     func setTheButtons() {
