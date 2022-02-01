@@ -32,6 +32,8 @@
 		74CFFE3127A9911A00B9804F /* DayGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */; };
 		74CFFE3527A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE3327A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift */; };
 		74CFFE3627A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */; };
+		74CFFE4427A9A51300B9804F /* ScenarioNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */; };
+		74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */; };
 		74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */; };
 		74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14927747F3900C26808 /* VentilateRoom.swift */; };
 		74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14B27747FBB00C26808 /* TempretureChange.swift */; };
@@ -83,6 +85,8 @@
 		74CFFE2B27A9911A00B9804F /* Setting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE3327A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScriptNSMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScriptNSMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScenarioNameView.xib; sourceTree = "<group>"; };
+		74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioNameView.swift; sourceTree = "<group>"; };
 		74D3E144277472CA00C26808 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScriptLoad.swift; sourceTree = "<group>"; };
 		74D3E14927747F3900C26808 /* VentilateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentilateRoom.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		7487B21727746B4C00CC3BCC /* ForeGround */ = {
 			isa = PBXGroup;
 			children = (
+				74CFFE3727A9919A00B9804F /* alerts */,
 				7447918027848F2C007C0F53 /* Buttons */,
 				74DA592027788B0B00C5282C /* Cells */,
 				74DA591D27788A5F00C5282C /* ViewControllers */,
@@ -280,6 +285,23 @@
 				74CFFE2A27A9911A00B9804F /* Setting+CoreDataProperties.swift */,
 			);
 			path = ScenarioClasses;
+			sourceTree = "<group>";
+		};
+		74CFFE3727A9919A00B9804F /* alerts */ = {
+			isa = PBXGroup;
+			children = (
+				74CFFE3D27A9927200B9804F /* NameView */,
+			);
+			path = alerts;
+			sourceTree = "<group>";
+		};
+		74CFFE3D27A9927200B9804F /* NameView */ = {
+			isa = PBXGroup;
+			children = (
+				74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */,
+				74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */,
+			);
+			path = NameView;
 			sourceTree = "<group>";
 		};
 		74D46A212785BDF0008B8904 /* TableViewCells */ = {
@@ -397,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */,
+				74CFFE4427A9A51300B9804F /* ScenarioNameView.xib in Resources */,
 				7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */,
 				74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */,
 				7487B20827746B0700CC3BCC /* Main.storyboard in Resources */,
@@ -492,6 +515,7 @@
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
+				74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
 				74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */,
 			);

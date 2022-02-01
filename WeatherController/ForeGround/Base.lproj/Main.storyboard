@@ -651,9 +651,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Список сценариев" id="FGs-Vd-NpH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="xwd-Rn-BVv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NTB-xG-GmT">
                             <connections>
-                                <action selector="refreshButtonGetPressed:" destination="u88-Pp-lDu" id="g8Q-eU-dWJ"/>
+                                <action selector="addButtonPressed:" destination="u88-Pp-lDu" id="i9Z-CY-AWd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
