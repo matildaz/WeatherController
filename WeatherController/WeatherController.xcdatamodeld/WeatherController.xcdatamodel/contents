@@ -16,7 +16,7 @@
         <relationship name="dayGroup0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayGroup"/>
         <relationship name="dayGroup1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayGroup"/>
     </entity>
-    <entity name="Script" representedClassName="Script" syncable="YES">
+    <entity name="ScriptNSMO" representedClassName="ScriptNSMO" syncable="YES">
         <attribute name="did" optional="YES" attributeType="String"/>
         <attribute name="discription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -36,7 +36,7 @@
         <element name="CurrentRoomClass" positionX="-54" positionY="63" width="128" height="89"/>
         <element name="DayGroup" positionX="-54" positionY="54" width="128" height="74"/>
         <element name="RoomGroup" positionX="-45" positionY="63" width="128" height="74"/>
-        <element name="Script" positionX="-36" positionY="81" width="128" height="89"/>
+        <element name="ScriptNSMO" positionX="-36" positionY="81" width="128" height="89"/>
         <element name="Setting" positionX="-63" positionY="-18" width="128" height="149"/>
     </elements>
 </model>
