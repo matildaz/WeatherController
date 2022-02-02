@@ -32,6 +32,8 @@
 		74CFFE3627A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */; };
 		74CFFE4427A9A51300B9804F /* ScenarioNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */; };
 		74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */; };
+		74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */; };
+		74CFFE4927AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */; };
 		74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */; };
 		74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14927747F3900C26808 /* VentilateRoom.swift */; };
 		74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14B27747FBB00C26808 /* TempretureChange.swift */; };
@@ -83,6 +85,8 @@
 		74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScriptNSMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScenarioNameView.xib; sourceTree = "<group>"; };
 		74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioNameView.swift; sourceTree = "<group>"; };
+		74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataClass.swift"; sourceTree = "<group>"; };
+		74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74D3E144277472CA00C26808 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScriptLoad.swift; sourceTree = "<group>"; };
 		74D3E14927747F3900C26808 /* VentilateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentilateRoom.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		746227712779C3EB002C0D1C /* RoomIndicatorsStructures */ = {
 			isa = PBXGroup;
 			children = (
+				74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */,
+				74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */,
 				746227722779C418002C0D1C /* RoomStructure.swift */,
 			);
 			path = RoomIndicatorsStructures;
@@ -472,6 +478,7 @@
 				74CFFE3127A9911A00B9804F /* DayGroup+CoreDataClass.swift in Sources */,
 				74CFFE3627A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift in Sources */,
 				74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */,
+				74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */,
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
 				74D46A292795DEE9008B8904 /* TestViewController.swift in Sources */,
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
@@ -499,6 +506,7 @@
 				74D46A232785BE16008B8904 /* ScriptTableViewCell.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,
 				74CFFE2D27A9911A00B9804F /* RoomGroup+CoreDataProperties.swift in Sources */,
+				74CFFE4927AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift in Sources */,
 				74CFFE2F27A9911A00B9804F /* Setting+CoreDataProperties.swift in Sources */,
 				746227732779C418002C0D1C /* RoomStructure.swift in Sources */,
 				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,

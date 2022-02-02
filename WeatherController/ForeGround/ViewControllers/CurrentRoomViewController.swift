@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import DSCircularCollectionView
 
 class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
