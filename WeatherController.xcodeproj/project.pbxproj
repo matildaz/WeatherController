@@ -22,8 +22,6 @@
 		7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */; };
 		7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20C27746B0D00CC3BCC /* Assets.xcassets */; };
 		7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20E27746B0D00CC3BCC /* LaunchScreen.storyboard */; };
-		749A3B5E27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749A3B5C27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataClass.swift */; };
-		749A3B5F27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749A3B5D27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataProperties.swift */; };
 		74CFFE2C27A9911A00B9804F /* DayGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2827A9911A00B9804F /* DayGroup+CoreDataProperties.swift */; };
 		74CFFE2D27A9911A00B9804F /* RoomGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2927A9911A00B9804F /* RoomGroup+CoreDataProperties.swift */; };
 		74CFFE2E27A9911A00B9804F /* Setting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2B27A9911A00B9804F /* Setting+CoreDataClass.swift */; };
@@ -75,8 +73,6 @@
 		7487B20C27746B0D00CC3BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7487B20F27746B0D00CC3BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7487B21127746B0D00CC3BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		749A3B5C27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataClass.swift"; sourceTree = "<group>"; };
-		749A3B5D27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74CFFE2627A9911900B9804F /* RoomGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE2827A9911A00B9804F /* DayGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -178,8 +174,6 @@
 		746227712779C3EB002C0D1C /* RoomIndicatorsStructures */ = {
 			isa = PBXGroup;
 			children = (
-				749A3B5C27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataClass.swift */,
-				749A3B5D27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataProperties.swift */,
 				746227722779C418002C0D1C /* RoomStructure.swift */,
 			);
 			path = RoomIndicatorsStructures;
@@ -505,12 +499,10 @@
 				74D46A232785BE16008B8904 /* ScriptTableViewCell.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,
 				74CFFE2D27A9911A00B9804F /* RoomGroup+CoreDataProperties.swift in Sources */,
-				749A3B5F27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataProperties.swift in Sources */,
 				74CFFE2F27A9911A00B9804F /* Setting+CoreDataProperties.swift in Sources */,
 				746227732779C418002C0D1C /* RoomStructure.swift in Sources */,
 				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,
 				74CFFE2E27A9911A00B9804F /* Setting+CoreDataClass.swift in Sources */,
-				749A3B5E27A7D2D900B2BFF3 /* CurrentRoomClass+CoreDataClass.swift in Sources */,
 				7450A73827771D4900EA1A47 /* Enums.swift in Sources */,
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
