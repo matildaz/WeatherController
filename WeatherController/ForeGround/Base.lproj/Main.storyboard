@@ -207,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044.9275362318842" y="103.79464285714285"/>
+            <point key="canvasLocation" x="-3059" y="-265"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="iEG-zX-fje">
@@ -307,7 +307,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgx-ZX-UYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="sNg-Ke-vIO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="-550"/>
+            <point key="canvasLocation" x="-200" y="-411"/>
         </scene>
         <!--Current Room View Controller-->
         <scene sceneID="yDi-jP-AWM">
@@ -560,7 +560,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ite-Yl-5u3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847.826086956522" y="103.79464285714285"/>
+            <point key="canvasLocation" x="-2233" y="-265"/>
         </scene>
         <!--Список сценариев-->
         <scene sceneID="9wi-DU-qoB">
@@ -640,14 +640,115 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lW-pV-TzH">
+                                <rect key="frame" x="0.0" y="-12" width="414" height="920"/>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k04-iz-SKA">
+                                <rect key="frame" x="30" y="323" width="354" height="250"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U3F-mz-3eF">
+                                        <rect key="frame" x="5" y="5" width="344" height="240"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyN-SI-ZfH">
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="16O-YA-1Gl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Создание нового сценария" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Npq-UD-OPx">
+                                                <rect key="frame" x="0.0" y="30" width="344" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="Yav-eX-zTr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите название сценария" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P9i-CE-I6z">
+                                                <rect key="frame" x="0.0" y="100" width="344" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="DSp-kZ-eoW"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA1-KF-oxu">
+                                                <rect key="frame" x="0.0" y="150" width="344" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="FyZ-ne-N4U"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZT2-J0-kkz">
+                                                <rect key="frame" x="0.0" y="170" width="344" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="258" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyz-ge-Xhn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="167" height="40"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Отменить"/>
+                                                        <connections>
+                                                            <action selector="cancelButtonPressed:" destination="u88-Pp-lDu" eventType="touchUpInside" id="Ql3-Zq-OAC"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="258" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBX-k3-eDS">
+                                                        <rect key="frame" x="177" y="0.0" width="167" height="40"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Продолжить"/>
+                                                        <connections>
+                                                            <action selector="submitButtonPressed:" destination="u88-Pp-lDu" eventType="touchUpInside" id="ywG-UI-jha"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="nLc-j1-N4P"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSP-Xu-3xo">
+                                                <rect key="frame" x="0.0" y="220" width="344" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="292-pW-ayr"/>
+                                                    <constraint firstAttribute="height" constant="20" id="mMo-tl-v2Z"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="292-pW-ayr"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="U3F-mz-3eF" firstAttribute="centerY" secondItem="k04-iz-SKA" secondAttribute="centerY" id="Vh0-F5-Jrs"/>
+                                    <constraint firstItem="U3F-mz-3eF" firstAttribute="leading" secondItem="k04-iz-SKA" secondAttribute="leading" constant="5" id="bkL-gO-Anl"/>
+                                    <constraint firstItem="U3F-mz-3eF" firstAttribute="centerX" secondItem="k04-iz-SKA" secondAttribute="centerX" id="cUx-en-PqQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ncp-ho-Lqm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ncp-ho-Lqm" firstAttribute="bottom" secondItem="1fq-d4-lPX" secondAttribute="bottom" id="Bsi-Id-RZO"/>
-                            <constraint firstItem="ncp-ho-Lqm" firstAttribute="trailing" secondItem="1fq-d4-lPX" secondAttribute="trailing" id="Y6F-cA-9AE"/>
-                            <constraint firstItem="1fq-d4-lPX" firstAttribute="leading" secondItem="ncp-ho-Lqm" secondAttribute="leading" id="oCR-UT-9wL"/>
-                            <constraint firstItem="1fq-d4-lPX" firstAttribute="top" secondItem="ncp-ho-Lqm" secondAttribute="top" id="zwO-IB-q0P"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="centerX" secondItem="1fq-d4-lPX" secondAttribute="centerX" id="9ha-OL-C5y"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="centerY" secondItem="0lW-pV-TzH" secondAttribute="centerY" id="EPQ-sH-NtY"/>
+                            <constraint firstItem="0lW-pV-TzH" firstAttribute="leading" secondItem="1fq-d4-lPX" secondAttribute="leading" id="GeN-dC-s4n"/>
+                            <constraint firstItem="1fq-d4-lPX" firstAttribute="top" secondItem="ncp-ho-Lqm" secondAttribute="top" id="Js6-LQ-jVo"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="centerX" secondItem="b4r-3J-hMO" secondAttribute="centerX" id="U7J-Sq-vIz"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="top" secondItem="ncp-ho-Lqm" secondAttribute="top" constant="235" id="YUd-er-3CG"/>
+                            <constraint firstItem="1fq-d4-lPX" firstAttribute="bottom" secondItem="ncp-ho-Lqm" secondAttribute="bottom" id="Zh6-uv-hqG"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="centerX" secondItem="0lW-pV-TzH" secondAttribute="centerX" id="bKw-tw-353"/>
+                            <constraint firstItem="0lW-pV-TzH" firstAttribute="leading" secondItem="ncp-ho-Lqm" secondAttribute="leading" id="baX-mT-Cdd"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="centerY" secondItem="b4r-3J-hMO" secondAttribute="centerY" id="mb3-DS-2bi"/>
+                            <constraint firstItem="0lW-pV-TzH" firstAttribute="top" secondItem="b4r-3J-hMO" secondAttribute="topMargin" constant="-100" id="paa-ww-hP3"/>
+                            <constraint firstItem="k04-iz-SKA" firstAttribute="leading" secondItem="ncp-ho-Lqm" secondAttribute="leading" constant="30" id="rCR-2a-ANt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Список сценариев" id="FGs-Vd-NpH">
@@ -658,12 +759,76 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ScriptView" destination="k04-iz-SKA" id="WzE-QO-Kcc"/>
+                        <outlet property="addTextField" destination="P9i-CE-I6z" id="MYc-Ls-ef5"/>
+                        <outlet property="addViewLable" destination="Npq-UD-OPx" id="tns-bG-DCC"/>
+                        <outlet property="backgroundView" destination="0lW-pV-TzH" id="7Hm-cs-3Wl"/>
+                        <outlet property="cancelButton" destination="Qyz-ge-Xhn" id="JF7-Iq-fA6"/>
                         <outlet property="scriptTableView" destination="1dp-v3-MT9" id="jSN-bZ-Kpa"/>
+                        <outlet property="submitButton" destination="dBX-k3-eDS" id="0gB-Sj-ZFQ"/>
+                        <segue destination="RVB-Te-r7n" kind="show" identifier="NewScriptRoomSelector" id="ejV-lQ-zuj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZP-Az-jsj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2044.9275362318842" y="839.73214285714278"/>
+        </scene>
+        <!--Days Script View Controller-->
+        <scene sceneID="qnP-zJ-Yv5">
+            <objects>
+                <viewController restorationIdentifier="DaysScriptViewController" storyboardIdentifier="DaysScriptViewController" id="RVB-Te-r7n" customClass="DaysScriptViewController" customModule="WeatherController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cai-bk-Aq0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hZN-5d-aZ2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BsX-B6-vJg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="694"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KF1-gb-tUO">
+                                        <rect key="frame" x="0.0" y="694" width="414" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="BIz-GL-xSF"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ZiK-NZ-B5K"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Создать новую группу"/>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="RVB-Te-r7n" eventType="touchUpInside" id="PmN-DX-zSX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWD-3x-3Eq">
+                                <rect key="frame" x="0.0" y="-10" width="414" height="913"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gCP-ST-jT2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gCP-ST-jT2" firstAttribute="trailing" secondItem="hZN-5d-aZ2" secondAttribute="trailing" id="A8E-QS-eji"/>
+                            <constraint firstItem="hZN-5d-aZ2" firstAttribute="top" secondItem="gCP-ST-jT2" secondAttribute="top" id="Jm7-YX-G2m"/>
+                            <constraint firstItem="gCP-ST-jT2" firstAttribute="trailing" secondItem="oWD-3x-3Eq" secondAttribute="trailing" id="KhV-5Z-q6H"/>
+                            <constraint firstItem="gCP-ST-jT2" firstAttribute="bottom" secondItem="oWD-3x-3Eq" secondAttribute="bottom" constant="-90" id="NKL-Eh-8I9"/>
+                            <constraint firstItem="hZN-5d-aZ2" firstAttribute="leading" secondItem="gCP-ST-jT2" secondAttribute="leading" id="ShD-uO-Mag"/>
+                            <constraint firstItem="gCP-ST-jT2" firstAttribute="bottom" secondItem="hZN-5d-aZ2" secondAttribute="bottom" id="UAW-Bu-wtn"/>
+                            <constraint firstItem="oWD-3x-3Eq" firstAttribute="leading" secondItem="gCP-ST-jT2" secondAttribute="leading" id="faw-1o-boe"/>
+                            <constraint firstItem="oWD-3x-3Eq" firstAttribute="top" secondItem="Cai-bk-Aq0" secondAttribute="top" constant="-10" id="j4B-A8-cN8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Em-lK-JHe"/>
+                    <connections>
+                        <outlet property="addNewDayGroupButton" destination="KF1-gb-tUO" id="GoO-vp-G5e"/>
+                        <outlet property="daysTableView" destination="BsX-B6-vJg" id="ksl-YH-cTA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k08-q2-BfW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2894.202898550725" y="839.73214285714278"/>
         </scene>
         <!--Профиль-->
         <scene sceneID="NUQ-QQ-gpD">
@@ -679,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NbQ-fm-Zcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044.9275362318842" y="1584.375"/>
+            <point key="canvasLocation" x="-2233" y="2026"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Whv-wB-vrD">
@@ -718,7 +883,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDR-ov-Oz6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134.7826086956522" y="103.79464285714285"/>
+            <point key="canvasLocation" x="-3059" y="465"/>
         </scene>
         <!--Сценарии-->
         <scene sceneID="3Ba-Nx-AF2">
@@ -756,7 +921,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m9e-H1-QP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134.7826086956522" y="1584.375"/>
+            <point key="canvasLocation" x="-3059" y="2026"/>
         </scene>
     </scenes>
     <resources>

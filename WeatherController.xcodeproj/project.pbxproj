@@ -34,6 +34,11 @@
 		74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */; };
 		74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */; };
 		74CFFE4927AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */; };
+		74CFFE4C27AA772C00B9804F /* ScenarioRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4B27AA772C00B9804F /* ScenarioRoomsView.swift */; };
+		74CFFE4E27AA773A00B9804F /* ScenarioRoomsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE4D27AA773A00B9804F /* ScenarioRoomsView.xib */; };
+		74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE5127AA7B6200B9804F /* ScenarioRoomViewCell.swift */; };
+		74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE5227AA7B6200B9804F /* ScenarioRoomViewCell.xib */; };
+		74CFFE5727ABBAEE00B9804F /* DaysScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE5627ABBAEE00B9804F /* DaysScriptViewController.swift */; };
 		74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */; };
 		74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14927747F3900C26808 /* VentilateRoom.swift */; };
 		74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14B27747FBB00C26808 /* TempretureChange.swift */; };
@@ -87,6 +92,11 @@
 		74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioNameView.swift; sourceTree = "<group>"; };
 		74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		74CFFE4B27AA772C00B9804F /* ScenarioRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioRoomsView.swift; sourceTree = "<group>"; };
+		74CFFE4D27AA773A00B9804F /* ScenarioRoomsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScenarioRoomsView.xib; sourceTree = "<group>"; };
+		74CFFE5127AA7B6200B9804F /* ScenarioRoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioRoomViewCell.swift; sourceTree = "<group>"; };
+		74CFFE5227AA7B6200B9804F /* ScenarioRoomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScenarioRoomViewCell.xib; sourceTree = "<group>"; };
+		74CFFE5627ABBAEE00B9804F /* DaysScriptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysScriptViewController.swift; sourceTree = "<group>"; };
 		74D3E144277472CA00C26808 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScriptLoad.swift; sourceTree = "<group>"; };
 		74D3E14927747F3900C26808 /* VentilateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentilateRoom.swift; sourceTree = "<group>"; };
@@ -290,6 +300,7 @@
 		74CFFE3727A9919A00B9804F /* alerts */ = {
 			isa = PBXGroup;
 			children = (
+				74CFFE4A27AA76DC00B9804F /* RoomsView */,
 				74CFFE3D27A9927200B9804F /* NameView */,
 			);
 			path = alerts;
@@ -304,9 +315,36 @@
 			path = NameView;
 			sourceTree = "<group>";
 		};
+		74CFFE4A27AA76DC00B9804F /* RoomsView */ = {
+			isa = PBXGroup;
+			children = (
+				74CFFE4B27AA772C00B9804F /* ScenarioRoomsView.swift */,
+				74CFFE4D27AA773A00B9804F /* ScenarioRoomsView.xib */,
+			);
+			path = RoomsView;
+			sourceTree = "<group>";
+		};
+		74CFFE5027AA7B1E00B9804F /* ScenarioRoomViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				74CFFE5127AA7B6200B9804F /* ScenarioRoomViewCell.swift */,
+				74CFFE5227AA7B6200B9804F /* ScenarioRoomViewCell.xib */,
+			);
+			path = ScenarioRoomViewCell;
+			sourceTree = "<group>";
+		};
+		74CFFE5527ABBAB400B9804F /* NewScriptViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				74CFFE5627ABBAEE00B9804F /* DaysScriptViewController.swift */,
+			);
+			path = NewScriptViewControllers;
+			sourceTree = "<group>";
+		};
 		74D46A212785BDF0008B8904 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				74CFFE5027AA7B1E00B9804F /* ScenarioRoomViewCell */,
 				74D46A222785BE16008B8904 /* ScriptTableViewCell.swift */,
 			);
 			path = TableViewCells;
@@ -327,6 +365,7 @@
 		74DA591D27788A5F00C5282C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				74CFFE5527ABBAB400B9804F /* NewScriptViewControllers */,
 				74DA591E27788AAF00C5282C /* RoomsViewController.swift */,
 				74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */,
 				74D46A1F2785BC67008B8904 /* ScriptsViewController.swift */,
@@ -420,9 +459,11 @@
 			files = (
 				7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */,
 				74CFFE4427A9A51300B9804F /* ScenarioNameView.xib in Resources */,
+				74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */,
 				7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */,
 				74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */,
 				7487B20827746B0700CC3BCC /* Main.storyboard in Resources */,
+				74CFFE4E27AA773A00B9804F /* ScenarioRoomsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,8 +523,10 @@
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
 				74D46A292795DEE9008B8904 /* TestViewController.swift in Sources */,
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
+				74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */,
 				7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */,
 				74CFFE3527A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift in Sources */,
+				74CFFE5727ABBAEE00B9804F /* DaysScriptViewController.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
 				7447918227848F4E007C0F53 /* WindButton.swift in Sources */,
@@ -496,6 +539,7 @@
 				7462279B277B6F8A002C0D1C /* DatchikCollectionViewCell.swift in Sources */,
 				74DA58D82777499900C5282C /* NewScript.swift in Sources */,
 				74DA591F27788AAF00C5282C /* RoomsViewController.swift in Sources */,
+				74CFFE4C27AA772C00B9804F /* ScenarioRoomsView.swift in Sources */,
 				7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */,
 				74DA5912277867DE00C5282C /* RoomGroupStructure.swift in Sources */,
 				74DA58E227774D3600C5282C /* CheckTheScenarioStatus.swift in Sources */,
@@ -667,6 +711,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4WHL72L83P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherController/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -695,6 +740,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4WHL72L83P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherController/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

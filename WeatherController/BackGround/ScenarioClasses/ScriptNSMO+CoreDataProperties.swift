@@ -17,7 +17,7 @@ extension ScriptNSMO {
     }
 
     @NSManaged public var did: String?
-    @NSManaged public var discription: String?
+    @NSManaged public var scriptDescription: String?
     @NSManaged public var name: String?
     @NSManaged public var roomGroop0: RoomGroup?
 

@@ -18,8 +18,8 @@
     </entity>
     <entity name="ScriptNSMO" representedClassName="ScriptNSMO" syncable="YES">
         <attribute name="did" optional="YES" attributeType="String"/>
-        <attribute name="discription" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="scriptDescription" optional="YES" attributeType="String"/>
         <relationship name="roomGroop0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RoomGroup"/>
     </entity>
     <entity name="Setting" representedClassName="Setting" syncable="YES">

@@ -10,10 +10,6 @@ import UIKit
 
 class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
-    let kitchen = RoomStructure(roomName: "Kitchen", roomTemperature: "24", roomWet: "75", roomCO2: "456")
-    let livingRoom = RoomStructure(roomName: "Living room", roomTemperature: "24", roomWet: "60", roomCO2: "345")
-    let kitchen1 = RoomStructure(roomName: "Kitchen", roomTemperature: "24", roomWet: "75", roomCO2: "456")
-    let livingRoom1 = RoomStructure(roomName: "Living efwefun qpwfrufn room", roomTemperature: "24", roomWet: "60", roomCO2: "345")
     var rooms: [CurrentRoomClass] = []
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var safeArea: UILayoutGuide!
