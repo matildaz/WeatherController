@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
+		741C2AC427B26C880080F9DE /* ScenarioCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 741C2AC227B26C880080F9DE /* ScenarioCoreData.xcdatamodeld */; };
 		7447918227848F4E007C0F53 /* WindButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447918127848F4E007C0F53 /* WindButton.swift */; };
 		7450A73827771D4900EA1A47 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A73727771D4900EA1A47 /* Enums.swift */; };
 		7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A7512777235900EA1A47 /* DatchikConfiguration.swift */; };
@@ -22,12 +23,6 @@
 		7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */; };
 		7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20C27746B0D00CC3BCC /* Assets.xcassets */; };
 		7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20E27746B0D00CC3BCC /* LaunchScreen.storyboard */; };
-		74CFFE2C27A9911A00B9804F /* DayGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2827A9911A00B9804F /* DayGroup+CoreDataProperties.swift */; };
-		74CFFE2D27A9911A00B9804F /* RoomGroup+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2927A9911A00B9804F /* RoomGroup+CoreDataProperties.swift */; };
-		74CFFE2E27A9911A00B9804F /* Setting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2B27A9911A00B9804F /* Setting+CoreDataClass.swift */; };
-		74CFFE2F27A9911A00B9804F /* Setting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2A27A9911A00B9804F /* Setting+CoreDataProperties.swift */; };
-		74CFFE3027A9911A00B9804F /* RoomGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2627A9911900B9804F /* RoomGroup+CoreDataClass.swift */; };
-		74CFFE3127A9911A00B9804F /* DayGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */; };
 		74CFFE4427A9A51300B9804F /* ScenarioNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */; };
 		74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */; };
 		74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */; };
@@ -62,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741C2AC327B26C880080F9DE /* ScenarioCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScenarioCoreData.xcdatamodel; sourceTree = "<group>"; };
 		7447918127848F4E007C0F53 /* WindButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindButton.swift; sourceTree = "<group>"; };
 		7450A73727771D4900EA1A47 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7450A7512777235900EA1A47 /* DatchikConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikConfiguration.swift; sourceTree = "<group>"; };
@@ -78,12 +74,6 @@
 		7487B20C27746B0D00CC3BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7487B20F27746B0D00CC3BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7487B21127746B0D00CC3BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74CFFE2627A9911900B9804F /* RoomGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
-		74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayGroup+CoreDataClass.swift"; sourceTree = "<group>"; };
-		74CFFE2827A9911A00B9804F /* DayGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		74CFFE2927A9911A00B9804F /* RoomGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		74CFFE2A27A9911A00B9804F /* Setting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		74CFFE2B27A9911A00B9804F /* Setting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScenarioNameView.xib; sourceTree = "<group>"; };
 		74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioNameView.swift; sourceTree = "<group>"; };
 		74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -220,6 +210,7 @@
 				7487B20E27746B0D00CC3BCC /* LaunchScreen.storyboard */,
 				7487B21127746B0D00CC3BCC /* Info.plist */,
 				7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */,
+				741C2AC227B26C880080F9DE /* ScenarioCoreData.xcdatamodeld */,
 				74D3E144277472CA00C26808 /* Config.xcconfig */,
 			);
 			path = WeatherController;
@@ -242,7 +233,6 @@
 		7487B21827746B6E00CC3BCC /* BackGround */ = {
 			isa = PBXGroup;
 			children = (
-				74CFFE3227A9912100B9804F /* ScenarioClasses */,
 				746227712779C3EB002C0D1C /* RoomIndicatorsStructures */,
 				74DA590C2778669C00C5282C /* ScenarioStructures */,
 				7487B21927746B7B00CC3BCC /* DataProcessing */,
@@ -276,19 +266,6 @@
 				74D3E14F2774933A00C26808 /* RoomsConfigurationStructure.swift */,
 			);
 			path = DataUnwrapping;
-			sourceTree = "<group>";
-		};
-		74CFFE3227A9912100B9804F /* ScenarioClasses */ = {
-			isa = PBXGroup;
-			children = (
-				74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */,
-				74CFFE2827A9911A00B9804F /* DayGroup+CoreDataProperties.swift */,
-				74CFFE2627A9911900B9804F /* RoomGroup+CoreDataClass.swift */,
-				74CFFE2927A9911A00B9804F /* RoomGroup+CoreDataProperties.swift */,
-				74CFFE2B27A9911A00B9804F /* Setting+CoreDataClass.swift */,
-				74CFFE2A27A9911A00B9804F /* Setting+CoreDataProperties.swift */,
-			);
-			path = ScenarioClasses;
 			sourceTree = "<group>";
 		};
 		74CFFE3727A9919A00B9804F /* alerts */ = {
@@ -510,7 +487,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74CFFE3127A9911A00B9804F /* DayGroup+CoreDataClass.swift in Sources */,
 				74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */,
 				74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */,
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
@@ -523,7 +499,6 @@
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
 				7447918227848F4E007C0F53 /* WindButton.swift in Sources */,
 				74D46A202785BC67008B8904 /* ScriptsViewController.swift in Sources */,
-				74CFFE2C27A9911A00B9804F /* DayGroup+CoreDataProperties.swift in Sources */,
 				74DA590E277866D400C5282C /* SettingStructure.swift in Sources */,
 				74DA59102778674400C5282C /* DayGroupStructure.swift in Sources */,
 				74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */,
@@ -536,22 +511,19 @@
 				74DA5912277867DE00C5282C /* RoomGroupStructure.swift in Sources */,
 				74DA58E227774D3600C5282C /* CheckTheScenarioStatus.swift in Sources */,
 				74DA58DC27774B0400C5282C /* UpdateTheScript.swift in Sources */,
-				74CFFE3027A9911A00B9804F /* RoomGroup+CoreDataClass.swift in Sources */,
 				7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */,
 				74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */,
 				74D46A232785BE16008B8904 /* ScriptTableViewCell.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,
-				74CFFE2D27A9911A00B9804F /* RoomGroup+CoreDataProperties.swift in Sources */,
 				74CFFE4927AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift in Sources */,
-				74CFFE2F27A9911A00B9804F /* Setting+CoreDataProperties.swift in Sources */,
 				746227732779C418002C0D1C /* RoomStructure.swift in Sources */,
 				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,
-				74CFFE2E27A9911A00B9804F /* Setting+CoreDataClass.swift in Sources */,
 				7450A73827771D4900EA1A47 /* Enums.swift in Sources */,
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
 				74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */,
+				741C2AC427B26C880080F9DE /* ScenarioCoreData.xcdatamodeld in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
 				74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */,
 			);
@@ -703,7 +675,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4WHL72L83P;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherController/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -732,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4WHL72L83P;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherController/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -777,6 +749,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		741C2AC227B26C880080F9DE /* ScenarioCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				741C2AC327B26C880080F9DE /* ScenarioCoreData.xcdatamodel */,
+			);
+			currentVersion = 741C2AC327B26C880080F9DE /* ScenarioCoreData.xcdatamodel */;
+			path = ScenarioCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

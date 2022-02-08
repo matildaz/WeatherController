@@ -15,9 +15,9 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var ScriptView: UIView!
     
-    var scriptsDict: [ScriptNSMO] = []
+//    var scriptsDict: [ScenarioClass] = []
     var firstTime = true
-    var newScript: ScriptNSMO?
+//    var newScript: ScenarioClass?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //MARK: Variables for add view
@@ -35,15 +35,15 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewScriptRoomSelector" {
-            let destinationVC = segue.destination as! DaysScriptViewController
-            destinationVC.newScript = self.newScript
-        }
+//        if segue.identifier == "NewScriptRoomSelector" {
+//            let destinationVC = segue.destination as! DaysScriptViewController
+//            destinationVC.newScript = self.newScript
+//        }
     }
     
     func fetchNewScript() {
         do {
-            self.scriptsDict = try context.fetch(ScriptNSMO.fetchRequest())
+            self.scriptsDict = try context.fetch(ScenarioClass.fetchRequest())
             DispatchQueue.main.async {
                 self.scriptTableView.reloadData()
             }
@@ -66,8 +66,8 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if addTextField.text == "" {
             return
         } else {
-            newScript = ScriptNSMO()
-            newScript!.name = "addTextField.text"
+//            newScript = ScenarioClass()
+//            newScript?.name = "Name"
 //            newScript!.scriptDescription = "Add discription"
 //            newScript!.did = "10155"
             //newScript.roomGroop0 = nil
@@ -86,7 +86,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if let scriptCell = tableView.dequeueReusableCell(withIdentifier: "ScriptTableViewCell", for: indexPath) as? ScriptTableViewCell {
-            scriptCell.configure(scriptName: scriptsDict[indexPath.row].name!, scriptDescription: scriptsDict[indexPath.row].scriptDescription!)
+//            scriptCell.configure(scriptName: scriptsDict[indexPath.row].name!, scriptDescription: scriptsDict[indexPath.row].scenarioDescription!)
             scriptCell.imageView?.image = UIImage(named: "peopleDark")
         }
         cell.layer.cornerRadius = 10

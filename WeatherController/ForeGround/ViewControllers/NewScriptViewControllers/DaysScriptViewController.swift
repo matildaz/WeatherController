@@ -12,7 +12,7 @@ class DaysScriptViewController: UIViewController {
     @IBOutlet weak var daysTableView: UITableView!
     @IBOutlet weak var addNewDayGroupButton: UIButton!
     
-    var newScript: ScriptNSMO?
+    var newScript: ScenarioClass?
     
     override func viewDidLoad() {
         super.viewDidLoad()
