@@ -66,8 +66,8 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if addTextField.text == "" {
             return
         } else {
-//            newScript = ScriptNSMO()
-//            newScript!.name = "addTextField.text"
+            newScript = ScriptNSMO()
+            newScript!.name = "addTextField.text"
 //            newScript!.scriptDescription = "Add discription"
 //            newScript!.did = "10155"
             //newScript.roomGroop0 = nil

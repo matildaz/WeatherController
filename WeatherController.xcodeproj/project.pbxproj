@@ -28,8 +28,6 @@
 		74CFFE2F27A9911A00B9804F /* Setting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2A27A9911A00B9804F /* Setting+CoreDataProperties.swift */; };
 		74CFFE3027A9911A00B9804F /* RoomGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2627A9911900B9804F /* RoomGroup+CoreDataClass.swift */; };
 		74CFFE3127A9911A00B9804F /* DayGroup+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */; };
-		74CFFE3527A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE3327A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift */; };
-		74CFFE3627A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */; };
 		74CFFE4427A9A51300B9804F /* ScenarioNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */; };
 		74CFFE4527A9A51300B9804F /* ScenarioNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */; };
 		74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */; };
@@ -86,8 +84,6 @@
 		74CFFE2927A9911A00B9804F /* RoomGroup+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomGroup+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74CFFE2A27A9911A00B9804F /* Setting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74CFFE2B27A9911A00B9804F /* Setting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setting+CoreDataClass.swift"; sourceTree = "<group>"; };
-		74CFFE3327A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScriptNSMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScriptNSMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74CFFE4227A9A51300B9804F /* ScenarioNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScenarioNameView.xib; sourceTree = "<group>"; };
 		74CFFE4327A9A51300B9804F /* ScenarioNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioNameView.swift; sourceTree = "<group>"; };
 		74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -285,8 +281,6 @@
 		74CFFE3227A9912100B9804F /* ScenarioClasses */ = {
 			isa = PBXGroup;
 			children = (
-				74CFFE3327A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift */,
-				74CFFE3427A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift */,
 				74CFFE2727A9911A00B9804F /* DayGroup+CoreDataClass.swift */,
 				74CFFE2827A9911A00B9804F /* DayGroup+CoreDataProperties.swift */,
 				74CFFE2627A9911900B9804F /* RoomGroup+CoreDataClass.swift */,
@@ -517,7 +511,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				74CFFE3127A9911A00B9804F /* DayGroup+CoreDataClass.swift in Sources */,
-				74CFFE3627A9915A00B9804F /* ScriptNSMO+CoreDataProperties.swift in Sources */,
 				74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */,
 				74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */,
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
@@ -525,7 +518,6 @@
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
 				74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */,
 				7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */,
-				74CFFE3527A9915A00B9804F /* ScriptNSMO+CoreDataClass.swift in Sources */,
 				74CFFE5727ABBAEE00B9804F /* DaysScriptViewController.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
