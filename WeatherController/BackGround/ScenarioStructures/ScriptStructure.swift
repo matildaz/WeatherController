@@ -9,8 +9,9 @@ import Foundation
 
 struct ScriptSctructure : Codable {
     
-    var did: Int
-    var name: String?
+    var did: String?
+    var scriptName: String?
+    var scriptDescription: String?
     var roomGroop0: [RoomGroupStructure]?
     
 }

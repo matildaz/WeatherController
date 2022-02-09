@@ -15,9 +15,9 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var ScriptView: UIView!
     
-//    var scriptsDict: [ScenarioClass] = []
+    var scriptsDict: [ScriptSctructure] = []
     var firstTime = true
-//    var newScript: ScenarioClass?
+    var newScript: ScriptSctructure?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //MARK: Variables for add view
@@ -31,25 +31,27 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         scriptTableView.delegate = self
         scriptTableView.dataSource = self
-        fetchNewScript()
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+//        fetchNewScript()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "NewScriptRoomSelector" {
-//            let destinationVC = segue.destination as! DaysScriptViewController
-//            destinationVC.newScript = self.newScript
-//        }
+        if segue.identifier == "NewScriptRoomSelector" {
+            let destinationVC = segue.destination as! DaysScriptViewController
+            destinationVC.newScript = self.newScript
+        }
     }
     
     func fetchNewScript() {
-        do {
-            self.scriptsDict = try context.fetch(ScenarioClass.fetchRequest())
-            DispatchQueue.main.async {
-                self.scriptTableView.reloadData()
-            }
-        } catch {
-            print("error")
-        }
+//        do {
+//            self.scriptsDict = try context.fetch(ScenarioClass.fetchRequest())
+//            DispatchQueue.main.async {
+//                self.scriptTableView.reloadData()
+//            }
+//        } catch {
+//            print("error")
+//        }
     }
     
     //MARK: - Buttons
@@ -66,11 +68,8 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if addTextField.text == "" {
             return
         } else {
-//            newScript = ScenarioClass()
-//            newScript?.name = "Name"
-//            newScript!.scriptDescription = "Add discription"
-//            newScript!.did = "10155"
-            //newScript.roomGroop0 = nil
+            newScript = ScriptSctructure(did: "10155", scriptName: addTextField.text, scriptDescription: "New Description", roomGroop0: nil)
+            scriptsDict.append(newScript)
             // TODO: add automatic did
             fetchNewScript()
             backViewIsDisabled()
@@ -86,11 +85,16 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if let scriptCell = tableView.dequeueReusableCell(withIdentifier: "ScriptTableViewCell", for: indexPath) as? ScriptTableViewCell {
-//            scriptCell.configure(scriptName: scriptsDict[indexPath.row].name!, scriptDescription: scriptsDict[indexPath.row].scenarioDescription!)
+            scriptCell.configure(scriptName: scriptsDict[indexPath.row].scriptName!, scriptDescription: scriptsDict[indexPath.row].scriptDescription!)
             scriptCell.imageView?.image = UIImage(named: "peopleDark")
         }
         cell.layer.cornerRadius = 10
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = self.view.frame.height/10
+        return height
     }
 }
 
