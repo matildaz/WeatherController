@@ -28,7 +28,7 @@
 		74CFFE4E27AA773A00B9804F /* ScenarioRoomsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE4D27AA773A00B9804F /* ScenarioRoomsView.xib */; };
 		74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE5127AA7B6200B9804F /* ScenarioRoomViewCell.swift */; };
 		74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74CFFE5227AA7B6200B9804F /* ScenarioRoomViewCell.xib */; };
-		74CFFE5727ABBAEE00B9804F /* DaysScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE5627ABBAEE00B9804F /* DaysScriptViewController.swift */; };
+		74CFFE5727ABBAEE00B9804F /* RoomsScriptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE5627ABBAEE00B9804F /* RoomsScriptViewController.swift */; };
 		74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */; };
 		74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14927747F3900C26808 /* VentilateRoom.swift */; };
 		74D3E14C27747FBB00C26808 /* TempretureChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3E14B27747FBB00C26808 /* TempretureChange.swift */; };
@@ -51,6 +51,7 @@
 		74DA591F27788AAF00C5282C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA591E27788AAF00C5282C /* RoomsViewController.swift */; };
 		74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592427788B7700C5282C /* CollectionViewCell.swift */; };
 		74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DA592527788B7700C5282C /* CollectionViewCell.xib */; };
+		74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +78,7 @@
 		74CFFE4D27AA773A00B9804F /* ScenarioRoomsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScenarioRoomsView.xib; sourceTree = "<group>"; };
 		74CFFE5127AA7B6200B9804F /* ScenarioRoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioRoomViewCell.swift; sourceTree = "<group>"; };
 		74CFFE5227AA7B6200B9804F /* ScenarioRoomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScenarioRoomViewCell.xib; sourceTree = "<group>"; };
-		74CFFE5627ABBAEE00B9804F /* DaysScriptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysScriptViewController.swift; sourceTree = "<group>"; };
+		74CFFE5627ABBAEE00B9804F /* RoomsScriptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsScriptViewController.swift; sourceTree = "<group>"; };
 		74D3E144277472CA00C26808 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		74D3E14527747A7300C26808 /* NetworkScriptLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScriptLoad.swift; sourceTree = "<group>"; };
 		74D3E14927747F3900C26808 /* VentilateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentilateRoom.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		74DA591E27788AAF00C5282C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		74DA592427788B7700C5282C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		74DA592527788B7700C5282C /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRoomGroupCell.swift; sourceTree = "<group>"; };
 		8CDB3A447D8B915C670453B0 /* Pods-WeatherController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.debug.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -281,7 +283,7 @@
 		74CFFE5527ABBAB400B9804F /* NewScriptViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				74CFFE5627ABBAEE00B9804F /* DaysScriptViewController.swift */,
+				74CFFE5627ABBAEE00B9804F /* RoomsScriptViewController.swift */,
 			);
 			path = NewScriptViewControllers;
 			sourceTree = "<group>";
@@ -289,6 +291,7 @@
 		74D46A212785BDF0008B8904 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				74DE922227B3B758005F2E1D /* ScriptRoomGroupCell */,
 				74CFFE5027AA7B1E00B9804F /* ScenarioRoomViewCell */,
 				74D46A222785BE16008B8904 /* ScriptTableViewCell.swift */,
 			);
@@ -337,6 +340,14 @@
 				7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		74DE922227B3B758005F2E1D /* ScriptRoomGroupCell */ = {
+			isa = PBXGroup;
+			children = (
+				74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */,
+			);
+			path = ScriptRoomGroupCell;
 			sourceTree = "<group>";
 		};
 		B1051A325DD284D17BE0D37B /* Pods */ = {
@@ -476,7 +487,7 @@
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
 				74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */,
 				7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */,
-				74CFFE5727ABBAEE00B9804F /* DaysScriptViewController.swift in Sources */,
+				74CFFE5727ABBAEE00B9804F /* RoomsScriptViewController.swift in Sources */,
 				7487B20527746B0700CC3BCC /* ViewController.swift in Sources */,
 				74D3E14627747A7300C26808 /* NetworkScriptLoad.swift in Sources */,
 				7447918227848F4E007C0F53 /* WindButton.swift in Sources */,
@@ -504,6 +515,7 @@
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
+				74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
 				74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */,
 			);

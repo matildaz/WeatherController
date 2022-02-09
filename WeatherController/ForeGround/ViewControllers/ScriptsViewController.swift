@@ -34,11 +34,16 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "name", scriptDescription: "New Description", roomGroop0: nil))
         scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
 //        fetchNewScript()
+        setView()
+    }
+    
+    func setView() {
+        view.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewScriptRoomSelector" {
-            let destinationVC = segue.destination as! DaysScriptViewController
+            let destinationVC = segue.destination as! RoomsScriptViewController
             destinationVC.newScript = self.newScript
         }
     }
@@ -69,7 +74,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         } else {
             newScript = ScriptSctructure(did: "10155", scriptName: addTextField.text, scriptDescription: "New Description", roomGroop0: nil)
-            scriptsDict.append(newScript)
+            scriptsDict.append(newScript!)
             // TODO: add automatic did
             fetchNewScript()
             backViewIsDisabled()
