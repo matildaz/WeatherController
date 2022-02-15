@@ -47,6 +47,12 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
         roomSelectTableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RoomGroupSegue" {
+            // do smth
+        }
+    }
+    
     func setView() {
         // tabBar
         self.tabBarController?.navigationItem.hidesBackButton = true
@@ -114,6 +120,11 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             return 30
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // do smth, save roomGroup
+        performSegue(withIdentifier: "RoomGroupSegue", sender: self)
     }
 }
 

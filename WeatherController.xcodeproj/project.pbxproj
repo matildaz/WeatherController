@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
+		742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */; };
+		742DD12427BBAB4F00F609C4 /* ScriptDayGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */; };
+		742DD12527BBAB4F00F609C4 /* ScriptDayGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD12327BBAB4F00F609C4 /* ScriptDayGroupCell.xib */; };
 		7447918227848F4E007C0F53 /* WindButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447918127848F4E007C0F53 /* WindButton.swift */; };
 		7450A73827771D4900EA1A47 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A73727771D4900EA1A47 /* Enums.swift */; };
 		7450A7522777235900EA1A47 /* DatchikConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7450A7512777235900EA1A47 /* DatchikConfiguration.swift */; };
@@ -56,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		492E8A0AEAC2E3DC8AB269ED /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
+		742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
+		742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDayGroupCell.swift; sourceTree = "<group>"; };
+		742DD12327BBAB4F00F609C4 /* ScriptDayGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScriptDayGroupCell.xib; sourceTree = "<group>"; };
 		7447918127848F4E007C0F53 /* WindButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindButton.swift; sourceTree = "<group>"; };
 		7450A73727771D4900EA1A47 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		7450A7512777235900EA1A47 /* DatchikConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikConfiguration.swift; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 				74DA58E127774D3600C5282C /* CheckTheScenarioStatus.swift */,
 			);
 			path = DataSending;
+			sourceTree = "<group>";
+		};
+		742DD12127BBAB0000F609C4 /* ScriptDayGroupCell */ = {
+			isa = PBXGroup;
+			children = (
+				742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */,
+				742DD12327BBAB4F00F609C4 /* ScriptDayGroupCell.xib */,
+			);
+			path = ScriptDayGroupCell;
 			sourceTree = "<group>";
 		};
 		7447918027848F2C007C0F53 /* Buttons */ = {
@@ -284,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				74CFFE5627ABBAEE00B9804F /* RoomsScriptViewController.swift */,
+				742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */,
 			);
 			path = NewScriptViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +307,7 @@
 		74D46A212785BDF0008B8904 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				742DD12127BBAB0000F609C4 /* ScriptDayGroupCell */,
 				74DE922227B3B758005F2E1D /* ScriptRoomGroupCell */,
 				74CFFE5027AA7B1E00B9804F /* ScenarioRoomViewCell */,
 				74D46A222785BE16008B8904 /* ScriptTableViewCell.swift */,
@@ -426,6 +443,7 @@
 				74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */,
 				7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */,
 				74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */,
+				742DD12527BBAB4F00F609C4 /* ScriptDayGroupCell.xib in Resources */,
 				7487B20827746B0700CC3BCC /* Main.storyboard in Resources */,
 				74CFFE4E27AA773A00B9804F /* ScenarioRoomsView.xib in Resources */,
 			);
@@ -483,6 +501,7 @@
 				74D3E14E2774829200C26808 /* RoomsConfiguration.swift in Sources */,
 				74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */,
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
+				742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */,
 				74D46A292795DEE9008B8904 /* TestViewController.swift in Sources */,
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
 				74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */,
@@ -514,6 +533,7 @@
 				7450A73827771D4900EA1A47 /* Enums.swift in Sources */,
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
+				742DD12427BBAB4F00F609C4 /* ScriptDayGroupCell.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
 				74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
