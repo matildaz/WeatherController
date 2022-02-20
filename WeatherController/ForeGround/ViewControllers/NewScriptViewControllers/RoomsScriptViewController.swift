@@ -36,6 +36,7 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
         roomSelectTableView.dataSource = self
         setView()
         testAppend()
+        roomsTableView.reloadData()
     }
     
     func testAppend() {

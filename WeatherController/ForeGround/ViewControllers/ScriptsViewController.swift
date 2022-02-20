@@ -74,6 +74,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         } else {
             newScript = ScriptSctructure(did: "10155", scriptName: addTextField.text, scriptDescription: "New Description", roomGroop0: nil)
+            addTextField.text = ""
             scriptsDict.append(newScript!)
             // TODO: add automatic did
             fetchNewScript()

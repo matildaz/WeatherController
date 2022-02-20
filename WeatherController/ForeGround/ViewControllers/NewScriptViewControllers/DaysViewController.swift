@@ -10,7 +10,7 @@ import UIKit
 class DaysViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // outlets for main view
-    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
+    //@IBOutlet weak var stackViewHeight: NSLayoutConstraint!
     @IBOutlet weak var dayGroupTableView: UITableView!
     @IBOutlet weak var submitExitButton: UIButton!
     @IBOutlet weak var addNewDayGroupButton: UIButton!
@@ -25,7 +25,7 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         dayGroupTableView.dataSource = self
         setView()
         testAdd()
-        calculateTheConstrain()
+        //calculateTheConstrain()
         dayGroupTableView.reloadData()
     }
     
@@ -59,13 +59,13 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension DaysViewController {
     
-    func calculateTheConstrain() {
-        var count = dayGroupDict.count * 40
-        count += Int(submitExitButton.frame.height)
-        count += Int(addNewDayGroupButton.frame.height)
-        count += 2 // spacing between items in stack
-        stackViewHeight.constant = CGFloat(count)
-    }
+//    func calculateTheConstrain() {
+//        var count = dayGroupDict.count * 40
+//        count += Int(submitExitButton.frame.height)
+//        count += Int(addNewDayGroupButton.frame.height)
+//        count += 2 // spacing between items in stack
+//        stackViewHeight.constant = CGFloat(count)
+//    }
     
     func setView() {
         // tabBar
@@ -83,7 +83,7 @@ extension DaysViewController {
         
         addNewDayGroupButton.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         addNewDayGroupButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
-        addNewDayGroupButton.layer.cornerRadius = (addNewDayGroupButton?.frame.height)!/2
+        addNewDayGroupButton.layer.cornerRadius = 16
     }
     
     func testAdd() {
