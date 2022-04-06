@@ -78,20 +78,20 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         ventilationButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         ventilationButton.layer.cornerRadius = buttonWidth/2
         ventilationButton.titleLabel?.textAlignment = .center
-        ventilationButton.titleLabel?.textColor = .white
+        ventilationButton.tintColor = .white
         
         // Plus Temp button
         plusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
         plusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         plusTempButton.layer.cornerRadius = plusMinusWidth/2
         plusTempButton.titleLabel?.text = "+"
-        plusTempButton.titleLabel?.textColor = .white
+        plusTempButton.tintColor = .white
         // Minus Temp button
         minusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
         minusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         minusTempButton.layer.cornerRadius = plusMinusWidth/2
         minusTempButton.titleLabel?.text = "-"
-        minusTempButton.titleLabel?.textColor = .white
+        minusTempButton.tintColor = .white
         // StackView
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal

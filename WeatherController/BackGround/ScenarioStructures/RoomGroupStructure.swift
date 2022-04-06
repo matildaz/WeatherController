@@ -10,7 +10,7 @@ import Foundation
 struct RoomGroupStructure : Codable {
     
     var rIDs: [Int]?
-    var dayGroup0: [DayGroupStructure]?
-    var dayGroup1: [DayGroupStructure]?
+    var dayGroup0: DayGroupStructure?
+    var dayGroup1: DayGroupStructure?
     
 }

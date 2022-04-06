@@ -12,6 +12,6 @@ struct ScriptupdateSctructure : Codable {
     var did: Int
     var sc_id: Int
     var name: String?
-    var roomGroop0: [RoomGroupStructure]?
+    var roomGroop0: RoomGroupStructure?
     
 }

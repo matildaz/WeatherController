@@ -10,7 +10,7 @@ import Foundation
 struct DayGroupStructure : Codable {
     
     var days: [Int]?
-    var setting0: [SettingStructure]?
-    var setting1: [SettingStructure]?
+    var setting0: SettingStructure?
+    var setting1: SettingStructure?
     
 }

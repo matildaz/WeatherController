@@ -145,14 +145,14 @@ extension ScriptsViewController {
      */
     func buttonSet() {
         // Cancel button
-        cancelButton.titleLabel?.textColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
+        cancelButton.tintColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
         cancelButton.backgroundColor = UIColor.white
         cancelButton.layer.borderColor = UIColor.black.cgColor
         cancelButton.layer.borderWidth = 2
         cancelButton.layer.cornerRadius = (cancelButton?.frame.height)!/2
         
         // Submit button
-        submitButton.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         submitButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         submitButton.layer.cornerRadius = (submitButton?.frame.height)!/2
         submitButton.layer.borderColor = UIColor.black.cgColor

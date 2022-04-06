@@ -37,20 +37,22 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
         setView()
         testAppend()
         roomsTableView.reloadData()
+        print(newScript!.scriptName!)
     }
     
     func testAppend() {
         roomGroupsDict.append(RoomGroupStructure(rIDs: [1,2,3,4,5,12], dayGroup0: nil, dayGroup1: nil))
         roomGroupsDict.append(RoomGroupStructure(rIDs: [1,4,7,3,2], dayGroup0: nil, dayGroup1: nil))
         roomsTableView.reloadData()
-        let elements = ["1","2","3","4","5","6"]
+        let elements = ["1","2","3","4","5","6","12"]
         roomDict += elements
         roomSelectTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "RoomGroupSegue" {
-            // do smth
+            let targetVC = segue.destination as! DaysViewController
+            targetVC.newScript = self.newScript
         }
     }
     
@@ -66,9 +68,9 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
     
     func mainButtonSet() {
         // Buttons
-        submitExitButton.titleLabel?.textColor = .gray
+        submitExitButton.tintColor = .gray
         
-        addNewRoomGroupButton.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        addNewRoomGroupButton.tintColor = .white
         addNewRoomGroupButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         addNewRoomGroupButton.layer.cornerRadius = (submitButton?.frame.height)!/2
     }
@@ -78,15 +80,16 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
-        var roomGroupStruct = RoomGroupStructure(rIDs: [], dayGroup0: nil, dayGroup1: nil)
+        var arrayOfRooms: [Int] = []
         for row in 0...self.roomDict.count-1 {
             let cell = roomSelectTableView.cellForRow(at: IndexPath(row: row, section: 0)) as! ScenarioRoomViewCell
             if cell.toggle {
-                roomGroupStruct.rIDs?.append(row+1)
+                arrayOfRooms.append(Int(roomDict[row])!)
+                cell.tikButton.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+                cell.toggle.toggle()
             }
         }
-        roomGroupsDict.append(roomGroupStruct)
-        roomGroupStruct.rIDs = []
+        roomGroupsDict.append(RoomGroupStructure(rIDs: arrayOfRooms, dayGroup0: nil, dayGroup1: nil))
         roomsTableView.reloadData()
         backViewIsDisabled()
     }
@@ -177,7 +180,7 @@ extension RoomsScriptViewController {
     
     func buttonSet() {
         // Submit button
-        submitButton.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        submitButton.tintColor = .white
         submitButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         submitButton.layer.cornerRadius = (submitButton?.frame.height)!/2
         submitButton.layer.borderColor = UIColor.black.cgColor

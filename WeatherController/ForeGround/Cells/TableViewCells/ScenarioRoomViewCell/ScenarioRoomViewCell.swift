@@ -31,11 +31,9 @@ class ScenarioRoomViewCell: UITableViewCell {
     @IBAction func tikButtonPressed(_ sender: UIButton) {
         toggle.toggle()
         if toggle == true {
-            self.tikButton.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
-            tikButton.imageView?.image = UIImage(named: "Vectortick")
+            self.tikButton.layer.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor
         } else {
-            self.tikButton.backgroundColor = .white
-            tikButton.imageView?.image = .none
+            self.tikButton.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         }
         
     }

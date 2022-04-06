@@ -26,6 +26,7 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     // vars for main view
     var dayGroupDict: [DayGroupStructure] = []
     var newDayGroupArray: [String] = []
+    var newScript: ScriptSctructure?
     
     
     override func viewDidLoad() {
@@ -33,7 +34,6 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         dayGroupTableView.delegate = self
         dayGroupTableView.dataSource = self
         setView()
-        testAdd()
         //calculateTheConstrain()
         dayGroupTableView.reloadData()
     }
@@ -54,26 +54,66 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func submitNewDaysGroupButtonPressed(_ sender: UIButton) {
-        
+        var dayGroup0 = DayGroupStructure(days: [], setting0: nil, setting1: nil)
+        var dayGroup1 = DayGroupStructure(days: [], setting0: nil, setting1: nil)
+        for button in dayButtonCollection {
+            var day: Int = 0
+            switch button.titleLabel?.text {
+            case "Пн":
+                day = 1
+            case "Вт":
+                day = 2
+            case "Ср":
+                day = 3
+            case "Чт":
+                day = 4
+            case "Пт":
+                day = 5
+            case "Сб":
+                day = 6
+            case "Вс":
+                day = 7
+            default:
+                day = 0
+            }
+            if button.layer.backgroundColor == UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor {
+                dayGroup0.days?.append(day)
+                button.layer.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor
+            } else {
+                dayGroup1.days?.append(day)
+            }
+        }
+        dayGroupDict.append(dayGroup0)
+        dayGroupTableView.reloadData()
         UIView.animate(withDuration: 0.5, delay: 0, animations: {
             self.addViewWillDisappiar()
         })
     }
     
     @IBAction func dayButtonPressed(_ sender: UIButton) {
-        if (sender.backgroundColor == .systemTeal) {
+        if (sender.layer.backgroundColor == UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor) {
             DispatchQueue.main.async {
-                sender.backgroundColor = .lightGray
+                sender.layer.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1).cgColor
+                sender.tintColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
             }
         } else {
             DispatchQueue.main.async {
-                sender.backgroundColor = .systemTeal
+                sender.layer.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor
+                sender.tintColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
             }
         }
     }
     
+    //--- table view ---//
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dayGroupDict.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        newScript?.roomGroop0?.dayGroup0 = dayGroupDict[indexPath.row]
+        print(newScript)
+        //self.navigationController?.popToRootViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,9 +145,9 @@ extension DaysViewController {
     
     func mainButtonSet() {
         // Buttons
-        submitExitButton.titleLabel?.textColor = .gray
+        submitExitButton.tintColor = .gray
         
-        addNewDayGroupButton.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        addNewDayGroupButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         addNewDayGroupButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         addNewDayGroupButton.layer.cornerRadius = 16
     }
@@ -116,22 +156,14 @@ extension DaysViewController {
         // layer of days buttons
         for button in self.dayButtonCollection {
             button.layer.cornerRadius = button.frame.height/2
-            button.backgroundColor = .systemTeal
-            button.titleLabel?.textColor = .white
+            button.layer.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1).cgColor
+            button.tintColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
         }
-        submitButton.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         submitButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         submitButton.layer.cornerRadius = (submitButton?.frame.height)!/2
         submitButton.layer.borderColor = UIColor.black.cgColor
         submitButton.layer.borderWidth = 2
-    }
-    
-    func testAdd() {
-        for _ in 0...10 {
-            let randNumber = Int.random(in: 1...6)
-            let newDayGroup = DayGroupStructure(days: [randNumber,randNumber+1], setting0: nil, setting1: nil)
-            dayGroupDict.append(newDayGroup)
-        }
     }
     
     func addViewWillAppear() {
