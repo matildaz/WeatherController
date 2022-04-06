@@ -12,6 +12,6 @@ struct ScriptSctructure : Codable {
     var did: String?
     var scriptName: String?
     var scriptDescription: String?
-    var roomGroop0: [RoomGroupStructure]?
+    var roomGroop0: RoomGroupStructure?
     
 }

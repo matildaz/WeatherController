@@ -44,6 +44,10 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewScriptRoomSelector" {
             let destinationVC = segue.destination as! RoomsScriptViewController
+            newScript?.scriptName = addTextField.text
+            newScript?.did = "10155"
+            newScript?.scriptDescription = ""
+            newScript?.roomGroop0 = nil
             destinationVC.newScript = self.newScript
         }
     }

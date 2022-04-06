@@ -78,6 +78,16 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton) {
+        var roomGroupStruct = RoomGroupStructure(rIDs: [], dayGroup0: nil, dayGroup1: nil)
+        for row in 0...self.roomDict.count-1 {
+            let cell = roomSelectTableView.cellForRow(at: IndexPath(row: row, section: 0)) as! ScenarioRoomViewCell
+            if cell.toggle {
+                roomGroupStruct.rIDs?.append(row+1)
+            }
+        }
+        roomGroupsDict.append(roomGroupStruct)
+        roomGroupStruct.rIDs = []
+        roomsTableView.reloadData()
         backViewIsDisabled()
     }
     
@@ -100,6 +110,7 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
         var cell = UITableViewCell()
         if tableView == roomsTableView {
             if let roomGroupCell = tableView.dequeueReusableCell(withIdentifier: "ScriptRoomGroupCell") as? ScriptRoomGroupCell {
+                roomGroupCell.roomLable.text = ""
                 roomGroupCell.addRoom(room: roomGroupsDict[indexPath.row])
                 roomGroupCell.layer.cornerRadius = 5
                 cell = roomGroupCell
@@ -124,6 +135,8 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        newScript?.roomGroop0 = roomGroupsDict[indexPath.row]
+        print(newScript)
         // do smth, save roomGroup
         performSegue(withIdentifier: "RoomGroupSegue", sender: self)
     }
