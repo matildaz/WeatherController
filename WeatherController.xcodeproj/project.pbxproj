@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
+		7429B37727FE0F99007D04C7 /* ScenarioSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */; };
 		742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */; };
 		742DD12427BBAB4F00F609C4 /* ScriptDayGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */; };
 		742DD12527BBAB4F00F609C4 /* ScriptDayGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 742DD12327BBAB4F00F609C4 /* ScriptDayGroupCell.xib */; };
@@ -53,12 +54,14 @@
 		74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA591B2778849D00C5282C /* ScriptUpdateStructure.swift */; };
 		74DA591F27788AAF00C5282C /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA591E27788AAF00C5282C /* RoomsViewController.swift */; };
 		74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592427788B7700C5282C /* CollectionViewCell.swift */; };
-		74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74DA592527788B7700C5282C /* CollectionViewCell.xib */; };
+		74DC10592829881000414208 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74DC10582829881000414208 /* Inter-SemiBold.ttf */; };
+		74DC105B2829883B00414208 /* Inter-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74DC105A2829883B00414208 /* Inter-Italic.ttf */; };
 		74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		492E8A0AEAC2E3DC8AB269ED /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
+		7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSettingsViewController.swift; sourceTree = "<group>"; };
 		742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
 		742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDayGroupCell.swift; sourceTree = "<group>"; };
 		742DD12327BBAB4F00F609C4 /* ScriptDayGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScriptDayGroupCell.xib; sourceTree = "<group>"; };
@@ -107,7 +110,8 @@
 		74DA591B2778849D00C5282C /* ScriptUpdateStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptUpdateStructure.swift; sourceTree = "<group>"; };
 		74DA591E27788AAF00C5282C /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		74DA592427788B7700C5282C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		74DA592527788B7700C5282C /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		74DC10582829881000414208 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		74DC105A2829883B00414208 /* Inter-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.ttf"; sourceTree = "<group>"; };
 		74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRoomGroupCell.swift; sourceTree = "<group>"; };
 		8CDB3A447D8B915C670453B0 /* Pods-WeatherController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.debug.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +238,7 @@
 		7487B21827746B6E00CC3BCC /* BackGround */ = {
 			isa = PBXGroup;
 			children = (
+				74DC10552829844500414208 /* Fonts */,
 				746227712779C3EB002C0D1C /* RoomIndicatorsStructures */,
 				74DA590C2778669C00C5282C /* ScenarioStructures */,
 				7487B21927746B7B00CC3BCC /* DataProcessing */,
@@ -300,6 +305,7 @@
 			children = (
 				74CFFE5627ABBAEE00B9804F /* RoomsScriptViewController.swift */,
 				742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */,
+				7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */,
 			);
 			path = NewScriptViewControllers;
 			sourceTree = "<group>";
@@ -352,11 +358,19 @@
 			isa = PBXGroup;
 			children = (
 				74DA592427788B7700C5282C /* CollectionViewCell.swift */,
-				74DA592527788B7700C5282C /* CollectionViewCell.xib */,
 				7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */,
 				7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		74DC10552829844500414208 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				74DC10582829881000414208 /* Inter-SemiBold.ttf */,
+				74DC105A2829883B00414208 /* Inter-Italic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		74DE922227B3B758005F2E1D /* ScriptRoomGroupCell */ = {
@@ -440,12 +454,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */,
+				74DC105B2829883B00414208 /* Inter-Italic.ttf in Resources */,
 				74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */,
 				7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */,
-				74DA592727788B7700C5282C /* CollectionViewCell.xib in Resources */,
 				742DD12527BBAB4F00F609C4 /* ScriptDayGroupCell.xib in Resources */,
 				7487B20827746B0700CC3BCC /* Main.storyboard in Resources */,
 				74CFFE4E27AA773A00B9804F /* ScenarioRoomsView.xib in Resources */,
+				74DC10592829881000414208 /* Inter-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +518,7 @@
 				74DA58E027774C4E00C5282C /* CheckTheCurrentScripts.swift in Sources */,
 				742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */,
 				74D46A292795DEE9008B8904 /* TestViewController.swift in Sources */,
+				7429B37727FE0F99007D04C7 /* ScenarioSettingsViewController.swift in Sources */,
 				74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */,
 				74CFFE5327AA7B6200B9804F /* ScenarioRoomViewCell.swift in Sources */,
 				7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */,
@@ -687,7 +703,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4WHL72L83P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherController/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -695,6 +711,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -716,7 +733,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4WHL72L83P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherController/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -724,6 +741,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -15,6 +15,9 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     private var safeArea: UILayoutGuide!
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var mainThemeView: UIView!
+    @IBOutlet weak var blueView: UIView!
+    @IBOutlet weak var mainThemeImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +25,13 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         safeArea = view.layoutMarginsGuide
         setTheViewController()
+        setMainTheme()
         fetchCurrentRooms()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchCurrentRooms()
+        mainCollectionView.reloadData()
     }
     
     @IBAction func addButtonGetPressed(_ sender: Any) {
@@ -67,19 +72,39 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
-    private func initLayoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes?{
-        let layoutAttributes =   UICollectionViewLayoutAttributes(forCellWith: indexPath)
-        let radius = 100
-        let center = (mainCollectionView?.center)!
-        let angle = (CGFloat(indexPath.row)  /  CGFloat(indexPath.row) * CGFloat.pi * 2)
-        layoutAttributes.center = CGPoint.init(x:  center.x + cos(angle) * CGFloat(radius)   , y: center.y + sin(angle) * CGFloat(radius) )
-        layoutAttributes.bounds  = CGRect.init(x: 0, y: 0, width: 100, height: 100 )
-        return layoutAttributes
-    }
-    
     /**
      Функция устанвки параметров UICollectionView
      */
+    
+    func setMainTheme() {
+        
+        mainThemeView.center.y += 50
+        
+        let image = UIImage(named: "mainTheme")?.cgImage
+        let layerImage = CALayer()
+        layerImage.contents = image
+        layerImage.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0))
+        layerImage.bounds = mainThemeView.bounds
+        layerImage.position = mainThemeView.center
+        mainThemeView.layer.addSublayer(layerImage)
+        
+        
+        let layerGradient = CAGradientLayer()
+        layerGradient.colors = [
+            UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor,
+          UIColor(red: 0.358, green: 0.384, blue: 1, alpha: 1).cgColor
+        ]
+        layerGradient.locations = [0.27, 0.79]
+        layerGradient.startPoint = CGPoint(x: 0.25, y: 0.5)
+        layerGradient.endPoint = CGPoint(x: 0.75, y: 0.5)
+        layerGradient.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 1.25, b: 0, c: 2.23, d: 5.52, tx: -1.11, ty: -2.26))
+        layerGradient.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
+        layerGradient.position = view.center
+        blueView.layer.addSublayer(layerGradient)
+        
+    }
+    
+    
     func setTheViewController() {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
@@ -87,10 +112,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         layout.scrollDirection = .vertical
         mainCollectionView.collectionViewLayout = layout
         mainCollectionView.backgroundColor = UIColor.init(_colorLiteralRed: 0.949, green: 0.969, blue: 0.976, alpha: 1)
-        mainCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
-        mainCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
-        mainCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        mainCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        mainCollectionView.layer.cornerRadius = 30
     }
     
     //MARK: Working with segue
@@ -110,8 +132,10 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainViewControllerCell", for: indexPath) as? CollectionViewCell {
-            roomCell.configure(withName: self.rooms[indexPath.row].roomName!, withTemp: self.rooms[indexPath.row].temperature!, withWet: self.rooms[indexPath.row].wet!, withCO2: self.rooms[indexPath.row].co2!)
-            roomCell.peopleImageView.image = UIImage(named: "people")
+            roomCell.configure(withPeople: "5", withName: self.rooms[indexPath.row].roomName!, withTemp: self.rooms[indexPath.row].temperature!, withWet: self.rooms[indexPath.row].wet!, withCO2: self.rooms[indexPath.row].co2!)
+            roomCell.peopleImageView.image = UIImage(named: "UnionpeopleYellow")
+            roomCell.backgroundColor = .tintColor
+            roomCell.layer.backgroundColor = UIColor(red: 0.969, green: 0.991, blue: 1, alpha: 1).cgColor
             cell = roomCell
         }
         return cell
@@ -128,7 +152,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.visibleCells[indexPath.row]
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         UIView.animate(withDuration: 0.05, delay: 0, animations: {cell.alpha = 0.5}, completion: {_ in UIView.animate(withDuration: 0.05, delay: 0, animations:  {cell.alpha = 1})})
         self.performSegue(withIdentifier: "CurrentRoomSegue", sender: self)
     }

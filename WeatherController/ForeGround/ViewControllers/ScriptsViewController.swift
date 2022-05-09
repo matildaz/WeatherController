@@ -31,10 +31,20 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         scriptTableView.delegate = self
         scriptTableView.dataSource = self
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "name", scriptDescription: "New Description", roomGroop0: nil))
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+        test()
+        testDisable()
 //        fetchNewScript()
         setView()
+        scriptTableView.reloadData()
+    }
+    
+    func test() {
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptTableView.reloadData()
     }
     
     func setView() {
@@ -50,6 +60,13 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
             newScript?.roomGroop0 = nil
             destinationVC.newScript = self.newScript
         }
+        if segue.identifier == "showDetails" {
+            let destinationVC = segue.destination as! ScenarioSettingsViewController
+            let row = scriptTableView.indexPathForSelectedRow?.row
+            let script = scriptsDict[row!]
+            scriptTableView.deselectRow(at: scriptTableView.indexPathForSelectedRow!, animated: true)
+            destinationVC.script = script
+        }
     }
     
     func fetchNewScript() {
@@ -61,6 +78,27 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        } catch {
 //            print("error")
 //        }
+    }
+    
+    func testDisable() {
+        if firstTime {
+            setBackground()
+            buttonSet()
+            self.ScriptView.layer.cornerRadius = 16
+            let width = 3*self.view.frame.size.width/4
+            
+            // Add ScenarioView buttons
+            ScriptView.frame = CGRect(x: view.frame.midX - width/2, y: view.frame.midY - width/2, width: width, height: 2*width/3)
+        }
+        UIView.animate(withDuration: 0, delay: 0, animations: {
+            self.backgroundView.alpha = 0.6
+            self.ScriptView.alpha = 1
+        })
+        UIView.animate(withDuration: 0, delay: 0, animations: {
+            self.backgroundView.alpha = 0
+            self.ScriptView.alpha = 0
+        })
+        
     }
     
     //MARK: - Buttons
@@ -97,15 +135,39 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let scriptCell = tableView.dequeueReusableCell(withIdentifier: "ScriptTableViewCell", for: indexPath) as? ScriptTableViewCell {
             scriptCell.configure(scriptName: scriptsDict[indexPath.row].scriptName!, scriptDescription: scriptsDict[indexPath.row].scriptDescription!)
             scriptCell.imageView?.image = UIImage(named: "peopleDark")
+            print(scriptCell.isUserInteractionEnabled)
         }
         cell.layer.cornerRadius = 10
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = self.view.frame.height/10
+        let height = self.view.frame.height/12
         return height
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.visibleCells[indexPath.row]
+        UIView.animate(withDuration: 0.05, delay: 0, animations: {
+            cell.alpha = 0.5
+            })
+        UIView.animate(withDuration: 0.05, delay: 0, animations: {
+            cell.alpha = 1
+        })
+        self.performSegue(withIdentifier: "showDetails", sender: self)
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+            print("Delete Action Tapped")
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = false
+        tableView.reloadData()
+        return configuration
+    }
+    
 }
 
 extension ScriptsViewController {
