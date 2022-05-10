@@ -14,6 +14,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var safeArea: UILayoutGuide!
     
+    @IBOutlet weak var allRoomLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var mainThemeView: UIView!
     @IBOutlet weak var blueView: UIView!
@@ -21,12 +22,13 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
+        tabBarController?.tabBar.backgroundColor = .white
         navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
         safeArea = view.layoutMarginsGuide
         setTheViewController()
         setMainTheme()
         fetchCurrentRooms()
+        setAllRoomLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +78,14 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
      Функция устанвки параметров UICollectionView
      */
     
+    func setAllRoomLabel() {
+        allRoomLabel.text = "Все комнаты"
+        allRoomLabel.font = UIFont(name: "Inter-Bold", size: 24)
+        allRoomLabel.textColor = .white
+        allRoomLabel.textAlignment = .center
+        blueView.addSubview(allRoomLabel)
+    }
+    
     func setMainTheme() {
         
         mainThemeView.center.y += 50
@@ -111,7 +121,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         mainCollectionView.collectionViewLayout = layout
-        mainCollectionView.backgroundColor = UIColor.init(_colorLiteralRed: 0.949, green: 0.969, blue: 0.976, alpha: 1)
+        mainCollectionView.backgroundColor = .white
         mainCollectionView.layer.cornerRadius = 30
     }
     

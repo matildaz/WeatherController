@@ -10,9 +10,12 @@ import UIKit
 
 class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet var mainView: UIView!
     var currentRoom = CurrentRoomClass()
     private var safeArea: UILayoutGuide!
     @IBOutlet weak var roomCollectionView: UICollectionView!
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var roomLable: UILabel!
     private var stackView: UIStackView!
     @IBOutlet weak var ventilationButton: UIButton!
     @IBOutlet weak var plusTempButton: UIButton!
@@ -53,6 +56,11 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    
     func fetchCurrentRoom() {
         do {
             try currentRoom.managedObjectContext?.save()
@@ -71,13 +79,19 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         let centre = CGPoint(x: self.safeArea.layoutFrame.midX/2, y: self.safeArea.layoutFrame.midY-radius)
         let cellWidth = self.view.bounds.midX/2.5
         
+        // CurrentRoomLabel
+        roomLable.font = UIFont(name: "Inter-SemiBold", size: 16)
+        roomLable.text = currentRoom.roomName
+        
         // Ventilation button
         let buttonWidth = self.view.bounds.midX/1.3
         ventilationButton.frame.size = CGSize(width: buttonWidth, height: buttonWidth)
-        ventilationButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        ventilationButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 5/3*plusMinusWidth)
         ventilationButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         ventilationButton.layer.cornerRadius = buttonWidth/2
         ventilationButton.titleLabel?.textAlignment = .center
+        ventilationButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
+        ventilationButton.setTitle(ventilationButton.titleLabel?.text, for: .normal)
         ventilationButton.tintColor = .white
         
         // Plus Temp button
@@ -85,24 +99,42 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         plusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         plusTempButton.layer.cornerRadius = plusMinusWidth/2
         plusTempButton.titleLabel?.text = "+"
+        plusTempButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
         plusTempButton.tintColor = .white
         // Minus Temp button
         minusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
         minusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
         minusTempButton.layer.cornerRadius = plusMinusWidth/2
         minusTempButton.titleLabel?.text = "-"
+        minusTempButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
         minusTempButton.tintColor = .white
         // StackView
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal
         stackView.distribution = UIStackView.Distribution.fill
         stackView.alignment = UIStackView.Alignment.fill
-        stackView.layer.position = CGPoint(x: centre.x, y: centre.y - plusMinusWidth/4)
+        stackView.layer.position = CGPoint(x: centre.x, y: centre.y/2 + plusMinusWidth) //- plusMinusWidth/4)
         stackView.frame.size = CGSize(width: safeArea.layoutFrame.midX, height: plusMinusWidth)
         stackView.spacing = cellWidth*1.4
         stackView.addArrangedSubview(plusTempButton)
         stackView.addArrangedSubview(minusTempButton)
-        self.view.addSubview(stackView)
+        mainView.addSubview(stackView)
+        
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 5/3*plusMinusWidth), radius: 2*radius, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        shapeLayer.fillColor = UIColor.white.cgColor
+        shapeLayer.borderWidth = 3
+        shapeLayer.borderColor = UIColor(red: 9/255, green: 152/255, blue: 255/255, alpha: 0.4).cgColor
+        
+        mainView.layer.insertSublayer(shapeLayer, at: 0)
+        mainView.backgroundColor = .white
+        
+//        mainView.layer.addSublayer(shapeLayer)
+//        mainView.addSubview(stackView)
+//        mainView.addSubview(roomCollectionView)
+//        mainView.addSubview(ventilationButton)
     }
     
     func setTheAtributes() {
@@ -110,8 +142,6 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         view.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
         
         // NavigationBar
-        navigationItem.title = currentRoom.roomName
-        navigationItem.backButtonTitle = "Все комнаты"
         
         // CollectionView
         roomCollectionView.delegate = self
@@ -120,7 +150,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         layout.scrollDirection = .vertical
         roomCollectionView.collectionViewLayout = layout
 //        roomCollectionView.isScrollEnabled = false
-        roomCollectionView.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
+        roomCollectionView.backgroundColor = .none
         roomCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         roomCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
     }
@@ -158,7 +188,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         case 3 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: "1 человек", image: UIImage(named: "peopleDark")!)
+                roomCell.configure(text: "5 человек", image: UIImage(named: "peopleDark")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
@@ -173,6 +203,8 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         cell.layer.cornerRadius = cell.frame.height/2
         cell.backgroundColor = .white
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor(red: 9/255, green: 152/255, blue: 255/255, alpha: 0.4).cgColor
         return cell
     }
     

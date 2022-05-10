@@ -31,7 +31,20 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQ4-Np-oub">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="275"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-Zt-Qtg">
+                                                <rect key="frame" x="0.0" y="120" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstItem="2x9-Zt-Qtg" firstAttribute="leading" secondItem="aQ4-Np-oub" secondAttribute="leading" id="1jf-Xc-8g6"/>
+                                            <constraint firstAttribute="trailing" secondItem="2x9-Zt-Qtg" secondAttribute="trailing" id="B2x-tp-6D7"/>
+                                            <constraint firstItem="2x9-Zt-Qtg" firstAttribute="top" secondItem="aQ4-Np-oub" secondAttribute="top" constant="120" id="tL7-ZE-ndF"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -206,8 +219,9 @@
                             <constraint firstItem="NNg-UW-l89" firstAttribute="top" secondItem="gJi-QN-9Ub" secondAttribute="top" constant="-70" id="jeB-27-A3U"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Комнаты" id="iYv-tn-YOf"/>
+                    <tabBarItem key="tabBarItem" title="Комнаты" image="allRooms" id="iYv-tn-YOf"/>
                     <connections>
+                        <outlet property="allRoomLabel" destination="2x9-Zt-Qtg" id="lfW-NP-Jef"/>
                         <outlet property="blueView" destination="aQ4-Np-oub" id="6D2-1b-7Iz"/>
                         <outlet property="mainCollectionView" destination="uXf-5l-07K" id="XCu-37-hkD"/>
                         <outlet property="mainThemeView" destination="NNg-UW-l89" id="Fm5-Os-TpR"/>
@@ -541,9 +555,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Pf-Xf-VQp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AD9-s8-VG1">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="s7S-o2-Tzj"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="8mb-xi-M7W" eventType="touchUpInside" id="aeg-QF-d9E"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHV-tA-HF5">
+                                        <rect key="frame" x="100" y="0.0" width="214" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcU-AR-snl">
+                                        <rect key="frame" x="314" y="0.0" width="100" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="17P-Z3-URz"/>
+                                    <constraint firstItem="WcU-AR-snl" firstAttribute="width" secondItem="AD9-s8-VG1" secondAttribute="width" id="6zS-sh-Sra"/>
+                                </constraints>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-uz-RrM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="758"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cEM-yc-QTa">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -763,22 +809,28 @@
                         <constraints>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="width" secondItem="PYC-zW-hJN" secondAttribute="width" id="2cV-0j-Ifv"/>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="centerY" secondItem="ciC-Eq-vIh" secondAttribute="centerY" id="77h-vk-3nZ"/>
-                            <constraint firstItem="OzB-uz-RrM" firstAttribute="top" secondItem="8EK-YK-j1U" secondAttribute="top" id="7qr-wu-lul"/>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="leading" secondItem="PYC-zW-hJN" secondAttribute="leading" id="AWu-BK-dQq"/>
                             <constraint firstItem="8EK-YK-j1U" firstAttribute="trailing" secondItem="OzB-uz-RrM" secondAttribute="trailing" id="LvS-6T-XJ1"/>
+                            <constraint firstItem="OzB-uz-RrM" firstAttribute="top" secondItem="8EK-YK-j1U" secondAttribute="top" constant="50" id="ROs-kT-eCP"/>
                             <constraint firstItem="OzB-uz-RrM" firstAttribute="leading" secondItem="8EK-YK-j1U" secondAttribute="leading" id="Sc1-rS-FOT"/>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="leading" secondItem="8EK-YK-j1U" secondAttribute="leading" constant="103" id="XXh-L0-zHl"/>
+                            <constraint firstItem="8EK-YK-j1U" firstAttribute="trailing" secondItem="6Pf-Xf-VQp" secondAttribute="trailing" id="YIX-Xh-dEj"/>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="centerX" secondItem="OzB-uz-RrM" secondAttribute="centerX" id="ZM4-H7-u2U"/>
+                            <constraint firstItem="6Pf-Xf-VQp" firstAttribute="leading" secondItem="8EK-YK-j1U" secondAttribute="leading" id="pJw-xK-jpC"/>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="height" secondItem="PYC-zW-hJN" secondAttribute="height" id="smn-Cn-XcU"/>
+                            <constraint firstItem="6Pf-Xf-VQp" firstAttribute="top" secondItem="8EK-YK-j1U" secondAttribute="top" id="v4b-qV-jcE"/>
                             <constraint firstItem="zqC-rh-eiM" firstAttribute="baseline" secondItem="PYC-zW-hJN" secondAttribute="baseline" id="vy4-wl-cdU"/>
                             <constraint firstItem="8EK-YK-j1U" firstAttribute="bottom" secondItem="OzB-uz-RrM" secondAttribute="bottom" id="zmJ-Zb-gc0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3hi-xv-qyp"/>
                     <connections>
+                        <outlet property="closeButton" destination="AD9-s8-VG1" id="jxD-Dc-t7D"/>
+                        <outlet property="mainView" destination="ciC-Eq-vIh" id="ai3-f0-00K"/>
                         <outlet property="minusTempButton" destination="zqC-rh-eiM" id="6W6-Vh-n4Y"/>
                         <outlet property="plusTempButton" destination="PYC-zW-hJN" id="j9p-uS-Nyg"/>
                         <outlet property="roomCollectionView" destination="OzB-uz-RrM" id="yPg-Qv-WOu"/>
+                        <outlet property="roomLable" destination="SHV-tA-HF5" id="zDa-UK-yxU"/>
                         <outlet property="ventilationButton" destination="kix-lF-vK6" id="Y5z-46-811"/>
                     </connections>
                 </viewController>
@@ -1971,7 +2023,7 @@
         <scene sceneID="3Ba-Nx-AF2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Lz-of-Ufw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Сценарии" id="IIi-GJ-eez"/>
+                    <tabBarItem key="tabBarItem" title="Сценарии" image="scenarioScreenIcon" id="IIi-GJ-eez"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KGT-U4-jTE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2011,15 +2063,18 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="UnionpeopleYellow" width="13.5" height="17"/>
+        <image name="allRooms" width="14" height="13"/>
         <image name="carbonDioxideDark" width="28" height="20"/>
         <image name="co2IconBlue" width="12" height="12"/>
         <image name="corbonDioxide" width="20" height="20"/>
         <image name="humidity" width="20" height="20"/>
         <image name="mainTheme" width="375" height="248"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="scenarioScreenIcon" width="14" height="14"/>
         <image name="temperature" width="10" height="20"/>
         <image name="temperatureIconBlue" width="12" height="12"/>
         <image name="wetIconBlue" width="12" height="12"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

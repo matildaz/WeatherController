@@ -56,6 +56,7 @@
 		74DA592627788B7700C5282C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DA592427788B7700C5282C /* CollectionViewCell.swift */; };
 		74DC10592829881000414208 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74DC10582829881000414208 /* Inter-SemiBold.ttf */; };
 		74DC105B2829883B00414208 /* Inter-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74DC105A2829883B00414208 /* Inter-Italic.ttf */; };
+		74DC105D282A49B800414208 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74DC105C282A49B800414208 /* Inter-Bold.ttf */; };
 		74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		74DA592427788B7700C5282C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		74DC10582829881000414208 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		74DC105A2829883B00414208 /* Inter-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.ttf"; sourceTree = "<group>"; };
+		74DC105C282A49B800414208 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		74DE922327B3B79D005F2E1D /* ScriptRoomGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptRoomGroupCell.swift; sourceTree = "<group>"; };
 		8CDB3A447D8B915C670453B0 /* Pods-WeatherController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.debug.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +371,7 @@
 			children = (
 				74DC10582829881000414208 /* Inter-SemiBold.ttf */,
 				74DC105A2829883B00414208 /* Inter-Italic.ttf */,
+				74DC105C282A49B800414208 /* Inter-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */,
 				74DC105B2829883B00414208 /* Inter-Italic.ttf in Resources */,
 				74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */,
+				74DC105D282A49B800414208 /* Inter-Bold.ttf in Resources */,
 				7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */,
 				742DD12527BBAB4F00F609C4 /* ScriptDayGroupCell.xib in Resources */,
 				7487B20827746B0700CC3BCC /* Main.storyboard in Resources */,
