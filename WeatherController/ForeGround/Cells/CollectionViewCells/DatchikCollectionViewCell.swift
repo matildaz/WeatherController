@@ -21,6 +21,9 @@ class DatchikCollectionViewCell: UICollectionViewCell {
         datchikLableView.text = text
         datchikLableView.font = UIFont(name: "Inter-SemiBold", size: 16)
         datchikImageView.image = image
+        
+        self.backgroundColor = UIColor(red: 239/255, green: 249/255, blue: 1, alpha: 1)
+        
     }
     
     func setTheCorners() {

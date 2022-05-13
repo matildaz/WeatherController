@@ -11,6 +11,7 @@ import UIKit
 class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet var mainView: UIView!
+    @IBOutlet weak var changeTemperatureLabel: UILabel!
     var currentRoom = CurrentRoomClass()
     private var safeArea: UILayoutGuide!
     @IBOutlet weak var roomCollectionView: UICollectionView!
@@ -87,7 +88,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         let buttonWidth = self.view.bounds.midX/1.3
         ventilationButton.frame.size = CGSize(width: buttonWidth, height: buttonWidth)
         ventilationButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 5/3*plusMinusWidth)
-        ventilationButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        ventilationButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
         ventilationButton.layer.cornerRadius = buttonWidth/2
         ventilationButton.titleLabel?.textAlignment = .center
         ventilationButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
@@ -95,23 +96,19 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         ventilationButton.tintColor = .white
         
         // Plus Temp button
-        plusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
-        plusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
-        plusTempButton.layer.cornerRadius = plusMinusWidth/2
-        plusTempButton.titleLabel?.text = "+"
-        plusTempButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
-        plusTempButton.tintColor = .white
+        plusTempButton.frame.size = CGSize(width: 2*plusMinusWidth, height: 2*plusMinusWidth)
+//        plusTempButton.layer.backgroundColor = UIColor.gray.cgColor
+        plusTempButton.setImage(UIImage(named: "plusButton-1"), for: .normal)
+        
         // Minus Temp button
-        minusTempButton.frame.size = CGSize(width: plusMinusWidth, height: plusMinusWidth)
-        minusTempButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
-        minusTempButton.layer.cornerRadius = plusMinusWidth/2
-        minusTempButton.titleLabel?.text = "-"
-        minusTempButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
-        minusTempButton.tintColor = .white
+        minusTempButton.frame.size = CGSize(width: 2*plusMinusWidth, height: 2*plusMinusWidth)
+//        minusTempButton.layer.backgroundColor = UIColor.gray.cgColor
+        minusTempButton.setImage(UIImage(named: "minusButton-1"), for: .normal)
+        
         // StackView
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal
-        stackView.distribution = UIStackView.Distribution.fill
+        stackView.distribution = UIStackView.Distribution.fillEqually
         stackView.alignment = UIStackView.Alignment.fill
         stackView.layer.position = CGPoint(x: centre.x, y: centre.y/2 + plusMinusWidth) //- plusMinusWidth/4)
         stackView.frame.size = CGSize(width: safeArea.layoutFrame.midX, height: plusMinusWidth)
@@ -130,6 +127,13 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         
         mainView.layer.insertSublayer(shapeLayer, at: 0)
         mainView.backgroundColor = .white
+        
+        changeTemperatureLabel.font = UIFont(name: "Inter-SemiBold", size: 24)
+        changeTemperatureLabel.text = "Изменить температуру"
+        changeTemperatureLabel.textColor = UIColor(red: 0.137, green: 0.282, blue: 0.651, alpha: 1)
+        changeTemperatureLabel.layer.position = CGPoint(x: centre.x-3/4*plusMinusWidth, y: centre.y/2)
+        changeTemperatureLabel.frame.size = CGSize(width: 300, height: 30)
+        changeTemperatureLabel.textAlignment = .center
         
 //        mainView.layer.addSublayer(shapeLayer)
 //        mainView.addSubview(stackView)
@@ -170,13 +174,13 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         switch indexPath.row {
         case 0 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.wet!, image: UIImage(named: "humidityDark")!)
+                roomCell.configure(text: currentRoom.wet!, image: UIImage(named: "humidityDarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
         case 1 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.temperature!, image: UIImage(named: "temperatureDark")!)
+                roomCell.configure(text: currentRoom.temperature!, image: UIImage(named: "temperatureDarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
@@ -184,17 +188,19 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TemperatureChangeCollectionViewCell", for: indexPath) as? TemperatureChangeCollectionViewCell {
                 roomCell.configure(with: currentRoom.temperature!)
                 roomCell.layer.position = CGPoint(x: centre.x, y: centre.y-radius)
+                roomCell.TemperatureLableView.textColor = UIColor(red: 1, green: 0.651, blue: 0.353, alpha: 1)
+                roomCell.TemperatureLableView.font = UIFont(name: "Inter-SemiBold", size: 16)
                 cell = roomCell
             }
         case 3 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: "5 человек", image: UIImage(named: "peopleDark")!)
+                roomCell.configure(text: "5 человек", image: UIImage(named: "peopleDarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
         case 4 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.co2!, image: UIImage(named: "carbonDioxideDark")!)
+                roomCell.configure(text: currentRoom.co2!, image: UIImage(named: "CO2DarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
