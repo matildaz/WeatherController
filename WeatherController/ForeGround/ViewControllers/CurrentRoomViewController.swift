@@ -12,7 +12,8 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var changeTemperatureLabel: UILabel!
-    var currentRoom = CurrentRoomClass()
+    var currentRoom: RoomStruct?
+    let JSONDataClass = JsonDataClass()
     private var safeArea: UILayoutGuide!
     @IBOutlet weak var roomCollectionView: UICollectionView!
     @IBOutlet weak var closeButton: UIButton!
@@ -33,26 +34,33 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         setTheButtons()
     }
     
+    func saveData() {
+        var oldDictionary = JSONDataClass.getOldData()
+        oldDictionary = JSONDataClass.compareData(oldDictionary: oldDictionary!, newDictionary: [Int((currentRoom?.rId)!)!: currentRoom!])
+        JSONDataClass.saveData(dictionary: oldDictionary!)
+        roomCollectionView.reloadData()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         roomCollectionView.reloadData()
     }
     
     @IBAction func plusTemp(_ sender: Any) {
-        if var temp = Int(currentRoom.temperature!) {
+        if var temp = Int((currentRoom?.temp)!) {
             if temp < 30 {
                 temp += 1
-                currentRoom.temperature = String(temp)
-                fetchCurrentRoom()
+                currentRoom?.temp = String(temp)
+                saveData()
             }
         }
     }
     
     @IBAction func minusTemp(_ sender: Any) {
-        if var temp = Int(currentRoom.temperature!) {
+        if var temp = Int((currentRoom?.temp)!) {
             if temp > 16 {
                 temp -= 1
-                currentRoom.temperature = String(temp)
-                fetchCurrentRoom()
+                currentRoom?.temp = String(temp)
+                saveData()
             }
         }
     }
@@ -62,17 +70,17 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
-    func fetchCurrentRoom() {
-        do {
-            try currentRoom.managedObjectContext?.save()
-            
-            DispatchQueue.main.async {
-                self.roomCollectionView.reloadData()
-            }
-        } catch {
-            print("Saving error")
-        }
-    }
+//    func fetchCurrentRoom() {
+//        do {
+//            try currentRoom.managedObjectContext?.save()
+//
+//            DispatchQueue.main.async {
+//                self.roomCollectionView.reloadData()
+//            }
+//        } catch {
+//            print("Saving error")
+//        }
+//    }
     
     func setTheButtons() {
         let plusMinusWidth = self.view.bounds.midX/4.5
@@ -82,7 +90,7 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         
         // CurrentRoomLabel
         roomLable.font = UIFont(name: "Inter-SemiBold", size: 16)
-        roomLable.text = currentRoom.roomName
+        roomLable.text = currentRoom?.name
         
         // Ventilation button
         let buttonWidth = self.view.bounds.midX/1.3
@@ -174,19 +182,19 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         switch indexPath.row {
         case 0 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.wet!, image: UIImage(named: "humidityDarkBlue")!)
+                roomCell.configure(text: currentRoom!.hum, image: UIImage(named: "humidityDarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
         case 1 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.temperature!, image: UIImage(named: "temperatureDarkBlue")!)
+                roomCell.configure(text: currentRoom!.temp, image: UIImage(named: "temperatureDarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x-xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
         case 2 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TemperatureChangeCollectionViewCell", for: indexPath) as? TemperatureChangeCollectionViewCell {
-                roomCell.configure(with: currentRoom.temperature!)
+                roomCell.configure(with: currentRoom!.temp)
                 roomCell.layer.position = CGPoint(x: centre.x, y: centre.y-radius)
                 roomCell.TemperatureLableView.textColor = UIColor(red: 1, green: 0.651, blue: 0.353, alpha: 1)
                 roomCell.TemperatureLableView.font = UIFont(name: "Inter-SemiBold", size: 16)
@@ -194,13 +202,13 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         case 3 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: "5 человек", image: UIImage(named: "peopleDarkBlue")!)
+                roomCell.configure(text: currentRoom!.people, image: UIImage(named: "peopleDarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y-yDeviation)
                 cell = roomCell
             }
         case 4 :
             if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DatchikCollectionViewCell", for: indexPath) as? DatchikCollectionViewCell {
-                roomCell.configure(text: currentRoom.co2!, image: UIImage(named: "CO2DarkBlue")!)
+                roomCell.configure(text: currentRoom!.co2, image: UIImage(named: "CO2DarkBlue")!)
                 roomCell.layer.position = CGPoint(x: centre.x+xDeviation, y: centre.y+yDeviation)
                 cell = roomCell
             }
@@ -213,8 +221,6 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.layer.borderColor = UIColor(red: 9/255, green: 152/255, blue: 255/255, alpha: 0.4).cgColor
         return cell
     }
-    
-    
 }
 
 extension CurrentRoomViewController:  UICollectionViewDelegateFlowLayout {
@@ -222,10 +228,4 @@ extension CurrentRoomViewController:  UICollectionViewDelegateFlowLayout {
         let itemSize = CGSize(width: self.view.bounds.midX/2.5, height: self.view.bounds.midX/2.5)
         return itemSize
     }
-    
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        let inset: CGFloat = 20
-//        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-//    }
 }

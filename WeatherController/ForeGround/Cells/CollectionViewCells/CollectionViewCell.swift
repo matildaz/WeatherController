@@ -10,6 +10,7 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var mainView: UIView!
+    var currentRoom: String?
     
     @IBOutlet weak var numberOfPeopleInRoom: UILabel!
     
@@ -32,7 +33,7 @@ class CollectionViewCell: UICollectionViewCell {
         co2LableView.text = "CurrCO2"
     }
     
-    func configure(withPeople numberOfPeople: String, withName roomName: String, withTemp temperature: String, withWet wet: String, withCO2 co2: String) {
+    func configure(withPeople numberOfPeople: String, withName roomName: String, withTemp temperature: String, withWet wet: String, withCO2 co2: String, rId: String) {
         
         numberOfPeopleInRoom.text = numberOfPeople
         numberOfPeopleInRoom.textColor = UIColor(red: 1, green: 0.651, blue: 0.353, alpha: 1)
@@ -50,6 +51,8 @@ class CollectionViewCell: UICollectionViewCell {
         co2LableView.textColor = .black
         co2LableView.font = UIFont(name: "Inter-SemiBold", size: 16)
         setTheCorners()
+        
+        self.currentRoom = rId
     }
     
 //    let layerGradient = CAGradientLayer()

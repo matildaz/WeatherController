@@ -7,9 +7,12 @@
 
 import Foundation
 
-struct RoomStructure: Codable {
-    var roomName: String
-    var roomTemperature: String
-    var roomWet: String
-    var roomCO2: String
+struct RoomStruct: Codable {
+    var hum : String
+    var name : String
+    var co2 : String
+    var rId : String
+    var temp : String
+    var people : String
+    var date : String
 }

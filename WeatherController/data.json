@@ -1,0 +1,28 @@
+{
+"0": {
+    "date" : "13.05",
+    "temp" : "18",
+    "co2" : "44",
+    "hum" : "12",
+    "people" : "4",
+    "name" : "Kitchen"
+    },
+
+"1": {
+    "date" : "13.05",
+    "temp" : "23",
+    "co2" : "47",
+    "hum" : "43",
+    "people" : "0",
+    "name" : "Living room"
+    },
+
+"2": {
+    "date" : "13.05",
+    "temp" : "19",
+    "co2" : "49",
+    "hum" : "16",
+    "people" : "2",
+    "name" : "Bedroom"
+    }
+}

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xes-Uk-kjf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xes-Uk-kjf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -38,11 +38,25 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-lV-aG2">
+                                                <rect key="frame" x="344" y="100" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Dua-Qe-EgN"/>
+                                                    <constraint firstAttribute="width" constant="50" id="ha8-SZ-2WX"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="plus"/>
+                                                <connections>
+                                                    <action selector="addButtonGetPressed:" destination="HBv-Ef-OHw" eventType="touchUpInside" id="7WI-BX-CuT"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstItem="2x9-Zt-Qtg" firstAttribute="leading" secondItem="aQ4-Np-oub" secondAttribute="leading" id="1jf-Xc-8g6"/>
                                             <constraint firstAttribute="trailing" secondItem="2x9-Zt-Qtg" secondAttribute="trailing" id="B2x-tp-6D7"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZTD-lV-aG2" secondAttribute="trailing" constant="20" id="UGs-6x-Z3e"/>
+                                            <constraint firstItem="ZTD-lV-aG2" firstAttribute="top" secondItem="aQ4-Np-oub" secondAttribute="top" constant="100" id="siq-vq-0un"/>
                                             <constraint firstItem="2x9-Zt-Qtg" firstAttribute="top" secondItem="aQ4-Np-oub" secondAttribute="top" constant="120" id="tL7-ZE-ndF"/>
                                         </constraints>
                                     </view>
@@ -224,7 +238,9 @@
                         <outlet property="allRoomLabel" destination="2x9-Zt-Qtg" id="lfW-NP-Jef"/>
                         <outlet property="blueView" destination="aQ4-Np-oub" id="6D2-1b-7Iz"/>
                         <outlet property="mainCollectionView" destination="uXf-5l-07K" id="XCu-37-hkD"/>
+                        <outlet property="mainScrollView" destination="dPa-qg-bGC" id="UVr-kW-Wsz"/>
                         <outlet property="mainThemeView" destination="NNg-UW-l89" id="Fm5-Os-TpR"/>
+                        <outlet property="testAddButton" destination="ZTD-lV-aG2" id="urS-Tf-Voz"/>
                         <segue destination="8mb-xi-M7W" kind="show" identifier="CurrentRoomSegue" id="IGV-UP-iFy"/>
                     </connections>
                 </viewController>
@@ -555,7 +571,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Pf-Xf-VQp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AD9-s8-VG1">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
@@ -588,7 +604,7 @@
                                 </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OzB-uz-RrM">
-                                <rect key="frame" x="0.0" y="50" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="748"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cEM-yc-QTa">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -2076,6 +2092,7 @@
         <image name="mainTheme" width="375" height="248"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="peopleDarkBlue" width="18" height="18"/>
+        <image name="plus" width="13" height="13"/>
         <image name="scenarioScreenIcon" width="14" height="14"/>
         <image name="temperature" width="10" height="20"/>
         <image name="temperatureIconBlue" width="12" height="12"/>

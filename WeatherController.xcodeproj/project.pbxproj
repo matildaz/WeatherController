@@ -19,6 +19,8 @@
 		74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */; };
 		7462279B277B6F8A002C0D1C /* DatchikCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */; };
 		7462279D277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */; };
+		7469BAA8283138A9001017A6 /* JsonDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469BAA7283138A9001017A6 /* JsonDataClass.swift */; };
+		7469BAAA283145F9001017A6 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 7469BAA928314342001017A6 /* data.json */; };
 		7487B20127746B0700CC3BCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20027746B0700CC3BCC /* AppDelegate.swift */; };
 		7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20227746B0700CC3BCC /* SceneDelegate.swift */; };
 		7487B20527746B0700CC3BCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20427746B0700CC3BCC /* ViewController.swift */; };
@@ -73,6 +75,8 @@
 		74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRoomViewController.swift; sourceTree = "<group>"; };
 		7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatchikCollectionViewCell.swift; sourceTree = "<group>"; };
 		7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureChangeCollectionViewCell.swift; sourceTree = "<group>"; };
+		7469BAA7283138A9001017A6 /* JsonDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataClass.swift; sourceTree = "<group>"; };
+		7469BAA928314342001017A6 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		7487B1FD27746B0700CC3BCC /* WeatherController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7487B20027746B0700CC3BCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7487B20227746B0700CC3BCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +193,14 @@
 			path = RoomIndicatorsStructures;
 			sourceTree = "<group>";
 		};
+		7469BAA62831387A001017A6 /* DataContainer */ = {
+			isa = PBXGroup;
+			children = (
+				7469BAA7283138A9001017A6 /* JsonDataClass.swift */,
+			);
+			path = DataContainer;
+			sourceTree = "<group>";
+		};
 		7487B1F427746B0700CC3BCC = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 				7487B21127746B0D00CC3BCC /* Info.plist */,
 				7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */,
 				74D3E144277472CA00C26808 /* Config.xcconfig */,
+				7469BAA928314342001017A6 /* data.json */,
 			);
 			path = WeatherController;
 			sourceTree = "<group>";
@@ -240,6 +253,7 @@
 		7487B21827746B6E00CC3BCC /* BackGround */ = {
 			isa = PBXGroup;
 			children = (
+				7469BAA62831387A001017A6 /* DataContainer */,
 				74DC10552829844500414208 /* Fonts */,
 				746227712779C3EB002C0D1C /* RoomIndicatorsStructures */,
 				74DA590C2778669C00C5282C /* ScenarioStructures */,
@@ -456,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7469BAAA283145F9001017A6 /* data.json in Resources */,
 				7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */,
 				74DC105B2829883B00414208 /* Inter-Italic.ttf in Resources */,
 				74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */,
@@ -553,6 +568,7 @@
 				7450A73827771D4900EA1A47 /* Enums.swift in Sources */,
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
+				7469BAA8283138A9001017A6 /* JsonDataClass.swift in Sources */,
 				742DD12427BBAB4F00F609C4 /* ScriptDayGroupCell.swift in Sources */,
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
 				74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */,

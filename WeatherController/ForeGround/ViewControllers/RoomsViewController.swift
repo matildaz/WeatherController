@@ -10,68 +10,78 @@ import UIKit
 
 class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     
-    var rooms: [CurrentRoomClass] = []
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var roomDict: [Int: RoomStruct] = [:]
+    let JSONDataClass = JsonDataClass()
+    var currentRoom: Int = 0
     private var safeArea: UILayoutGuide!
+    let refreshControl = UIRefreshControl()
     
+    @IBOutlet weak var testAddButton: UIButton!
     @IBOutlet weak var allRoomLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var mainThemeView: UIView!
     @IBOutlet weak var blueView: UIView!
     @IBOutlet weak var mainThemeImage: UIImageView!
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.backgroundColor = .white
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.867, green: 0.918, blue: 0.953, alpha: 1)
+        self.tabBarController?.tabBar.layer.backgroundColor = UIColor.white.cgColor
+        getData()
         safeArea = view.layoutMarginsGuide
         setTheViewController()
         setMainTheme()
-        fetchCurrentRooms()
         setAllRoomLabel()
+        refreshController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchCurrentRooms()
+        getData()
         mainCollectionView.reloadData()
     }
     
-    @IBAction func addButtonGetPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Test creator", message: "Fill all the rows: Name, temp, wet, co2", preferredStyle: .alert)
-        alert.addTextField()
-        
-        let submitButton = UIAlertAction(title: "Add", style: .default) { (action) in
-            let nameField = alert.textFields![0]
-            
-            let newRoom = CurrentRoomClass(context: self.context)
-            newRoom.roomName = nameField.text
-            newRoom.co2 = "123"
-            newRoom.wet = "234"
-            newRoom.temperature = "24"
-            do {
-                try self.context.save()
-            }
-            catch {
-                print("error in add")
-            }
-            // reload info
-            self.fetchCurrentRooms()
-        }
-        
-        alert.addAction(submitButton)
-        present(alert, animated: true, completion: nil)
+    func refreshController() {
+        refreshControl.bounds = CGRect(x: allRoomLabel.frame.maxX, y: allRoomLabel.frame.maxY, width: 50, height: 50)
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        refreshControl.tintColor = .black
+        mainCollectionView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        mainCollectionView.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
-    func fetchCurrentRooms() {
-        do {
-            self.rooms = try context.fetch(CurrentRoomClass.fetchRequest())
-            
-            DispatchQueue.main.async {
-                self.mainCollectionView.reloadData()
-            }
-        } catch {
-            print("Saving error")
+    func getData() {
+        if let oldDictionary = JSONDataClass.getOldData() {
+            roomDict = oldDictionary
         }
+    }
+    
+    func updateData() {
+        guard let newDictionary = JSONDataClass.getNewData() else { return }
+        self.roomDict = JSONDataClass.compareData(oldDictionary: self.roomDict, newDictionary: newDictionary)
+        JSONDataClass.saveData(dictionary: self.roomDict)
+        mainCollectionView.reloadData()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset
+        let inset = scrollView.contentInset
+        let y: CGFloat = offset.x - inset.left
+        let reload_distance: CGFloat = -80
+
+        if y < reload_distance{
+            mainCollectionView.reloadData()
+        }
+    }
+    
+    
+    
+    
+    @IBAction func addButtonGetPressed(_ sender: Any) {
+        updateData()
     }
     
     /**
@@ -112,6 +122,8 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         layerGradient.position = view.center
         blueView.layer.addSublayer(layerGradient)
         
+        blueView.addSubview(testAddButton)
+        
     }
     
     
@@ -128,21 +140,21 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     //MARK: Working with segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CurrentRoomSegue" {
-            let curentRoomCellIndex = mainCollectionView.indexPathsForSelectedItems![0][1]
             let currentRoomVC = segue.destination as! CurrentRoomViewController
-            currentRoomVC.currentRoom = self.rooms[curentRoomCellIndex]
+            currentRoomVC.currentRoom = self.roomDict[currentRoom]
         }
     }
     
     //MARK: Working with collection view
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rooms.count
+        return roomDict.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let roomCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainViewControllerCell", for: indexPath) as? CollectionViewCell {
-            roomCell.configure(withPeople: "5", withName: self.rooms[indexPath.row].roomName!, withTemp: self.rooms[indexPath.row].temperature!, withWet: self.rooms[indexPath.row].wet!, withCO2: self.rooms[indexPath.row].co2!)
+            let room = roomDict[indexPath.row]
+            roomCell.configure(withPeople: room!.people, withName: room!.name, withTemp: room!.temp, withWet: room!.hum, withCO2: room!.co2, rId: room!.rId)
             roomCell.peopleImageView.image = UIImage(named: "UnionpeopleYellow")
             roomCell.backgroundColor = .tintColor
             roomCell.layer.backgroundColor = UIColor(red: 0.969, green: 0.991, blue: 1, alpha: 1).cgColor
@@ -163,6 +175,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        currentRoom = Int(cell.currentRoom!)!
         UIView.animate(withDuration: 0.05, delay: 0, animations: {cell.alpha = 0.5}, completion: {_ in UIView.animate(withDuration: 0.05, delay: 0, animations:  {cell.alpha = 1})})
         self.performSegue(withIdentifier: "CurrentRoomSegue", sender: self)
     }
