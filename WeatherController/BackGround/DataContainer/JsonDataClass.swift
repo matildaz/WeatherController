@@ -24,7 +24,8 @@ class JsonDataClass {
                                              rId: room.0,
                                              temp: dataItem["temp"].rawValue as! String,
                                              people: dataItem["people"].rawValue as! String,
-                                             date: dataItem["date"].rawValue as! String)
+                                             date: dataItem["date"].rawValue as! String,
+                                             wind: dataItem["wind"].rawValue as! String)
                     roomDict[Int(newRoom.rId)!] = newRoom
                     }
                 return roomDict
@@ -53,7 +54,8 @@ class JsonDataClass {
                                          rId: room.0,
                                          temp: dataItem["temp"].rawValue as! String,
                                          people: dataItem["people"].rawValue as! String,
-                                         date: dataItem["date"].rawValue as! String)
+                                         date: dataItem["date"].rawValue as! String,
+                                         wind: dataItem["wind"].rawValue as! String)
                 roomDict[Int(newRoom.rId)!] = newRoom
                 }
             return roomDict
@@ -86,7 +88,8 @@ class JsonDataClass {
                                     "rId" : "\(String((dictionary[key]?.rId)!))",
                                     "hum" : "\(String((dictionary[key]?.hum)!))",
                                     "temp" : "\(String((dictionary[key]?.temp)!))",
-                                    "name" : "\(String((dictionary[key]?.name)!))"
+                                    "name" : "\(String((dictionary[key]?.name)!))",
+                                    "wind" : "\(String((dictionary[key]?.wind)!))"
                                   },
                             """
             stringToSave += jsonString
@@ -99,4 +102,15 @@ class JsonDataClass {
             print("Error with saving. \(error)")
         }
     }
+    
+    public func deleteAll() {
+        let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = URL(fileURLWithPath: "data", relativeTo: directoryURL).appendingPathExtension("json")
+        do {
+            try FileManager.default.removeItem(at: fileURL)
+        } catch let error {
+            print("Error with deleting. \(error)")
+        }
+    }
+    
 }

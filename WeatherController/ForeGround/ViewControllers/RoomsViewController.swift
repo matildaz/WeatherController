@@ -36,6 +36,13 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getData()
+        mainCollectionView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         getData()
         mainCollectionView.reloadData()
     }
@@ -139,8 +146,8 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     //MARK: Working with segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CurrentRoomSegue" {
-            let currentRoomVC = segue.destination as! CurrentRoomViewController
+        if segue.identifier == "CurrentRoom5" {
+            let currentRoomVC = segue.destination as! CurrentRoom5ViewController
             currentRoomVC.currentRoom = self.roomDict[currentRoom]
         }
     }
@@ -177,7 +184,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         currentRoom = Int(cell.currentRoom!)!
         UIView.animate(withDuration: 0.05, delay: 0, animations: {cell.alpha = 0.5}, completion: {_ in UIView.animate(withDuration: 0.05, delay: 0, animations:  {cell.alpha = 1})})
-        self.performSegue(withIdentifier: "CurrentRoomSegue", sender: self)
+        self.performSegue(withIdentifier: "CurrentRoom5", sender: self)
     }
 }
 

@@ -15,4 +15,5 @@ struct RoomStruct: Codable {
     var temp : String
     var people : String
     var date : String
+    var wind : String
 }

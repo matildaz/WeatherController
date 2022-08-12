@@ -5,7 +5,8 @@
     "co2" : "44",
     "hum" : "12",
     "people" : "4",
-    "name" : "Kitchen"
+    "name" : "Kitchen",
+    "wind" : "0"
     },
 
 "1": {
@@ -14,7 +15,8 @@
     "co2" : "47",
     "hum" : "43",
     "people" : "0",
-    "name" : "Living room"
+    "name" : "Living room",
+    "wind" : "0"
     },
 
 "2": {
@@ -23,6 +25,7 @@
     "co2" : "49",
     "hum" : "16",
     "people" : "2",
-    "name" : "Bedroom"
+    "name" : "Bedroom",
+    "wind" : "0"
     }
 }

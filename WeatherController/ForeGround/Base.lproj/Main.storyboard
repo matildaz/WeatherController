@@ -242,6 +242,7 @@
                         <outlet property="mainThemeView" destination="NNg-UW-l89" id="Fm5-Os-TpR"/>
                         <outlet property="testAddButton" destination="ZTD-lV-aG2" id="urS-Tf-Voz"/>
                         <segue destination="8mb-xi-M7W" kind="show" identifier="CurrentRoomSegue" id="IGV-UP-iFy"/>
+                        <segue destination="lPJ-vM-Eo8" kind="show" identifier="CurrentRoom5" destinationCreationSelector="CurrentRoom5" id="LIj-Kd-61M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pnR-n7-oBQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -582,7 +583,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
                                         <connections>
-                                            <action selector="closeButtonPressed:" destination="8mb-xi-M7W" eventType="touchUpInside" id="aeg-QF-d9E"/>
+                                            <action selector="closeButtonPressed:" destination="8mb-xi-M7W" eventType="touchUpInside" id="y2y-05-ce3"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHV-tA-HF5">
@@ -799,6 +800,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="ventilationButtonPressed:" destination="8mb-xi-M7W" eventType="touchUpInside" id="2YS-N8-nuk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYC-zW-hJN">
                                 <rect key="frame" x="103" y="414" width="208" height="14"/>
@@ -861,6 +865,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ite-Yl-5u3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1323.1884057971015" y="-265.17857142857144"/>
+        </scene>
+        <!--Current Room5 View Controller-->
+        <scene sceneID="qVl-L5-nYz">
+            <objects>
+                <viewController restorationIdentifier="CurrentRoom5ViewController" storyboardIdentifier="CurrentRoom5ViewController" id="lPJ-vM-Eo8" customClass="CurrentRoom5ViewController" customModule="WeatherController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RxH-S1-n9s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KuE-mO-USf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BjU-iO-1Kn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5U9-t2-t1O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-457" y="-265"/>
         </scene>
         <!--Список сценариев-->
         <scene sceneID="9wi-DU-qoB">

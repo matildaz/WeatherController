@@ -28,6 +28,7 @@
 		7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7487B20927746B0700CC3BCC /* WeatherController.xcdatamodeld */; };
 		7487B20D27746B0D00CC3BCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20C27746B0D00CC3BCC /* Assets.xcassets */; };
 		7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7487B20E27746B0D00CC3BCC /* LaunchScreen.storyboard */; };
+		74A9D56328A63AD3006D6BFC /* CurrentRoom5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A9D56228A63AD3006D6BFC /* CurrentRoom5ViewController.swift */; };
 		74CFFE4827AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */; };
 		74CFFE4927AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */; };
 		74CFFE4C27AA772C00B9804F /* ScenarioRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFFE4B27AA772C00B9804F /* ScenarioRoomsView.swift */; };
@@ -86,6 +87,7 @@
 		7487B20C27746B0D00CC3BCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7487B20F27746B0D00CC3BCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7487B21127746B0D00CC3BCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74A9D56228A63AD3006D6BFC /* CurrentRoom5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRoom5ViewController.swift; sourceTree = "<group>"; };
 		74CFFE4627AA6C8200B9804F /* CurrentRoomClass+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataClass.swift"; sourceTree = "<group>"; };
 		74CFFE4727AA6C8200B9804F /* CurrentRoomClass+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentRoomClass+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74CFFE4B27AA772C00B9804F /* ScenarioRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioRoomsView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				74622774277B1FA8002C0D1C /* CurrentRoomViewController.swift */,
 				74D46A1F2785BC67008B8904 /* ScriptsViewController.swift */,
 				74D46A282795DEE9008B8904 /* TestViewController.swift */,
+				74A9D56228A63AD3006D6BFC /* CurrentRoom5ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				74DA58E227774D3600C5282C /* CheckTheScenarioStatus.swift in Sources */,
 				74DA58DC27774B0400C5282C /* UpdateTheScript.swift in Sources */,
 				7487B20B27746B0700CC3BCC /* WeatherController.xcdatamodeld in Sources */,
+				74A9D56328A63AD3006D6BFC /* CurrentRoom5ViewController.swift in Sources */,
 				74D3E1502774933A00C26808 /* RoomsConfigurationStructure.swift in Sources */,
 				74D46A232785BE16008B8904 /* ScriptTableViewCell.swift in Sources */,
 				7487B20327746B0700CC3BCC /* SceneDelegate.swift in Sources */,

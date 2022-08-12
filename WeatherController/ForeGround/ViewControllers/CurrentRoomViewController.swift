@@ -34,14 +34,8 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         setTheButtons()
     }
     
-    func saveData() {
-        var oldDictionary = JSONDataClass.getOldData()
-        oldDictionary = JSONDataClass.compareData(oldDictionary: oldDictionary!, newDictionary: [Int((currentRoom?.rId)!)!: currentRoom!])
-        JSONDataClass.saveData(dictionary: oldDictionary!)
-        roomCollectionView.reloadData()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         roomCollectionView.reloadData()
     }
     
@@ -69,6 +63,25 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         self.dismiss(animated: true)
     }
     
+    @IBAction func ventilationButtonPressed(_ sender: Any) {
+        if currentRoom?.wind == "0" {
+            currentRoom?.wind = "1"
+            ventilationButton.layer.backgroundColor = UIColor(red: 0.933, green: 0.964, blue: 1, alpha: 1).cgColor
+            ventilationButton.tintColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+        } else {
+            currentRoom?.wind = "0"
+            ventilationButton.layer.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+            ventilationButton.tintColor = .white
+        }
+        saveData()
+    }
+    
+    func saveData() {
+        var oldDictionary = JSONDataClass.getOldData()
+        oldDictionary = JSONDataClass.compareData(oldDictionary: oldDictionary!, newDictionary: [Int((currentRoom?.rId)!)!: currentRoom!])
+        JSONDataClass.saveData(dictionary: oldDictionary!)
+        roomCollectionView.reloadData()
+    }
     
 //    func fetchCurrentRoom() {
 //        do {
@@ -96,12 +109,18 @@ class CurrentRoomViewController: UIViewController, UICollectionViewDelegate, UIC
         let buttonWidth = self.view.bounds.midX/1.3
         ventilationButton.frame.size = CGSize(width: buttonWidth, height: buttonWidth)
         ventilationButton.layer.position = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - 5/3*plusMinusWidth)
-        ventilationButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+        ventilationButton.backgroundColor = .white
+        if currentRoom?.wind == "0" {
+            ventilationButton.layer.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+            ventilationButton.tintColor = .white
+        } else {
+            ventilationButton.layer.backgroundColor = UIColor(red: 0.933, green: 0.964, blue: 1, alpha: 1).cgColor
+            ventilationButton.tintColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+        }
         ventilationButton.layer.cornerRadius = buttonWidth/2
         ventilationButton.titleLabel?.textAlignment = .center
         ventilationButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
         ventilationButton.setTitle(ventilationButton.titleLabel?.text, for: .normal)
-        ventilationButton.tintColor = .white
         
         // Plus Temp button
         plusTempButton.frame.size = CGSize(width: 2*plusMinusWidth, height: 2*plusMinusWidth)
