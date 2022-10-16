@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
+		74256AD628A8F4B70002660D /* CustomStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256AD528A8F4B70002660D /* CustomStackViewCell.swift */; };
 		7429B37727FE0F99007D04C7 /* ScenarioSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */; };
 		742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */; };
 		742DD12427BBAB4F00F609C4 /* ScriptDayGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		492E8A0AEAC2E3DC8AB269ED /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
+		74256AD528A8F4B70002660D /* CustomStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackViewCell.swift; sourceTree = "<group>"; };
 		7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSettingsViewController.swift; sourceTree = "<group>"; };
 		742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
 		742DD12227BBAB4F00F609C4 /* ScriptDayGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptDayGroupCell.swift; sourceTree = "<group>"; };
@@ -160,6 +162,14 @@
 			path = DataSending;
 			sourceTree = "<group>";
 		};
+		74256AD428A8F48D0002660D /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				74256AD528A8F4B70002660D /* CustomStackViewCell.swift */,
+			);
+			path = Stacks;
+			sourceTree = "<group>";
+		};
 		742DD12127BBAB0000F609C4 /* ScriptDayGroupCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		7487B21727746B4C00CC3BCC /* ForeGround */ = {
 			isa = PBXGroup;
 			children = (
+				74256AD428A8F48D0002660D /* Stacks */,
 				74CFFE3727A9919A00B9804F /* alerts */,
 				7447918027848F2C007C0F53 /* Buttons */,
 				74DA592027788B0B00C5282C /* Cells */,
@@ -571,6 +582,7 @@
 				74D3E14A27747F3900C26808 /* VentilateRoom.swift in Sources */,
 				7450A73827771D4900EA1A47 /* Enums.swift in Sources */,
 				74DA58DA27774A1D00C5282C /* DeleteTheScript.swift in Sources */,
+				74256AD628A8F4B70002660D /* CustomStackViewCell.swift in Sources */,
 				74DA58DE27774B8900C5282C /* SetTheScript.swift in Sources */,
 				7469BAA8283138A9001017A6 /* JsonDataClass.swift in Sources */,
 				742DD12427BBAB4F00F609C4 /* ScriptDayGroupCell.swift in Sources */,
