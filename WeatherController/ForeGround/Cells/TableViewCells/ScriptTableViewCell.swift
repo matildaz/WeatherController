@@ -25,7 +25,9 @@ class ScriptTableViewCell: UITableViewCell {
     
     func configure(scriptName: String, scriptDescription: String) {
         nameLable.text = scriptName
+        nameLable.font = UIFont(name: "Inter-SemiBold", size: 20)
         descriptionLable.text = scriptDescription
+        descriptionLable.font = UIFont(name: "Inter-Italic", size: 16)
     }
 
 }

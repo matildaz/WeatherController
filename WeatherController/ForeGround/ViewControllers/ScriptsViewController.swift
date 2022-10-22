@@ -21,6 +21,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //MARK: Variables for add view
+    private var addButton: UIButton?
     @IBOutlet weak var addViewLable: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addTextField: UITextField!
@@ -35,6 +36,13 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         testDisable()
 //        fetchNewScript()
         setView()
+        addButtonSet()
+        scriptTableView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        addButton?.removeFromSuperview()
+        addButtonSet()
         scriptTableView.reloadData()
     }
     
@@ -45,6 +53,18 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
         scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
         scriptTableView.reloadData()
+    }
+    
+    func addButtonSet() {
+        addButton = UIButton(frame: CGRect(x: self.view.bounds.maxX - self.view.frame.height/10, y: self.view.bounds.maxY - self.view.frame.height/5, width: self.view.frame.height/12, height: self.view.frame.height/12))
+        addButton?.layer.cornerRadius = (addButton?.frame.width)!/2
+        addButton?.setTitle("+", for: .normal)
+        addButton?.titleLabel?.textColor = .white
+        addButton?.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 48)
+        addButton?.titleLabel?.textAlignment = .center
+        addButton?.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+        addButton?.addTarget(self, action: #selector(add_Button_Pressed), for: .touchUpInside)
+        self.view.addSubview(addButton!)
     }
     
     func setView() {
@@ -102,18 +122,20 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     //MARK: - Buttons
-    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+    @objc func add_Button_Pressed(sender: UIButton) {
+        addButton?.removeFromSuperview()
         backViewIsEnabled()
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         backViewIsDisabled()
+        addButtonSet()
         fetchNewScript()
     }
 
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         if addTextField.text == "" {
-            return
+            submitButton.titleLabel?.textColor = .white
         } else {
             newScript = ScriptSctructure(did: "10155", scriptName: addTextField.text, scriptDescription: "New Description", roomGroop0: nil)
             addTextField.text = ""
@@ -134,7 +156,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = UITableViewCell()
         if let scriptCell = tableView.dequeueReusableCell(withIdentifier: "ScriptTableViewCell", for: indexPath) as? ScriptTableViewCell {
             scriptCell.configure(scriptName: scriptsDict[indexPath.row].scriptName!, scriptDescription: scriptsDict[indexPath.row].scriptDescription!)
-            scriptCell.imageView?.image = UIImage(named: "peopleDark")
+            scriptCell.imageView?.image = UIImage(named: "scenarioIcon")
             print(scriptCell.isUserInteractionEnabled)
         }
         cell.layer.cornerRadius = 10
@@ -207,17 +229,15 @@ extension ScriptsViewController {
      */
     func buttonSet() {
         // Cancel button
-        cancelButton.tintColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
+        cancelButton.titleLabel?.textColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
         cancelButton.backgroundColor = UIColor.white
-        cancelButton.layer.borderColor = UIColor.black.cgColor
+        cancelButton.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
         cancelButton.layer.borderWidth = 2
         cancelButton.layer.cornerRadius = (cancelButton?.frame.height)!/2
         
         // Submit button
-        submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        submitButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        submitButton.titleLabel?.textColor = .white
+        submitButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
         submitButton.layer.cornerRadius = (submitButton?.frame.height)!/2
-        submitButton.layer.borderColor = UIColor.black.cgColor
-        submitButton.layer.borderWidth = 2
     }
 }
