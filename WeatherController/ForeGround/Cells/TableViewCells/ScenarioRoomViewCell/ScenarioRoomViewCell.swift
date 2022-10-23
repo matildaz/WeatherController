@@ -24,17 +24,21 @@ class ScenarioRoomViewCell: UITableViewCell {
     
     func setButton() {
         tikButton.layer.borderWidth = 1
-        tikButton.layer.borderColor = UIColor.black.cgColor
+        tikButton.layer.cornerRadius = 5
+        tikButton.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
         tikButton.imageView?.image = .none
     }
     
     @IBAction func tikButtonPressed(_ sender: UIButton) {
         toggle.toggle()
         if toggle == true {
-            self.tikButton.layer.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor
+            self.tikButton.setImage(UIImage(named:"VectorSemiBold"), for: .normal)
+            self.tikButton.layer.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
         } else {
+            self.tikButton.setImage(.none, for: .normal)
             self.tikButton.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         }
         
     }
+    
 }

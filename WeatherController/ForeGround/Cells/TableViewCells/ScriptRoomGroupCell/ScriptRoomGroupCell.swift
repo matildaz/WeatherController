@@ -9,7 +9,6 @@ import UIKit
 
 class ScriptRoomGroupCell: UITableViewCell {
 
-    
     @IBOutlet weak var roomLable: UILabel!
     
     override func awakeFromNib() {
@@ -20,13 +19,13 @@ class ScriptRoomGroupCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func addRoom(room: RoomGroupStructure) {
+    func addRoom(room: RoomGroupStructure, dict: [Int: String] = [0: "Test", 1: "test", 2: "test"]) {
         for i in room.rIDs! {
             if i == room.rIDs![0] {
-                roomLable.text! += String(i)
+                roomLable.text! += dict[i]!
             } else {
                 roomLable.text! += ", "
-                roomLable.text! += String(i)
+                roomLable.text! += dict[i]!
             }
         }
     }
