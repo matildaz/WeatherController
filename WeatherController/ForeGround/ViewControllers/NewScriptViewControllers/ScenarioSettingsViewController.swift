@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ScenarioSettingsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ScenarioSettingsViewController: UIViewController {
     
     @IBOutlet weak var descriptionTextView: UITextView!
     
@@ -21,30 +21,48 @@ class ScenarioSettingsViewController: UIViewController, UICollectionViewDelegate
     @IBOutlet weak var nooneHomeButton: UIButton!
     @IBOutlet weak var doNotDisturbButton: UIButton!
     
-    // mode collections
-    @IBOutlet weak var useCollectionView: UICollectionView!
-    @IBOutlet weak var doNotUseCollectionView: UICollectionView!
+    // mode buttons
+    @IBOutlet var mustUseButtons: [UIButton]!
+    @IBOutlet var doNotUseButtons: [UIButton]!
+    
+    @IBOutlet weak var MULable: UILabel!
+    @IBOutlet weak var MULable2: UILabel!
+    @IBOutlet weak var MULable3: UILabel!
+    
+    @IBOutlet weak var NULable: UILabel!
+    @IBOutlet weak var NULable2: UILabel!
+    @IBOutlet weak var NULable3: UILabel!
     
     // submit button
     @IBOutlet weak var submitButton: UIButton!
     
     // vars
+    var count_must = 0
+    var count_dont = 0
     var mute: Int = 0
     var at_home: Int = 0
     var script: ScriptSctructure?
-    var must_use: [Int] = []
-    var dont_use: [Int] = []
+    var must_use: [Int] = [0,0,0,0]
+    var dont_use: [Int] = [0,0,0,0]
+    private var must_use_dict: [Int: Int] = [0:0, 1:0, 2:0, 3:0]
+    private var dont_use_dict: [Int: Int] = [0:0, 1:0, 2:0, 3:0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.useCollectionView.delegate = self
-        self.useCollectionView.dataSource = self
-        self.doNotUseCollectionView.delegate = self
-        self.doNotUseCollectionView.dataSource = self
         uiViewSet()
     }
     
+    func bag() {
+        for button in mustUseButtons {
+            button.layer.cornerRadius = button.frame.height/2
+        }
+        for button in doNotUseButtons {
+            button.layer.cornerRadius = button.frame.height/2
+        }
+    }
+    
     func uiViewSet() {
+        setModeButtons()
         buttonSet()
         modeButtonsSet()
     }
@@ -76,8 +94,8 @@ class ScenarioSettingsViewController: UIViewController, UICollectionViewDelegate
                 at_home = 1
             }
             
-            must_use = scriptSettings.must_use ?? [0,0,0,0]
-            dont_use = scriptSettings.dont_use ?? [0,0,0,0]
+            must_use = scriptSettings.must_use ?? [0,0,0]
+            dont_use = scriptSettings.dont_use ?? [0,0,0]
         }
     }
     
@@ -106,6 +124,18 @@ class ScenarioSettingsViewController: UIViewController, UICollectionViewDelegate
         }
     }
     
+    @IBAction func mustUseButtonPressed(_ sender: UIButton) {
+        must_use_dict[sender.tag]! += 1
+        must_use_dict[sender.tag]! %= 2
+        setModeButtons()
+    }
+    
+    @IBAction func doNotUseButtonPressed(_ sender: UIButton) {
+        dont_use_dict[sender.tag]! += 1
+        dont_use_dict[sender.tag]! %= 2
+        setModeButtons()
+    }
+    
     @IBAction func submitButtonPressed(_ sender: Any) {
         if var scriptSettings = script?.roomGroop0?.dayGroup0?.setting0 {
             script?.scriptDescription = descriptionTextView.text
@@ -121,20 +151,120 @@ class ScenarioSettingsViewController: UIViewController, UICollectionViewDelegate
         self.navigationController?.popViewController(animated: true)
     }
     
-    //--- Collection views ---//
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == useCollectionView {
-            return 3
-        } else if collectionView == doNotUseCollectionView {
-            return 3
-        } else {
-            return 3
+    func setModeButtons() {
+        for button in mustUseButtons {
+            switch button.tag {
+            case 0:
+                if must_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "fan"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            case 1:
+                if must_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "heat"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "heatBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            case 2:
+                if must_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "fan"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            case 3:
+                if must_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "fan"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            default:
+                button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                button.backgroundColor = .white
+                button.layer.borderWidth = 2
+                button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+            }
+            if count_must < 4 {
+                button.layer.cornerRadius = button.frame.height/3.3
+                count_must += 1
+            } else {
+                button.layer.cornerRadius = button.frame.height/2
+            }
+        }
+        
+        for button in doNotUseButtons {
+            switch button.tag {
+            case 0:
+                if dont_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "fan"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            case 1:
+                if dont_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "heat"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "heatBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            case 2:
+                if dont_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "fan"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            case 3:
+                if dont_use_dict[button.tag] != 1 {
+                    button.setImage(UIImage(named: "fan"), for: .normal)
+                    button.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+                } else {
+                    button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                    button.backgroundColor = .white
+                    button.layer.borderWidth = 2
+                    button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                }
+            default:
+                button.setImage(UIImage(named: "fanBlue"), for: .normal)
+                button.backgroundColor = .white
+                button.layer.borderWidth = 2
+                button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+            }
+            if count_dont < 4 {
+                button.layer.cornerRadius = button.frame.height/3.3
+                count_dont += 1
+            } else {
+                button.layer.cornerRadius = button.frame.height/2
+            }
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
     
 }
 
@@ -165,3 +295,23 @@ extension ScenarioSettingsViewController {
     }
     
 }
+
+/**
+ if let settingsCell = UINib(nibName: "SettingsCollectionViewCell", bundle: .main).instantiate(withOwner: nil, options: nil).first as? SettingsCollectionViewCell {
+         var imageName = ""
+         switch indexPath.row {
+         case 1:
+             imageName += "heat"
+         default:
+             imageName += "fan"
+         }
+         switch must_use[indexPath.row] {
+         case 1:
+             imageName += "Blue"
+         default:
+             imageName += ""
+         }
+     settingsCell.imageView.image = UIImage(named: imageName)
+     cell = settingsCell
+ }
+ */

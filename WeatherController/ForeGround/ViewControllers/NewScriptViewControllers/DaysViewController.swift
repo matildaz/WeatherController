@@ -76,30 +76,32 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
             default:
                 day = 0
             }
-            if button.layer.backgroundColor == UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor {
+            if button.layer.backgroundColor == UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor {
                 dayGroup0.days?.append(day)
-                button.layer.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor
+                dayButtonPressed(button)
             } else {
                 dayGroup1.days?.append(day)
             }
         }
-        dayGroupDict.append(dayGroup0)
-        dayGroupTableView.reloadData()
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.addViewWillDisappiar()
-        })
+        if dayGroup0.days != [] {
+            dayGroupDict.append(dayGroup0)
+            dayGroupTableView.reloadData()
+            UIView.animate(withDuration: 0.5, delay: 0, animations: {
+                self.addViewWillDisappiar()
+            })
+        }
     }
     
     @IBAction func dayButtonPressed(_ sender: UIButton) {
-        if (sender.layer.backgroundColor == UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor) {
+        if (sender.layer.backgroundColor == UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor) {
             DispatchQueue.main.async {
-                sender.layer.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1).cgColor
-                sender.tintColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
+                sender.layer.backgroundColor = UIColor(red: 0.933, green: 0.964, blue: 1, alpha: 1).cgColor
+                sender.tintColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
             }
         } else {
             DispatchQueue.main.async {
-                sender.layer.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1).cgColor
-                sender.tintColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1)
+                sender.layer.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
+                sender.tintColor = UIColor(red: 0.933, green: 0.964, blue: 1, alpha: 1)
             }
         }
     }
@@ -145,25 +147,24 @@ extension DaysViewController {
     
     func mainButtonSet() {
         // Buttons
-        submitExitButton.tintColor = .gray
+        submitExitButton.setImage(UIImage(named: "VectorDarkSemiBold"), for: .normal)
+        submitExitButton.setTitle("", for: .normal)
         
         addNewDayGroupButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        addNewDayGroupButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
-        addNewDayGroupButton.layer.cornerRadius = 16
+        addNewDayGroupButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
+        addNewDayGroupButton.layer.cornerRadius = addNewDayGroupButton.frame.height/2
     }
     
     func addButtonsSet() {
         // layer of days buttons
         for button in self.dayButtonCollection {
             button.layer.cornerRadius = button.frame.height/2
-            button.layer.backgroundColor = UIColor(red: 0.949, green: 0.969, blue: 0.976, alpha: 1).cgColor
+            button.layer.backgroundColor = UIColor(red: 0.933, green: 0.964, blue: 1, alpha: 1).cgColor
             button.tintColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
         }
         submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        submitButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        submitButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
         submitButton.layer.cornerRadius = (submitButton?.frame.height)!/2
-        submitButton.layer.borderColor = UIColor.black.cgColor
-        submitButton.layer.borderWidth = 2
     }
     
     func addViewWillAppear() {

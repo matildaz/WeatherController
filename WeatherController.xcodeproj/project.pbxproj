@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
+		74066F4B2905AA1A0051D65E /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74066F492905AA1A0051D65E /* SettingsCollectionViewCell.swift */; };
+		74066F4C2905AA1A0051D65E /* SettingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74066F4A2905AA1A0051D65E /* SettingsCollectionViewCell.xib */; };
 		74256AD628A8F4B70002660D /* CustomStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256AD528A8F4B70002660D /* CustomStackViewCell.swift */; };
 		7429B37727FE0F99007D04C7 /* ScenarioSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */; };
 		742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		492E8A0AEAC2E3DC8AB269ED /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
+		74066F492905AA1A0051D65E /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		74066F4A2905AA1A0051D65E /* SettingsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCollectionViewCell.xib; sourceTree = "<group>"; };
 		74256AD528A8F4B70002660D /* CustomStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackViewCell.swift; sourceTree = "<group>"; };
 		7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSettingsViewController.swift; sourceTree = "<group>"; };
 		742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,15 @@
 				C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74066F482905AA030051D65E /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				74066F492905AA1A0051D65E /* SettingsCollectionViewCell.swift */,
+				74066F4A2905AA1A0051D65E /* SettingsCollectionViewCell.xib */,
+			);
+			path = SettingsCell;
 			sourceTree = "<group>";
 		};
 		741866682777388F00EEBD47 /* DataSending */ = {
@@ -387,6 +400,7 @@
 		74DA592327788B3300C5282C /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				74066F482905AA030051D65E /* SettingsCell */,
 				74DA592427788B7700C5282C /* CollectionViewCell.swift */,
 				7462279A277B6F8A002C0D1C /* DatchikCollectionViewCell.swift */,
 				7462279C277B6FA6002C0D1C /* TemperatureChangeCollectionViewCell.swift */,
@@ -494,6 +508,7 @@
 				7487B20827746B0700CC3BCC /* Main.storyboard in Resources */,
 				74CFFE4E27AA773A00B9804F /* ScenarioRoomsView.xib in Resources */,
 				74DC10592829881000414208 /* Inter-SemiBold.ttf in Resources */,
+				74066F4C2905AA1A0051D65E /* SettingsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +604,7 @@
 				74DA59142778685300C5282C /* ScriptStructure.swift in Sources */,
 				74DE922527B3B79D005F2E1D /* ScriptRoomGroupCell.swift in Sources */,
 				74DA591C2778849D00C5282C /* ScriptUpdateStructure.swift in Sources */,
+				74066F4B2905AA1A0051D65E /* SettingsCollectionViewCell.swift in Sources */,
 				74622775277B1FA8002C0D1C /* CurrentRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
