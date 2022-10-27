@@ -25,11 +25,13 @@ class ScenarioSettingsViewController: UIViewController {
     @IBOutlet var mustUseButtons: [UIButton]!
     @IBOutlet var doNotUseButtons: [UIButton]!
     
-    @IBOutlet weak var MULable: UILabel!
+    @IBOutlet weak var MULable0: UILabel!
+    @IBOutlet weak var MULable1: UILabel!
     @IBOutlet weak var MULable2: UILabel!
     @IBOutlet weak var MULable3: UILabel!
     
-    @IBOutlet weak var NULable: UILabel!
+    @IBOutlet weak var NULable0: UILabel!
+    @IBOutlet weak var NULable1: UILabel!
     @IBOutlet weak var NULable2: UILabel!
     @IBOutlet weak var NULable3: UILabel!
     
@@ -37,6 +39,7 @@ class ScenarioSettingsViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     // vars
+    var rowNamber = 0
     var count_must = 0
     var count_dont = 0
     var mute: Int = 0
@@ -49,6 +52,7 @@ class ScenarioSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsFromScript()
         uiViewSet()
     }
     
@@ -82,44 +86,36 @@ class ScenarioSettingsViewController: UIViewController {
             wetTextField.text = String(scriptSettings.hum)
             temperatureTextField.text = String(scriptSettings.temp)
             
-            if scriptSettings.at_home != 0 {
-                nooneHomeButton.tintColor = .tintColor
-                nooneHomeButton.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
-                at_home = 1
+            must_use = scriptSettings.must_use ?? [0,0,0,0]
+            dont_use = scriptSettings.dont_use ?? [0,0,0,0]
+            
+            var count = 0
+            for _ in must_use {
+                must_use_dict[count] = must_use[count]
+                dont_use_dict[count] = dont_use[count]
+                count += 1
             }
             
-            if scriptSettings.mute != 0 {
-                nooneHomeButton.tintColor = .tintColor
-                nooneHomeButton.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
-                at_home = 1
-            }
-            
-            must_use = scriptSettings.must_use ?? [0,0,0]
-            dont_use = scriptSettings.dont_use ?? [0,0,0]
         }
     }
     
     
     @IBAction func nooneHomeButtonPressed(_ sender: Any) {
         if at_home == 0 {
-            nooneHomeButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            nooneHomeButton.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
+            nooneHomeButton.setImage(UIImage(named: "atHome"), for: .normal)
             at_home = 1
         } else {
-            nooneHomeButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            nooneHomeButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+            nooneHomeButton.setImage(UIImage(named: "notAtHome"), for: .normal)
             at_home = 0
         }
     }
     
     @IBAction func doNotDisturbButtonPressed(_ sender: Any) {
         if mute == 0 {
+            doNotDisturbButton.setImage(UIImage(named: "muteOn"), for: .normal)
             mute = 1
-            doNotDisturbButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            doNotDisturbButton.backgroundColor = UIColor(red: 0.349, green: 0.451, blue: 0.576, alpha: 1)
         } else {
-            doNotDisturbButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            doNotDisturbButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+            doNotDisturbButton.setImage(UIImage(named: "muteOff"), for: .normal)
             mute = 0
         }
     }
@@ -137,6 +133,15 @@ class ScenarioSettingsViewController: UIViewController {
     }
     
     @IBAction func submitButtonPressed(_ sender: Any) {
+        must_use = []
+        dont_use = []
+        for (_,value) in must_use_dict {
+            must_use.append(value)
+        }
+        for (_,value) in dont_use_dict {
+            dont_use.append(value)
+        }
+        
         if var scriptSettings = script?.roomGroop0?.dayGroup0?.setting0 {
             script?.scriptDescription = descriptionTextView.text
             scriptSettings.at_home = at_home
@@ -148,6 +153,10 @@ class ScenarioSettingsViewController: UIViewController {
 //            scriptSettings.co2 = CO2TextField.text
             scriptSettings.time = dateTextField.text
         }
+        
+        let parent = parent?.presentingViewController as? ScriptsViewController
+        parent?.scriptsDict[rowNamber] = script!
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -201,10 +210,10 @@ class ScenarioSettingsViewController: UIViewController {
                 button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
             }
             if count_must < 4 {
-                button.layer.cornerRadius = button.frame.height/3.3
+                button.layer.cornerRadius = button.frame.height/3.2
                 count_must += 1
             } else {
-                button.layer.cornerRadius = button.frame.height/2
+            button.layer.cornerRadius = button.frame.height/2
             }
         }
         
@@ -257,10 +266,10 @@ class ScenarioSettingsViewController: UIViewController {
                 button.layer.borderColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1).cgColor
             }
             if count_dont < 4 {
-                button.layer.cornerRadius = button.frame.height/3.3
+                button.layer.cornerRadius = button.frame.height/3.2
                 count_dont += 1
             } else {
-                button.layer.cornerRadius = button.frame.height/2
+                    button.layer.cornerRadius = button.frame.height/2
             }
         }
     }
@@ -272,26 +281,24 @@ extension ScenarioSettingsViewController {
     
     func buttonSet() {
         submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        submitButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
+        submitButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
         submitButton.layer.cornerRadius = (submitButton?.frame.height)!/2
-        submitButton.layer.borderColor = UIColor.black.cgColor
-        submitButton.layer.borderWidth = 2
     }
     
     func modeButtonsSet() {
-        
-        nooneHomeButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        nooneHomeButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
-        nooneHomeButton.layer.cornerRadius = (submitButton?.frame.height)!/2
-        nooneHomeButton.layer.borderColor = UIColor.black.cgColor
-        nooneHomeButton.layer.borderWidth = 2
-        
-        doNotDisturbButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        doNotDisturbButton.backgroundColor = UIColor(red: 0.196, green: 0.773, blue: 1, alpha: 1)
-        doNotDisturbButton.layer.cornerRadius = (submitButton?.frame.height)!/2
-        doNotDisturbButton.layer.borderColor = UIColor.black.cgColor
-        doNotDisturbButton.layer.borderWidth = 2
-        
+        nooneHomeButton.backgroundColor = .white
+        if at_home == 0 {
+            nooneHomeButton.setImage(UIImage(named: "notAtHome"), for: .normal)
+        } else {
+            nooneHomeButton.setImage(UIImage(named: "atHome"), for: .normal)
+        }
+
+        doNotDisturbButton.backgroundColor = .white
+        if mute == 0 {
+            doNotDisturbButton.setImage(UIImage(named: "muteOff"), for: .normal)
+        } else {
+            doNotDisturbButton.setImage(UIImage(named: "muteOn"), for: .normal)
+        }
     }
     
 }

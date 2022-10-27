@@ -47,11 +47,15 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func test() {
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "name", scriptDescription: "New Description", roomGroop0: nil))
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
-        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "not name", scriptDescription: "New Description", roomGroop0: nil))
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "Отпуск", scriptDescription: "Энергосберегающий режим", roomGroop0: RoomGroupStructure(rIDs: [0,1,2], dayGroup0: DayGroupStructure(days: [1,2,3,4,5], setting0: SettingStructure(at_home: 0, co2: 0, dont_use: [1,1,1,1], hum: 0, must_use: [0,0,0,0], mute: 1, temp: 22, time: nil), setting1: SettingStructure(at_home: 0, co2: 0, dont_use: [1,1,1,1], hum: 0, must_use: [0,0,0,0], mute: 0, temp: 22, time: nil)), dayGroup1: nil)))
+        
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "Дома", scriptDescription: "Приток кислорода", roomGroop0: RoomGroupStructure(rIDs: [0,1,2], dayGroup0: DayGroupStructure(days: [1,2,3,4,5], setting0: SettingStructure(at_home: 1, co2: 0, dont_use: [0,1,0,0], hum: 0, must_use: [1,0,1,1], mute: 0, temp: 22, time: nil), setting1: SettingStructure(at_home: 0, co2: 0, dont_use: [0,1,0,0], hum: 0, must_use: [1,0,1,1], mute: 0, temp: 22, time: nil)), dayGroup1: nil)))
+        
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "Стандартный", scriptDescription: "Стандарт", roomGroop0: RoomGroupStructure(rIDs: [0,1,2], dayGroup0: DayGroupStructure(days: [1,2,3,4,5], setting0: SettingStructure(at_home: 0, co2: 0, dont_use: [0,0,0,0], hum: 0, must_use: [1,1,1,1], mute: 0, temp: 22, time: nil), setting1: SettingStructure(at_home: 0, co2: 0, dont_use: [0,0,0,0], hum: 0, must_use: [1,1,1,1], mute: 0, temp: 22, time: nil)), dayGroup1: nil)))
+        
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "Тихий", scriptDescription: "Тихий стандарт", roomGroop0: RoomGroupStructure(rIDs: [0,1,2], dayGroup0: DayGroupStructure(days: [1,2,3,4,5], setting0: SettingStructure(at_home: 1, co2: 0, dont_use: [0,0,0,0], hum: 0, must_use: [1,1,1,1], mute: 1, temp: 22, time: nil), setting1: SettingStructure(at_home: 0, co2: 0, dont_use: [0,0,0,0], hum: 0, must_use: [1,1,1,1], mute: 1, temp: 22, time: nil)), dayGroup1: nil)))
+        
+        scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "Зимний", scriptDescription: "Подогрев", roomGroop0: RoomGroupStructure(rIDs: [0,1,2], dayGroup0: DayGroupStructure(days: [1,2,3,4,5], setting0: SettingStructure(at_home: 1, co2: 0, dont_use: [0,0,1,1], hum: 0, must_use: [1,1,0,0], mute: 0, temp: 22, time: nil), setting1: SettingStructure(at_home: 0, co2: 0, dont_use: [0,0,1,1], hum: 0, must_use: [1,1,0,0], mute: 0, temp: 22, time: nil)), dayGroup1: nil)))
         scriptTableView.reloadData()
     }
     
@@ -84,8 +88,10 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let destinationVC = segue.destination as! ScenarioSettingsViewController
             let row = scriptTableView.indexPathForSelectedRow?.row
             let script = scriptsDict[row!]
+            let rowNumber = row!
             scriptTableView.deselectRow(at: scriptTableView.indexPathForSelectedRow!, animated: true)
             destinationVC.script = script
+            destinationVC.rowNamber = rowNumber
         }
     }
     
@@ -180,16 +186,36 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
-            print("Delete Action Tapped")
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            return true
         }
-        let configuration = UISwipeActionsConfiguration(actions: [action])
-        configuration.performsFirstActionWithFullSwipe = false
-        tableView.reloadData()
-        return configuration
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
+            (action, sourceView, completionHandler) in
+
+//            let script = self.scriptsDict[(indexPath as NSIndexPath).row] as ScriptSctructure
+            self.scriptsDict.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completionHandler(true)
+            tableView.reloadData()
+        }
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+       
+        swipeConfiguration.performsFirstActionWithFullSwipe = false
+        
+        return swipeConfiguration
     }
     
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete {
+//            // remove the item from the data model
+//            self.scriptsDict.remove(at: indexPath.row)
+//            // delete the table view row
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
 }
 
 extension ScriptsViewController {

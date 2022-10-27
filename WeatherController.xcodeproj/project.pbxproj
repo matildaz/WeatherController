@@ -10,6 +10,7 @@
 		355F1C8E78E20801C8CA4021 /* Pods_WeatherController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C4AB5C7D56F0D52E73F0C2 /* Pods_WeatherController.framework */; };
 		74066F4B2905AA1A0051D65E /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74066F492905AA1A0051D65E /* SettingsCollectionViewCell.swift */; };
 		74066F4C2905AA1A0051D65E /* SettingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74066F4A2905AA1A0051D65E /* SettingsCollectionViewCell.xib */; };
+		74066F4E2907EAFD0051D65E /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 74066F4D2907EAFD0051D65E /* Inter-Regular.otf */; };
 		74256AD628A8F4B70002660D /* CustomStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74256AD528A8F4B70002660D /* CustomStackViewCell.swift */; };
 		7429B37727FE0F99007D04C7 /* ScenarioSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */; };
 		742DD12027BB9C0F00F609C4 /* DaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */; };
@@ -70,6 +71,7 @@
 		492E8A0AEAC2E3DC8AB269ED /* Pods-WeatherController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherController.release.xcconfig"; path = "Target Support Files/Pods-WeatherController/Pods-WeatherController.release.xcconfig"; sourceTree = "<group>"; };
 		74066F492905AA1A0051D65E /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		74066F4A2905AA1A0051D65E /* SettingsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCollectionViewCell.xib; sourceTree = "<group>"; };
+		74066F4D2907EAFD0051D65E /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		74256AD528A8F4B70002660D /* CustomStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackViewCell.swift; sourceTree = "<group>"; };
 		7429B37627FE0F99007D04C7 /* ScenarioSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioSettingsViewController.swift; sourceTree = "<group>"; };
 		742DD11F27BB9C0F00F609C4 /* DaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysViewController.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		74DC10552829844500414208 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				74066F4D2907EAFD0051D65E /* Inter-Regular.otf */,
 				74DC10582829881000414208 /* Inter-SemiBold.ttf */,
 				74DC105A2829883B00414208 /* Inter-Italic.ttf */,
 				74DC105C282A49B800414208 /* Inter-Bold.ttf */,
@@ -499,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7469BAAA283145F9001017A6 /* data.json in Resources */,
+				74066F4E2907EAFD0051D65E /* Inter-Regular.otf in Resources */,
 				7487B21027746B0D00CC3BCC /* LaunchScreen.storyboard in Resources */,
 				74DC105B2829883B00414208 /* Inter-Italic.ttf in Resources */,
 				74CFFE5427AA7B6200B9804F /* ScenarioRoomViewCell.xib in Resources */,
