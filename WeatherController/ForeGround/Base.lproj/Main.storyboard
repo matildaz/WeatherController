@@ -45,7 +45,7 @@
                                                     <constraint firstAttribute="width" constant="50" id="ha8-SZ-2WX"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="plus"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                 <connections>
                                                     <action selector="addButtonGetPressed:" destination="HBv-Ef-OHw" eventType="touchUpInside" id="7WI-BX-CuT"/>
                                                 </connections>
@@ -2505,7 +2505,7 @@
         <scene sceneID="3Ba-Nx-AF2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Lz-of-Ufw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Сценарии" image="scenarioScreenIcon" id="IIi-GJ-eez"/>
+                    <tabBarItem key="tabBarItem" title="Сценарии" image="scripts" id="IIi-GJ-eez"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KGT-U4-jTE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2524,7 +2524,7 @@
         <scene sceneID="jhD-Lf-3KB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="70N-xh-pBl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Профиль" image="peopleDarkBlue" id="pD2-LX-n9h"/>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="Union" id="pD2-LX-n9h"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BEg-KB-gY4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -2541,17 +2541,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Union" width="30" height="39"/>
         <image name="UnionpeopleYellow" width="13.5" height="17"/>
         <image name="VectorDark" width="16" height="11"/>
-        <image name="allRooms" width="14" height="13"/>
+        <image name="allRooms" width="30" height="27"/>
         <image name="co2IconBlue" width="12" height="12"/>
         <image name="corbonDioxide" width="20" height="20"/>
         <image name="humidity" width="20" height="20"/>
         <image name="mainTheme" width="375" height="248"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="peopleDarkBlue" width="18" height="18"/>
-        <image name="plus" width="13" height="13"/>
-        <image name="scenarioScreenIcon" width="14" height="14"/>
+        <image name="scripts" width="30" height="30"/>
         <image name="temperature" width="10" height="20"/>
         <image name="temperatureIconBlue" width="12" height="12"/>
         <image name="wetIconBlue" width="12" height="12"/>

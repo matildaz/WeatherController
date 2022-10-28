@@ -128,7 +128,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         layerGradient.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
         layerGradient.position = view.center
         blueView.layer.addSublayer(layerGradient)
-        
+        testAddButton.setTitle(" ", for: .normal)
         blueView.addSubview(testAddButton)
         
     }
