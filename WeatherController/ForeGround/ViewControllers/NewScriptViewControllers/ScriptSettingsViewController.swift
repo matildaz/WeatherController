@@ -1,14 +1,14 @@
 //
-//  ScenarioSettingsViewController.swift
+//  ScriptSettingsViewController.swift
 //  WeatherController
 //
-//  Created by Mikhail Chibrin on 06.04.2022.
+//  Created by Mikhail Chibrin on 29.10.2022.
 //
 
 import UIKit
 
-class ScenarioSettingsViewController: UIViewController {
-    
+class ScriptSettingsViewController: UIViewController {
+
     @IBOutlet weak var descriptionTextView: UITextView!
     
     // fields
@@ -25,6 +25,7 @@ class ScenarioSettingsViewController: UIViewController {
     @IBOutlet var mustUseButtons: [UIButton]!
     @IBOutlet var doNotUseButtons: [UIButton]!
     
+    // mode labels
     @IBOutlet weak var MULable0: UILabel!
     @IBOutlet weak var MULable1: UILabel!
     @IBOutlet weak var MULable2: UILabel!
@@ -39,12 +40,11 @@ class ScenarioSettingsViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     // vars
-    var rowNamber = 0
     var count_must = 0
     var count_dont = 0
     var mute: Int = 0
     var at_home: Int = 0
-    var script: ScriptSctructure?
+    var newSscript: ScriptSctructure?
     var must_use: [Int] = [0,0,0,0]
     var dont_use: [Int] = [0,0,0,0]
     private var must_use_dict: [Int: Int] = [0:0, 1:0, 2:0, 3:0]
@@ -53,17 +53,7 @@ class ScenarioSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingsFromScript()
         uiViewSet()
-    }
-    
-    func bag() {
-        for button in mustUseButtons {
-            button.layer.cornerRadius = button.frame.height/2
-        }
-        for button in doNotUseButtons {
-            button.layer.cornerRadius = button.frame.height/2
-        }
     }
     
     func uiViewSet() {
@@ -71,36 +61,7 @@ class ScenarioSettingsViewController: UIViewController {
         buttonSet()
         modeButtonsSet()
     }
-    
-    func settingsFromScript() {
-        if let scriptSettings = script?.roomGroop0?.dayGroup0?.setting0 {
-            descriptionTextView.text = script?.scriptDescription
-            
-            at_home = scriptSettings.at_home
-            mute = scriptSettings.mute
-            
-            if scriptSettings.time != nil {
-                dateTextField.text = scriptSettings.time
-            }
-            
-            CO2TextField.text = String(scriptSettings.co2)
-            wetTextField.text = String(scriptSettings.hum)
-            temperatureTextField.text = String(scriptSettings.temp)
-            
-            must_use = scriptSettings.must_use ?? [0,0,0,0]
-            dont_use = scriptSettings.dont_use ?? [0,0,0,0]
-            
-            var count = 0
-            for _ in must_use {
-                must_use_dict[count] = must_use[count]
-                dont_use_dict[count] = dont_use[count]
-                count += 1
-            }
-            
-        }
-    }
-    
-    
+
     @IBAction func nooneHomeButtonPressed(_ sender: Any) {
         if at_home == 0 {
             nooneHomeButton.setImage(UIImage(named: "atHome"), for: .normal)
@@ -132,7 +93,7 @@ class ScenarioSettingsViewController: UIViewController {
         dont_use_dict[sender.tag]! %= 2
         setModeButtons()
     }
-    
+
     @IBAction func submitButtonPressed(_ sender: Any) {
         must_use = []
         dont_use = []
@@ -145,11 +106,11 @@ class ScenarioSettingsViewController: UIViewController {
         
         let scriptSettings = SettingStructure(at_home: self.at_home, co2: Int(self.CO2TextField.text!) ?? 460, dont_use: self.dont_use, hum: Int(self.wetTextField.text!) ?? 54, must_use: must_use, mute: self.mute, temp: Int(self.temperatureTextField.text!) ?? 22, time: self.dateTextField.text ?? "13.05")
         
-        script?.roomGroop0?.dayGroup0?.setting0 = scriptSettings
-        script?.scriptDescription = self.descriptionTextView.text ?? "#Description"
-        rootVC?.scriptsDict[rowNamber] = self.script!
+        newSscript?.roomGroop0?.dayGroup0?.setting0 = scriptSettings
+        newSscript?.scriptDescription = self.descriptionTextView.text ?? "#Description"
+        rootVC?.scriptsDict[(rootVC?.scriptsDict.count)! - 1] = newSscript!
         
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func setModeButtons() {
@@ -266,11 +227,6 @@ class ScenarioSettingsViewController: UIViewController {
         }
     }
     
-    
-}
-
-extension ScenarioSettingsViewController {
-    
     func buttonSet() {
         submitButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         submitButton.backgroundColor = UIColor(red: 0.425, green: 0.586, blue: 1, alpha: 1)
@@ -294,23 +250,3 @@ extension ScenarioSettingsViewController {
     }
     
 }
-
-/**
- if let settingsCell = UINib(nibName: "SettingsCollectionViewCell", bundle: .main).instantiate(withOwner: nil, options: nil).first as? SettingsCollectionViewCell {
-         var imageName = ""
-         switch indexPath.row {
-         case 1:
-             imageName += "heat"
-         default:
-             imageName += "fan"
-         }
-         switch must_use[indexPath.row] {
-         case 1:
-             imageName += "Blue"
-         default:
-             imageName += ""
-         }
-     settingsCell.imageView.image = UIImage(named: imageName)
-     cell = settingsCell
- }
- */

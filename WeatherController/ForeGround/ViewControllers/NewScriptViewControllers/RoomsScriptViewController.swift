@@ -32,6 +32,7 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
     var roomDict: [Int : String] = [:]
     
     var roomDataDict: [Int: RoomStruct] = [:]
+    var rootVC: ScriptsViewController?
     
     
     override func viewDidLoad() {
@@ -66,6 +67,7 @@ class RoomsScriptViewController: UIViewController, UITableViewDelegate, UITableV
         if segue.identifier == "RoomGroupSegue" {
             let targetVC = segue.destination as! DaysViewController
             targetVC.newScript = self.newScript
+            targetVC.rootVC = self.rootVC
         }
     }
     

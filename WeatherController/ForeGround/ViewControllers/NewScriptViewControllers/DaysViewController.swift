@@ -27,7 +27,7 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     var dayGroupDict: [DayGroupStructure] = []
     var newDayGroupArray: [String] = []
     var newScript: ScriptSctructure?
-    
+    var rootVC: ScriptsViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,16 +106,18 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SettingsStructure" {
+            let destinationVC = segue.destination as! ScriptSettingsViewController
+            destinationVC.newSscript = self.newScript
+            destinationVC.rootVC = self.rootVC
+        }
+    }
+    
     //--- table view ---//
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dayGroupDict.count
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        newScript?.roomGroop0?.dayGroup0 = dayGroupDict[indexPath.row]
-        print(newScript)
-        //self.navigationController?.popToRootViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -130,6 +132,14 @@ class DaysViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height = CGFloat(40)
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == self.dayGroupTableView {
+            print(dayGroupDict[indexPath.row])
+            newScript?.roomGroop0?.dayGroup0 = dayGroupDict[indexPath.row]
+            performSegue(withIdentifier: "SettingsStructure", sender: self)
+        }
     }
 }
 

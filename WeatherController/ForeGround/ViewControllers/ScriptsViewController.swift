@@ -46,6 +46,10 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
         scriptTableView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        scriptTableView.reloadData()
+    }
+    
     func test() {
         scriptsDict.append(ScriptSctructure(did: "10155", scriptName: "Отпуск", scriptDescription: "Энергосберегающий режим", roomGroop0: RoomGroupStructure(rIDs: [0,1,2], dayGroup0: DayGroupStructure(days: [1,2,3,4,5], setting0: SettingStructure(at_home: 0, co2: 0, dont_use: [1,1,1,1], hum: 0, must_use: [0,0,0,0], mute: 1, temp: 22, time: nil), setting1: SettingStructure(at_home: 0, co2: 0, dont_use: [1,1,1,1], hum: 0, must_use: [0,0,0,0], mute: 0, temp: 22, time: nil)), dayGroup1: nil)))
         
@@ -83,6 +87,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
             newScript?.scriptDescription = ""
             newScript?.roomGroop0 = nil
             destinationVC.newScript = self.newScript
+            destinationVC.rootVC = self
         }
         if segue.identifier == "showDetails" {
             let destinationVC = segue.destination as! ScenarioSettingsViewController
@@ -92,6 +97,7 @@ class ScriptsViewController: UIViewController, UITableViewDelegate, UITableViewD
             scriptTableView.deselectRow(at: scriptTableView.indexPathForSelectedRow!, animated: true)
             destinationVC.script = script
             destinationVC.rowNamber = rowNumber
+            destinationVC.rootVC = self
         }
     }
     
